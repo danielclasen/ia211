@@ -9,15 +9,17 @@
 </head>
 
 <body>
+    <form id="form1" runat="server">
     <div class="page">
 
         <div id="header">
             <div id="title">
-                <h1>Meine MVC-Anwendung</h1>
+                <h1>Versionierung</h1>
             </div>
               
             <div id="logindisplay">
                 <% Html.RenderPartial("LogOnUserControl"); %>
+                <asp:LoginStatus ID="LoginStatus1" runat="server" />
             </div> 
             
             <div id="menucontainer">
@@ -37,5 +39,6 @@
             </div>
         </div>
     </div>
+    </form>
 </body>
 </html>

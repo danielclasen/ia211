@@ -1,0 +1,5 @@
+C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\bin\VersionR.dll
+C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\bin\VersionR.pdb
+C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
+C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
+C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
