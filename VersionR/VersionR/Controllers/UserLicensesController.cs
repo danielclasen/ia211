@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace VersionR.Controllers
 {
-    public class UserController : Controller
+    public class UserLicensesController : Controller
     {
         //
-        // GET: /User/
+        // GET: /UserLicenses/
 
         public ActionResult Index()
         {
