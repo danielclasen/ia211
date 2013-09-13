@@ -3,3 +3,8 @@ C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortab
 C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
 C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
 C:\Dokumente und Einstellungen\thelen_severin\Eigene Dateien\Downloads\GitPortable\App\Git\.git-repo\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\bin\VersionR.dll
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\bin\VersionR.pdb
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb

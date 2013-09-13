@@ -1,0 +1,8 @@
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll.config
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.pdb
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.dll
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.pdb
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\ResolveAssemblyReference.cache
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
+F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb
