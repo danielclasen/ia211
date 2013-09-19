@@ -23,5 +23,14 @@ namespace VersionR.Controllers
             ViewData["Num"] = num;
             return View();
         }
+
+        // 
+        // GET: /Welcome/ 
+        public ActionResult List(string name, int num = 1)
+        {
+            ViewData["Message"] = "Hello " + name;
+            ViewData["Num"] = num;
+            return View();
+        }
     }
 }
