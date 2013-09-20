@@ -13,3 +13,8 @@ C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR
 C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
 C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
+F:\GitHub\ia211\VersionR\VersionR\bin\VersionR.dll
+F:\GitHub\ia211\VersionR\VersionR\bin\VersionR.pdb
+F:\GitHub\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
+F:\GitHub\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
+F:\GitHub\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb

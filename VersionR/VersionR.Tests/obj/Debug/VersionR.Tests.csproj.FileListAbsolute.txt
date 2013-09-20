@@ -14,3 +14,11 @@ C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR
 C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
 C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb
+F:\GitHub\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll.config
+F:\GitHub\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll
+F:\GitHub\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.pdb
+F:\GitHub\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.dll
+F:\GitHub\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.pdb
+F:\GitHub\ia211\VersionR\VersionR.Tests\obj\Debug\ResolveAssemblyReference.cache
+F:\GitHub\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
+F:\GitHub\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb

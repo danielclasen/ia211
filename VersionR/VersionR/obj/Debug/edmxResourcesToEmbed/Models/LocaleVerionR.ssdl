@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VerionRLocaleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="VerionRLocaleModelStoreContainer">
+    <EntitySet Name="Anleitungen" EntityType="VerionRLocaleModel.Store.Anleitungen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Downloads" EntityType="VerionRLocaleModel.Store.Downloads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kunden" EntityType="VerionRLocaleModel.Store.Kunden" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kunden_Module" EntityType="VerionRLocaleModel.Store.Kunden_Module" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Mitarbeiter" EntityType="VerionRLocaleModel.Store.Mitarbeiter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Module" EntityType="VerionRLocaleModel.Store.Module" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Versionen" EntityType="VerionRLocaleModel.Store.Versionen" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Anleitunge__VrNr__1DE57479" Association="VerionRLocaleModel.Store.FK__Anleitunge__VrNr__1DE57479">
+      <End Role="Versionen" EntitySet="Versionen" />
+      <End Role="Anleitungen" EntitySet="Anleitungen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Downloads__KNr__1BFD2C07" Association="VerionRLocaleModel.Store.FK__Downloads__KNr__1BFD2C07">
+      <End Role="Kunden" EntitySet="Kunden" />
+      <End Role="Downloads" EntitySet="Downloads" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Downloads__VrNr__1CF15040" Association="VerionRLocaleModel.Store.FK__Downloads__VrNr__1CF15040">
+      <End Role="Versionen" EntitySet="Versionen" />
+      <End Role="Downloads" EntitySet="Downloads" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kunden_Mo__ModNr__1B0907CE" Association="VerionRLocaleModel.Store.FK__Kunden_Mo__ModNr__1B0907CE">
+      <End Role="Module" EntitySet="Module" />
+      <End Role="Kunden_Module" EntitySet="Kunden_Module" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kunden_Modu__KNr__1A14E395" Association="VerionRLocaleModel.Store.FK__Kunden_Modu__KNr__1A14E395">
+      <End Role="Kunden" EntitySet="Kunden" />
+      <End Role="Kunden_Module" EntitySet="Kunden_Module" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Versionen__MNr__182C9B23" Association="VerionRLocaleModel.Store.FK__Versionen__MNr__182C9B23">
+      <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+      <End Role="Versionen" EntitySet="Versionen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Versionen__ModNr__1920BF5C" Association="VerionRLocaleModel.Store.FK__Versionen__ModNr__1920BF5C">
+      <End Role="Module" EntitySet="Module" />
+      <End Role="Versionen" EntitySet="Versionen" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Anleitungen">
+    <Key>
+      <PropertyRef Name="AlNr" />
+    </Key>
+    <Property Name="AlNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VrNr" Type="int" Nullable="false" />
+    <Property Name="Titel" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Beschreibung" Type="varchar(max)" />
+    <Property Name="dateiName" Type="varchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Downloads">
+    <Key>
+      <PropertyRef Name="DlNr" />
+    </Key>
+    <Property Name="DlNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DlDatum" Type="date" Nullable="false" />
+    <Property Name="VrNr" Type="int" Nullable="false" />
+    <Property Name="KNr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kunden">
+    <Key>
+      <PropertyRef Name="KNr" />
+    </Key>
+    <Property Name="KNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NickName" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Telefon" Type="varchar" MaxLength="32" />
+    <Property Name="PwHash" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Kunden_Module">
+    <Key>
+      <PropertyRef Name="AuftragNr" />
+    </Key>
+    <Property Name="AuftragNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="KNr" Type="int" Nullable="false" />
+    <Property Name="ModNr" Type="int" Nullable="false" />
+    <Property Name="KaufDatum" Type="date" Nullable="false" />
+    <Property Name="EndDatum" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mitarbeiter">
+    <Key>
+      <PropertyRef Name="MNr" />
+    </Key>
+    <Property Name="MNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NickName" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="EMail" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="PwHash" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="ModNr" />
+    </Key>
+    <Property Name="ModNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="JahresPreis" Type="decimal" Nullable="false" Precision="2" />
+  </EntityType>
+  <EntityType Name="Versionen">
+    <Key>
+      <PropertyRef Name="VrNr" />
+    </Key>
+    <Property Name="VrNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Relase" Type="tinyint" Nullable="false" />
+    <Property Name="SubRelease" Type="tinyint" Nullable="false" />
+    <Property Name="BuildNr" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Plattform" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateiName" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Beschreibung" Type="varchar" MaxLength="64" />
+    <Property Name="ErscheinungsDatum" Type="date" Nullable="false" />
+    <Property Name="MNr" Type="int" Nullable="false" />
+    <Property Name="ModNr" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Anleitunge__VrNr__1DE57479">
+    <End Role="Versionen" Type="VerionRLocaleModel.Store.Versionen" Multiplicity="1" />
+    <End Role="Anleitungen" Type="VerionRLocaleModel.Store.Anleitungen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Versionen">
+        <PropertyRef Name="VrNr" />
+      </Principal>
+      <Dependent Role="Anleitungen">
+        <PropertyRef Name="VrNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Downloads__KNr__1BFD2C07">
+    <End Role="Kunden" Type="VerionRLocaleModel.Store.Kunden" Multiplicity="1" />
+    <End Role="Downloads" Type="VerionRLocaleModel.Store.Downloads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kunden">
+        <PropertyRef Name="KNr" />
+      </Principal>
+      <Dependent Role="Downloads">
+        <PropertyRef Name="KNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Downloads__VrNr__1CF15040">
+    <End Role="Versionen" Type="VerionRLocaleModel.Store.Versionen" Multiplicity="1" />
+    <End Role="Downloads" Type="VerionRLocaleModel.Store.Downloads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Versionen">
+        <PropertyRef Name="VrNr" />
+      </Principal>
+      <Dependent Role="Downloads">
+        <PropertyRef Name="VrNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kunden_Mo__ModNr__1B0907CE">
+    <End Role="Module" Type="VerionRLocaleModel.Store.Module" Multiplicity="1" />
+    <End Role="Kunden_Module" Type="VerionRLocaleModel.Store.Kunden_Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModNr" />
+      </Principal>
+      <Dependent Role="Kunden_Module">
+        <PropertyRef Name="ModNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kunden_Modu__KNr__1A14E395">
+    <End Role="Kunden" Type="VerionRLocaleModel.Store.Kunden" Multiplicity="1" />
+    <End Role="Kunden_Module" Type="VerionRLocaleModel.Store.Kunden_Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kunden">
+        <PropertyRef Name="KNr" />
+      </Principal>
+      <Dependent Role="Kunden_Module">
+        <PropertyRef Name="KNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Versionen__MNr__182C9B23">
+    <End Role="Mitarbeiter" Type="VerionRLocaleModel.Store.Mitarbeiter" Multiplicity="1" />
+    <End Role="Versionen" Type="VerionRLocaleModel.Store.Versionen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mitarbeiter">
+        <PropertyRef Name="MNr" />
+      </Principal>
+      <Dependent Role="Versionen">
+        <PropertyRef Name="MNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Versionen__ModNr__1920BF5C">
+    <End Role="Module" Type="VerionRLocaleModel.Store.Module" Multiplicity="1" />
+    <End Role="Versionen" Type="VerionRLocaleModel.Store.Versionen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModNr" />
+      </Principal>
+      <Dependent Role="Versionen">
+        <PropertyRef Name="ModNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

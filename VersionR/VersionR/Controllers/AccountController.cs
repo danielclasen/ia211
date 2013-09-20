@@ -54,6 +54,17 @@ namespace VersionR.Controllers
             }
         }
 
+        //
+        // GET: /Account/TestLocale/
 
+        public ActionResult TestLocale()
+        {
+            VersionR.ModelsLocale.LocaleVersionREntities ent = new ModelsLocale.LocaleVersionREntities();
+
+            var kundenList = from k in ent.Kunden
+                             select k;
+
+            return View(kundenList.ToList());
+        }
     }
 }
