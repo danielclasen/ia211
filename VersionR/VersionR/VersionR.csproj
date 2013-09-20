@@ -97,6 +97,7 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Account\Create.aspx" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\HelloWorld\Welcome.aspx" />

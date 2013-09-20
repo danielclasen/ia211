@@ -30,14 +30,30 @@ namespace VersionR.Controllers
         }
 
         //
-        // GET: /Account/Details/
+        // GET: /Account/Create/
 
-        public ActionResult Details()
+        public ActionResult Create()
         {
-            //TODO: Check for Login, return different views
             return View();
-
         }
+        
+        [HttpPost]
+        public ActionResult Create(Kunden newKunde)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.AddToKundens(newKunde);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(newKunde);
+            }
+        }
+
 
     }
 }

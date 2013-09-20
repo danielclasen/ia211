@@ -26,5 +26,8 @@
         </tr>
         <% } %>
     </table>
+    <p>
+        <%: Html.ActionLink("Create New", "Create") %>
+    </p>
 
 </asp:Content>
