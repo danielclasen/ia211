@@ -32,5 +32,6 @@ namespace VersionR.Controllers
             ViewData["Num"] = num;
             return View();
         }
+
     }
 }

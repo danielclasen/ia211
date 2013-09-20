@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VersionRModelsStoreContainer" CdmEntityContainer="ia211Entities">
+    <EntitySetMapping Name="Anleitungens">
+      <EntityTypeMapping TypeName="VersionR.Models.Anleitungen">
+        <MappingFragment StoreEntitySet="Anleitungen">
+          <ScalarProperty Name="AlNr" ColumnName="AlNr" />
+          <ScalarProperty Name="VrNr" ColumnName="VrNr" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="dateiName" ColumnName="dateiName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Downloads">
+      <EntityTypeMapping TypeName="VersionR.Models.Download">
+        <MappingFragment StoreEntitySet="Downloads">
+          <ScalarProperty Name="DlNr" ColumnName="DlNr" />
+          <ScalarProperty Name="DlDatum" ColumnName="DlDatum" />
+          <ScalarProperty Name="VrNr" ColumnName="VrNr" />
+          <ScalarProperty Name="KNr" ColumnName="KNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kundens">
+      <EntityTypeMapping TypeName="VersionR.Models.Kunden">
+        <MappingFragment StoreEntitySet="Kunden">
+          <ScalarProperty Name="KNr" ColumnName="KNr" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="PwHash" ColumnName="PwHash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kunden_Module">
+      <EntityTypeMapping TypeName="VersionR.Models.Kunden_Module">
+        <MappingFragment StoreEntitySet="Kunden_Module">
+          <ScalarProperty Name="AuftragNr" ColumnName="AuftragNr" />
+          <ScalarProperty Name="KNr" ColumnName="KNr" />
+          <ScalarProperty Name="ModNr" ColumnName="ModNr" />
+          <ScalarProperty Name="KaufDatum" ColumnName="KaufDatum" />
+          <ScalarProperty Name="EndDatum" ColumnName="EndDatum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mitarbeiters">
+      <EntityTypeMapping TypeName="VersionR.Models.Mitarbeiter">
+        <MappingFragment StoreEntitySet="Mitarbeiter">
+          <ScalarProperty Name="MNr" ColumnName="MNr" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="PwHash" ColumnName="PwHash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="VersionR.Models.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="ModNr" ColumnName="ModNr" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="JahresPreis" ColumnName="JahresPreis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Versionens">
+      <EntityTypeMapping TypeName="VersionR.Models.Versionen">
+        <MappingFragment StoreEntitySet="Versionen">
+          <ScalarProperty Name="VrNr" ColumnName="VrNr" />
+          <ScalarProperty Name="Relase" ColumnName="Relase" />
+          <ScalarProperty Name="SubRelease" ColumnName="SubRelease" />
+          <ScalarProperty Name="BuildNr" ColumnName="BuildNr" />
+          <ScalarProperty Name="Plattform" ColumnName="Plattform" />
+          <ScalarProperty Name="DateiName" ColumnName="DateiName" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="ErscheinungsDatum" ColumnName="ErscheinungsDatum" />
+          <ScalarProperty Name="MNr" ColumnName="MNr" />
+          <ScalarProperty Name="ModNr" ColumnName="ModNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

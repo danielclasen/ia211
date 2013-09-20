@@ -8,3 +8,8 @@ F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\
 F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
 F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
 F:\Programme\PortableApps.com\PortableApps\GitPortable\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
+C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\bin\VersionR.dll
+C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\bin\VersionR.pdb
+C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
+C:\Users\clasen_daniel\Documents\.git\App\Git\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
