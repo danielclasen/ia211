@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM-Beziehungsmetadaten
@@ -795,7 +795,7 @@ namespace VersionR.ModelsLocale
         partial void OnTelefonChanged();
     
         /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
+        /// Das Passwort in KlarText wird verschlüsselt und danach in der Datenbank abgelegt!!
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
@@ -814,6 +814,7 @@ namespace VersionR.ModelsLocale
                 OnPwHashChanged();
             }
         }
+
         private global::System.String _PwHash;
         partial void OnPwHashChanging(global::System.String value);
         partial void OnPwHashChanged();
@@ -1130,6 +1131,7 @@ namespace VersionR.ModelsLocale
             mitarbeiter.MNr = mNr;
             mitarbeiter.NickName = nickName;
             mitarbeiter.EMail = eMail;
+            
             mitarbeiter.PwHash = pwHash;
             return mitarbeiter;
         }
