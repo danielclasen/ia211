@@ -6,194 +6,209 @@
     <edmx:StorageModels>
       <Schema Namespace="VersionR.Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="VersionRModelsStoreContainer">
-          <EntitySet Name="Anleitungen" EntityType="VersionR.Models.Store.Anleitungen" store:Type="Tables" Schema="gr2" />
+          <EntitySet Name="Customer_Modules" EntityType="VersionR.Models.Store.Customer_Modules" store:Type="Tables" Schema="gr2" />
           <EntitySet Name="Downloads" EntityType="VersionR.Models.Store.Downloads" store:Type="Tables" Schema="gr2" />
-          <EntitySet Name="Kunden" EntityType="VersionR.Models.Store.Kunden" store:Type="Tables" Schema="gr2" />
-          <EntitySet Name="Kunden_Module" EntityType="VersionR.Models.Store.Kunden_Module" store:Type="Tables" Schema="gr2" />
-          <EntitySet Name="Mitarbeiter" EntityType="VersionR.Models.Store.Mitarbeiter" store:Type="Tables" Schema="gr2" />
-          <EntitySet Name="Module" EntityType="VersionR.Models.Store.Module" store:Type="Tables" Schema="gr2" />
-          <EntitySet Name="Versionen" EntityType="VersionR.Models.Store.Versionen" store:Type="Tables" Schema="gr2" />
-          <AssociationSet Name="FK__Anleitunge__VrNr__693CA210" Association="VersionR.Models.Store.FK__Anleitunge__VrNr__693CA210">
-            <End Role="Versionen" EntitySet="Versionen" />
-            <End Role="Anleitungen" EntitySet="Anleitungen" />
+          <EntitySet Name="Manuals" EntityType="VersionR.Models.Store.Manuals" store:Type="Tables" Schema="gr2" />
+          <EntitySet Name="Modules" EntityType="VersionR.Models.Store.Modules" store:Type="Tables" Schema="gr2" />
+          <EntitySet Name="Roles" EntityType="VersionR.Models.Store.Roles" store:Type="Tables" Schema="gr2" />
+          <EntitySet Name="Users" EntityType="VersionR.Models.Store.Users" store:Type="Tables" Schema="gr2" />
+          <EntitySet Name="Versions" EntityType="VersionR.Models.Store.Versions" store:Type="Tables" Schema="gr2" />
+          <AssociationSet Name="FK__Customer___ModId__60924D76" Association="VersionR.Models.Store.FK__Customer___ModId__60924D76">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Customer_Modules" EntitySet="Customer_Modules" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__KNr__6754599E" Association="VersionR.Models.Store.FK__Downloads__KNr__6754599E">
-            <End Role="Kunden" EntitySet="Kunden" />
+          <AssociationSet Name="FK__Customer_M__CmId__5F9E293D" Association="VersionR.Models.Store.FK__Customer_M__CmId__5F9E293D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customer_Modules" EntitySet="Customer_Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Downloads__CmId__627A95E8" Association="VersionR.Models.Store.FK__Downloads__CmId__627A95E8">
+            <End Role="Users" EntitySet="Users" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__VrNr__68487DD7" Association="VersionR.Models.Store.FK__Downloads__VrNr__68487DD7">
-            <End Role="Versionen" EntitySet="Versionen" />
+          <AssociationSet Name="FK__Downloads__VrId__618671AF" Association="VersionR.Models.Store.FK__Downloads__VrId__618671AF">
+            <End Role="Versions" EntitySet="Versions" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kunden_Mo__ModNr__66603565" Association="VersionR.Models.Store.FK__Kunden_Mo__ModNr__66603565">
-            <End Role="Module" EntitySet="Module" />
-            <End Role="Kunden_Module" EntitySet="Kunden_Module" />
+          <AssociationSet Name="FK__Manuals__VrId__636EBA21" Association="VersionR.Models.Store.FK__Manuals__VrId__636EBA21">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="Manuals" EntitySet="Manuals" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kunden_Modu__KNr__656C112C" Association="VersionR.Models.Store.FK__Kunden_Modu__KNr__656C112C">
-            <End Role="Kunden" EntitySet="Kunden" />
-            <End Role="Kunden_Module" EntitySet="Kunden_Module" />
+          <AssociationSet Name="FK__Users__RId__6462DE5A" Association="VersionR.Models.Store.FK__Users__RId__6462DE5A">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versionen__MNr__628FA481" Association="VersionR.Models.Store.FK__Versionen__MNr__628FA481">
-            <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
-            <End Role="Versionen" EntitySet="Versionen" />
+          <AssociationSet Name="FK__Versions__EmId__5DB5E0CB" Association="VersionR.Models.Store.FK__Versions__EmId__5DB5E0CB">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versionen__ModNr__6477ECF3" Association="VersionR.Models.Store.FK__Versionen__ModNr__6477ECF3">
-            <End Role="Module" EntitySet="Module" />
-            <End Role="Versionen" EntitySet="Versionen" />
+          <AssociationSet Name="FK__Versions__ModId__5EAA0504" Association="VersionR.Models.Store.FK__Versions__ModId__5EAA0504">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Anleitungen">
+        <EntityType Name="Customer_Modules">
           <Key>
-            <PropertyRef Name="AlNr" />
+            <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="AlNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="VrNr" Type="int" Nullable="false" />
-          <Property Name="Titel" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Beschreibung" Type="varchar(max)" />
-          <Property Name="dateiName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="OrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CmId" Type="int" Nullable="false" />
+          <Property Name="ModId" Type="int" Nullable="false" />
+          <Property Name="BuyDate" Type="date" Nullable="false" />
+          <Property Name="ExpiryDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Downloads">
           <Key>
-            <PropertyRef Name="DlNr" />
+            <PropertyRef Name="DlId" />
           </Key>
-          <Property Name="DlNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DlDatum" Type="date" Nullable="false" />
-          <Property Name="VrNr" Type="int" Nullable="false" />
-          <Property Name="KNr" Type="int" Nullable="false" />
+          <Property Name="DlId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DlDate" Type="date" Nullable="false" />
+          <Property Name="VrId" Type="int" Nullable="false" />
+          <Property Name="CmId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Kunden">
+        <EntityType Name="Manuals">
           <Key>
-            <PropertyRef Name="KNr" />
+            <PropertyRef Name="MId" />
           </Key>
-          <Property Name="KNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="NickName" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="64" />
-          <Property Name="Telefon" Type="varchar" MaxLength="32" />
-          <Property Name="PwHash" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="MId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VrId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Filename" Type="varchar" Nullable="false" MaxLength="200" />
         </EntityType>
-        <EntityType Name="Kunden_Module">
+        <EntityType Name="Modules">
           <Key>
-            <PropertyRef Name="AuftragNr" />
+            <PropertyRef Name="ModId" />
           </Key>
-          <Property Name="AuftragNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="KNr" Type="int" Nullable="false" />
-          <Property Name="ModNr" Type="int" Nullable="false" />
-          <Property Name="KaufDatum" Type="date" Nullable="false" />
-          <Property Name="EndDatum" Type="date" Nullable="false" />
+          <Property Name="ModId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="PricePerYear" Type="decimal" Nullable="false" Scale="2" />
         </EntityType>
-        <EntityType Name="Mitarbeiter">
+        <EntityType Name="Roles">
           <Key>
-            <PropertyRef Name="MNr" />
+            <PropertyRef Name="RId" />
           </Key>
-          <Property Name="MNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NickName" Type="varchar" Nullable="false" MaxLength="64" />
           <Property Name="EMail" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="Phone" Type="varchar" MaxLength="32" />
+          <Property Name="RId" Type="int" Nullable="false" />
           <Property Name="PwHash" Type="varchar" Nullable="false" MaxLength="32" />
         </EntityType>
-        <EntityType Name="Module">
+        <EntityType Name="Versions">
           <Key>
-            <PropertyRef Name="ModNr" />
+            <PropertyRef Name="VrId" />
           </Key>
-          <Property Name="ModNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
-          <Property Name="JahresPreis" Type="decimal" Nullable="false" Precision="2" />
-        </EntityType>
-        <EntityType Name="Versionen">
-          <Key>
-            <PropertyRef Name="VrNr" />
-          </Key>
-          <Property Name="VrNr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VrId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Relase" Type="tinyint" Nullable="false" />
           <Property Name="SubRelease" Type="tinyint" Nullable="false" />
-          <Property Name="BuildNr" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="Plattform" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="DateiName" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="Beschreibung" Type="varchar" MaxLength="64" />
-          <Property Name="ErscheinungsDatum" Type="date" Nullable="false" />
-          <Property Name="MNr" Type="int" Nullable="false" />
-          <Property Name="ModNr" Type="int" Nullable="false" />
+          <Property Name="BuildId" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="Platform" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Filename" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="varchar" MaxLength="64" />
+          <Property Name="ReleaseDate" Type="date" Nullable="false" />
+          <Property Name="EmId" Type="int" Nullable="false" />
+          <Property Name="ModId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Anleitunge__VrNr__693CA210">
-          <End Role="Versionen" Type="VersionR.Models.Store.Versionen" Multiplicity="1" />
-          <End Role="Anleitungen" Type="VersionR.Models.Store.Anleitungen" Multiplicity="*" />
+        <Association Name="FK__Customer___ModId__60924D76">
+          <End Role="Modules" Type="VersionR.Models.Store.Modules" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR.Models.Store.Customer_Modules" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Versionen">
-              <PropertyRef Name="VrNr" />
+            <Principal Role="Modules">
+              <PropertyRef Name="ModId" />
             </Principal>
-            <Dependent Role="Anleitungen">
-              <PropertyRef Name="VrNr" />
+            <Dependent Role="Customer_Modules">
+              <PropertyRef Name="ModId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Downloads__KNr__6754599E">
-          <End Role="Kunden" Type="VersionR.Models.Store.Kunden" Multiplicity="1" />
+        <Association Name="FK__Customer_M__CmId__5F9E293D">
+          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR.Models.Store.Customer_Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="Customer_Modules">
+              <PropertyRef Name="CmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Downloads__CmId__627A95E8">
+          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="1" />
           <End Role="Downloads" Type="VersionR.Models.Store.Downloads" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kunden">
-              <PropertyRef Name="KNr" />
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
             </Principal>
             <Dependent Role="Downloads">
-              <PropertyRef Name="KNr" />
+              <PropertyRef Name="CmId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Downloads__VrNr__68487DD7">
-          <End Role="Versionen" Type="VersionR.Models.Store.Versionen" Multiplicity="1" />
+        <Association Name="FK__Downloads__VrId__618671AF">
+          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="1" />
           <End Role="Downloads" Type="VersionR.Models.Store.Downloads" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Versionen">
-              <PropertyRef Name="VrNr" />
+            <Principal Role="Versions">
+              <PropertyRef Name="VrId" />
             </Principal>
             <Dependent Role="Downloads">
-              <PropertyRef Name="VrNr" />
+              <PropertyRef Name="VrId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kunden_Mo__ModNr__66603565">
-          <End Role="Module" Type="VersionR.Models.Store.Module" Multiplicity="1" />
-          <End Role="Kunden_Module" Type="VersionR.Models.Store.Kunden_Module" Multiplicity="*" />
+        <Association Name="FK__Manuals__VrId__636EBA21">
+          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="1" />
+          <End Role="Manuals" Type="VersionR.Models.Store.Manuals" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Module">
-              <PropertyRef Name="ModNr" />
+            <Principal Role="Versions">
+              <PropertyRef Name="VrId" />
             </Principal>
-            <Dependent Role="Kunden_Module">
-              <PropertyRef Name="ModNr" />
+            <Dependent Role="Manuals">
+              <PropertyRef Name="VrId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kunden_Modu__KNr__656C112C">
-          <End Role="Kunden" Type="VersionR.Models.Store.Kunden" Multiplicity="1" />
-          <End Role="Kunden_Module" Type="VersionR.Models.Store.Kunden_Module" Multiplicity="*" />
+        <Association Name="FK__Users__RId__6462DE5A">
+          <End Role="Roles" Type="VersionR.Models.Store.Roles" Multiplicity="1" />
+          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kunden">
-              <PropertyRef Name="KNr" />
+            <Principal Role="Roles">
+              <PropertyRef Name="RId" />
             </Principal>
-            <Dependent Role="Kunden_Module">
-              <PropertyRef Name="KNr" />
+            <Dependent Role="Users">
+              <PropertyRef Name="RId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Versionen__MNr__628FA481">
-          <End Role="Mitarbeiter" Type="VersionR.Models.Store.Mitarbeiter" Multiplicity="1" />
-          <End Role="Versionen" Type="VersionR.Models.Store.Versionen" Multiplicity="*" />
+        <Association Name="FK__Versions__EmId__5DB5E0CB">
+          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Mitarbeiter">
-              <PropertyRef Name="MNr" />
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
             </Principal>
-            <Dependent Role="Versionen">
-              <PropertyRef Name="MNr" />
+            <Dependent Role="Versions">
+              <PropertyRef Name="EmId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Versionen__ModNr__6477ECF3">
-          <End Role="Module" Type="VersionR.Models.Store.Module" Multiplicity="1" />
-          <End Role="Versionen" Type="VersionR.Models.Store.Versionen" Multiplicity="*" />
+        <Association Name="FK__Versions__ModId__5EAA0504">
+          <End Role="Modules" Type="VersionR.Models.Store.Modules" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Module">
-              <PropertyRef Name="ModNr" />
+            <Principal Role="Modules">
+              <PropertyRef Name="ModId" />
             </Principal>
-            <Dependent Role="Versionen">
-              <PropertyRef Name="ModNr" />
+            <Dependent Role="Versions">
+              <PropertyRef Name="ModId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -203,208 +218,225 @@
     <edmx:ConceptualModels>
       <Schema Namespace="VersionR.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ia211Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Anleitungens" EntityType="VersionR.Models.Anleitungen" />
+          <EntitySet Name="Customer_Modules" EntityType="VersionR.Models.Customer_Modules" />
           <EntitySet Name="Downloads" EntityType="VersionR.Models.Download" />
-          <EntitySet Name="Kundens" EntityType="VersionR.Models.Kunden" />
-          <EntitySet Name="Kunden_Module" EntityType="VersionR.Models.Kunden_Module" />
-          <EntitySet Name="Mitarbeiters" EntityType="VersionR.Models.Mitarbeiter" />
+          <EntitySet Name="Manuals" EntityType="VersionR.Models.Manual" />
           <EntitySet Name="Modules" EntityType="VersionR.Models.Module" />
-          <EntitySet Name="Versionens" EntityType="VersionR.Models.Versionen" />
-          <AssociationSet Name="FK__Anleitunge__VrNr__693CA210" Association="VersionR.Models.FK__Anleitunge__VrNr__693CA210">
-            <End Role="Versionen" EntitySet="Versionens" />
-            <End Role="Anleitungen" EntitySet="Anleitungens" />
+          <EntitySet Name="Roles" EntityType="VersionR.Models.Role" />
+          <EntitySet Name="Users" EntityType="VersionR.Models.User" />
+          <EntitySet Name="Versions" EntityType="VersionR.Models.Version" />
+          <AssociationSet Name="FK__Customer___ModId__60924D76" Association="VersionR.Models.FK__Customer___ModId__60924D76">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Customer_Modules" EntitySet="Customer_Modules" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__KNr__6754599E" Association="VersionR.Models.FK__Downloads__KNr__6754599E">
-            <End Role="Kunden" EntitySet="Kundens" />
+          <AssociationSet Name="FK__Customer_M__CmId__5F9E293D" Association="VersionR.Models.FK__Customer_M__CmId__5F9E293D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customer_Modules" EntitySet="Customer_Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Downloads__CmId__627A95E8" Association="VersionR.Models.FK__Downloads__CmId__627A95E8">
+            <End Role="Users" EntitySet="Users" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__VrNr__68487DD7" Association="VersionR.Models.FK__Downloads__VrNr__68487DD7">
-            <End Role="Versionen" EntitySet="Versionens" />
+          <AssociationSet Name="FK__Downloads__VrId__618671AF" Association="VersionR.Models.FK__Downloads__VrId__618671AF">
+            <End Role="Versions" EntitySet="Versions" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kunden_Modu__KNr__656C112C" Association="VersionR.Models.FK__Kunden_Modu__KNr__656C112C">
-            <End Role="Kunden" EntitySet="Kundens" />
-            <End Role="Kunden_Module" EntitySet="Kunden_Module" />
+          <AssociationSet Name="FK__Manuals__VrId__636EBA21" Association="VersionR.Models.FK__Manuals__VrId__636EBA21">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="Manuals" EntitySet="Manuals" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kunden_Mo__ModNr__66603565" Association="VersionR.Models.FK__Kunden_Mo__ModNr__66603565">
-            <End Role="Module" EntitySet="Modules" />
-            <End Role="Kunden_Module" EntitySet="Kunden_Module" />
+          <AssociationSet Name="FK__Versions__ModId__5EAA0504" Association="VersionR.Models.FK__Versions__ModId__5EAA0504">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versionen__MNr__628FA481" Association="VersionR.Models.FK__Versionen__MNr__628FA481">
-            <End Role="Mitarbeiter" EntitySet="Mitarbeiters" />
-            <End Role="Versionen" EntitySet="Versionens" />
+          <AssociationSet Name="FK__Users__RId__6462DE5A" Association="VersionR.Models.FK__Users__RId__6462DE5A">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versionen__ModNr__6477ECF3" Association="VersionR.Models.FK__Versionen__ModNr__6477ECF3">
-            <End Role="Module" EntitySet="Modules" />
-            <End Role="Versionen" EntitySet="Versionens" />
+          <AssociationSet Name="FK__Versions__EmId__5DB5E0CB" Association="VersionR.Models.FK__Versions__EmId__5DB5E0CB">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Anleitungen">
+        <EntityType Name="Customer_Modules">
           <Key>
-            <PropertyRef Name="AlNr" />
+            <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="AlNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VrNr" Type="Int32" Nullable="false" />
-          <Property Name="Titel" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Beschreibung" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="dateiName" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Versionen" Relationship="VersionR.Models.FK__Anleitunge__VrNr__693CA210" FromRole="Anleitungen" ToRole="Versionen" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CmId" Type="Int32" Nullable="false" />
+          <Property Name="ModId" Type="Int32" Nullable="false" />
+          <Property Name="BuyDate" Type="DateTime" Nullable="false" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Customer___ModId__60924D76" FromRole="Customer_Modules" ToRole="Modules" />
+          <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Customer_M__CmId__5F9E293D" FromRole="Customer_Modules" ToRole="Users" />
         </EntityType>
         <EntityType Name="Download">
           <Key>
-            <PropertyRef Name="DlNr" />
+            <PropertyRef Name="DlId" />
           </Key>
-          <Property Name="DlNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DlDatum" Type="DateTime" Nullable="false" />
-          <Property Name="VrNr" Type="Int32" Nullable="false" />
-          <Property Name="KNr" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Kunden" Relationship="VersionR.Models.FK__Downloads__KNr__6754599E" FromRole="Downloads" ToRole="Kunden" />
-          <NavigationProperty Name="Versionen" Relationship="VersionR.Models.FK__Downloads__VrNr__68487DD7" FromRole="Downloads" ToRole="Versionen" />
+          <Property Name="DlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DlDate" Type="DateTime" Nullable="false" />
+          <Property Name="VrId" Type="Int32" Nullable="false" />
+          <Property Name="CmId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Downloads__CmId__627A95E8" FromRole="Downloads" ToRole="Users" />
+          <NavigationProperty Name="Version" Relationship="VersionR.Models.FK__Downloads__VrId__618671AF" FromRole="Downloads" ToRole="Versions" />
         </EntityType>
-        <EntityType Name="Kunden">
+        <EntityType Name="Manual">
           <Key>
-            <PropertyRef Name="KNr" />
+            <PropertyRef Name="MId" />
           </Key>
-          <Property Name="KNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NickName" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="Telefon" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="PwHash" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Downloads" Relationship="VersionR.Models.FK__Downloads__KNr__6754599E" FromRole="Kunden" ToRole="Downloads" />
-          <NavigationProperty Name="Kunden_Module" Relationship="VersionR.Models.FK__Kunden_Modu__KNr__656C112C" FromRole="Kunden" ToRole="Kunden_Module" />
-        </EntityType>
-        <EntityType Name="Kunden_Module">
-          <Key>
-            <PropertyRef Name="AuftragNr" />
-          </Key>
-          <Property Name="AuftragNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="KNr" Type="Int32" Nullable="false" />
-          <Property Name="ModNr" Type="Int32" Nullable="false" />
-          <Property Name="KaufDatum" Type="DateTime" Nullable="false" />
-          <Property Name="EndDatum" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Kunden" Relationship="VersionR.Models.FK__Kunden_Modu__KNr__656C112C" FromRole="Kunden_Module" ToRole="Kunden" />
-          <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Kunden_Mo__ModNr__66603565" FromRole="Kunden_Module" ToRole="Module" />
-        </EntityType>
-        <EntityType Name="Mitarbeiter">
-          <Key>
-            <PropertyRef Name="MNr" />
-          </Key>
-          <Property Name="MNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NickName" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="EMail" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="PwHash" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Versionens" Relationship="VersionR.Models.FK__Versionen__MNr__628FA481" FromRole="Mitarbeiter" ToRole="Versionen" />
+          <Property Name="MId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VrId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Filename" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Version" Relationship="VersionR.Models.FK__Manuals__VrId__636EBA21" FromRole="Manuals" ToRole="Versions" />
         </EntityType>
         <EntityType Name="Module">
           <Key>
-            <PropertyRef Name="ModNr" />
+            <PropertyRef Name="ModId" />
           </Key>
-          <Property Name="ModNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="JahresPreis" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
-          <NavigationProperty Name="Kunden_Module" Relationship="VersionR.Models.FK__Kunden_Mo__ModNr__66603565" FromRole="Module" ToRole="Kunden_Module" />
-          <NavigationProperty Name="Versionens" Relationship="VersionR.Models.FK__Versionen__ModNr__6477ECF3" FromRole="Module" ToRole="Versionen" />
+          <Property Name="PricePerYear" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Customer_Modules" Relationship="VersionR.Models.FK__Customer___ModId__60924D76" FromRole="Modules" ToRole="Customer_Modules" />
+          <NavigationProperty Name="Versions" Relationship="VersionR.Models.FK__Versions__ModId__5EAA0504" FromRole="Modules" ToRole="Versions" />
         </EntityType>
-        <EntityType Name="Versionen">
+        <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="VrNr" />
+            <PropertyRef Name="RId" />
           </Key>
-          <Property Name="VrNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Users" Relationship="VersionR.Models.FK__Users__RId__6462DE5A" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NickName" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="EMail" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="RId" Type="Int32" Nullable="false" />
+          <Property Name="PwHash" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Customer_Modules" Relationship="VersionR.Models.FK__Customer_M__CmId__5F9E293D" FromRole="Users" ToRole="Customer_Modules" />
+          <NavigationProperty Name="Downloads" Relationship="VersionR.Models.FK__Downloads__CmId__627A95E8" FromRole="Users" ToRole="Downloads" />
+          <NavigationProperty Name="Role" Relationship="VersionR.Models.FK__Users__RId__6462DE5A" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="Versions" Relationship="VersionR.Models.FK__Versions__EmId__5DB5E0CB" FromRole="Users" ToRole="Versions" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="VrId" />
+          </Key>
+          <Property Name="VrId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Relase" Type="Byte" Nullable="false" />
           <Property Name="SubRelease" Type="Byte" Nullable="false" />
-          <Property Name="BuildNr" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="Plattform" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="DateiName" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Beschreibung" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="ErscheinungsDatum" Type="DateTime" Nullable="false" />
-          <Property Name="MNr" Type="Int32" Nullable="false" />
-          <Property Name="ModNr" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Anleitungens" Relationship="VersionR.Models.FK__Anleitunge__VrNr__693CA210" FromRole="Versionen" ToRole="Anleitungen" />
-          <NavigationProperty Name="Downloads" Relationship="VersionR.Models.FK__Downloads__VrNr__68487DD7" FromRole="Versionen" ToRole="Downloads" />
-          <NavigationProperty Name="Mitarbeiter" Relationship="VersionR.Models.FK__Versionen__MNr__628FA481" FromRole="Versionen" ToRole="Mitarbeiter" />
-          <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Versionen__ModNr__6477ECF3" FromRole="Versionen" ToRole="Module" />
+          <Property Name="BuildId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="Platform" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Filename" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" />
+          <Property Name="EmId" Type="Int32" Nullable="false" />
+          <Property Name="ModId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Downloads" Relationship="VersionR.Models.FK__Downloads__VrId__618671AF" FromRole="Versions" ToRole="Downloads" />
+          <NavigationProperty Name="Manuals" Relationship="VersionR.Models.FK__Manuals__VrId__636EBA21" FromRole="Versions" ToRole="Manuals" />
+          <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Versions__ModId__5EAA0504" FromRole="Versions" ToRole="Modules" />
+          <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Versions__EmId__5DB5E0CB" FromRole="Versions" ToRole="Users" />
         </EntityType>
-        <Association Name="FK__Anleitunge__VrNr__693CA210">
-          <End Role="Versionen" Type="VersionR.Models.Versionen" Multiplicity="1" />
-          <End Role="Anleitungen" Type="VersionR.Models.Anleitungen" Multiplicity="*" />
+        <Association Name="FK__Customer___ModId__60924D76">
+          <End Role="Modules" Type="VersionR.Models.Module" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR.Models.Customer_Modules" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Versionen">
-              <PropertyRef Name="VrNr" />
+            <Principal Role="Modules">
+              <PropertyRef Name="ModId" />
             </Principal>
-            <Dependent Role="Anleitungen">
-              <PropertyRef Name="VrNr" />
+            <Dependent Role="Customer_Modules">
+              <PropertyRef Name="ModId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Downloads__KNr__6754599E">
-          <End Role="Kunden" Type="VersionR.Models.Kunden" Multiplicity="1" />
+        <Association Name="FK__Customer_M__CmId__5F9E293D">
+          <End Role="Users" Type="VersionR.Models.User" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR.Models.Customer_Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="Customer_Modules">
+              <PropertyRef Name="CmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Downloads__CmId__627A95E8">
+          <End Role="Users" Type="VersionR.Models.User" Multiplicity="1" />
           <End Role="Downloads" Type="VersionR.Models.Download" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kunden">
-              <PropertyRef Name="KNr" />
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
             </Principal>
             <Dependent Role="Downloads">
-              <PropertyRef Name="KNr" />
+              <PropertyRef Name="CmId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Downloads__VrNr__68487DD7">
-          <End Role="Versionen" Type="VersionR.Models.Versionen" Multiplicity="1" />
+        <Association Name="FK__Downloads__VrId__618671AF">
+          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="1" />
           <End Role="Downloads" Type="VersionR.Models.Download" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Versionen">
-              <PropertyRef Name="VrNr" />
+            <Principal Role="Versions">
+              <PropertyRef Name="VrId" />
             </Principal>
             <Dependent Role="Downloads">
-              <PropertyRef Name="VrNr" />
+              <PropertyRef Name="VrId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kunden_Modu__KNr__656C112C">
-          <End Role="Kunden" Type="VersionR.Models.Kunden" Multiplicity="1" />
-          <End Role="Kunden_Module" Type="VersionR.Models.Kunden_Module" Multiplicity="*" />
+        <Association Name="FK__Manuals__VrId__636EBA21">
+          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="1" />
+          <End Role="Manuals" Type="VersionR.Models.Manual" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kunden">
-              <PropertyRef Name="KNr" />
+            <Principal Role="Versions">
+              <PropertyRef Name="VrId" />
             </Principal>
-            <Dependent Role="Kunden_Module">
-              <PropertyRef Name="KNr" />
+            <Dependent Role="Manuals">
+              <PropertyRef Name="VrId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kunden_Mo__ModNr__66603565">
-          <End Role="Module" Type="VersionR.Models.Module" Multiplicity="1" />
-          <End Role="Kunden_Module" Type="VersionR.Models.Kunden_Module" Multiplicity="*" />
+        <Association Name="FK__Versions__ModId__5EAA0504">
+          <End Role="Modules" Type="VersionR.Models.Module" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Module">
-              <PropertyRef Name="ModNr" />
+            <Principal Role="Modules">
+              <PropertyRef Name="ModId" />
             </Principal>
-            <Dependent Role="Kunden_Module">
-              <PropertyRef Name="ModNr" />
+            <Dependent Role="Versions">
+              <PropertyRef Name="ModId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Versionen__MNr__628FA481">
-          <End Role="Mitarbeiter" Type="VersionR.Models.Mitarbeiter" Multiplicity="1" />
-          <End Role="Versionen" Type="VersionR.Models.Versionen" Multiplicity="*" />
+        <Association Name="FK__Users__RId__6462DE5A">
+          <End Role="Roles" Type="VersionR.Models.Role" Multiplicity="1" />
+          <End Role="Users" Type="VersionR.Models.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Mitarbeiter">
-              <PropertyRef Name="MNr" />
+            <Principal Role="Roles">
+              <PropertyRef Name="RId" />
             </Principal>
-            <Dependent Role="Versionen">
-              <PropertyRef Name="MNr" />
+            <Dependent Role="Users">
+              <PropertyRef Name="RId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Versionen__ModNr__6477ECF3">
-          <End Role="Module" Type="VersionR.Models.Module" Multiplicity="1" />
-          <End Role="Versionen" Type="VersionR.Models.Versionen" Multiplicity="*" />
+        <Association Name="FK__Versions__EmId__5DB5E0CB">
+          <End Role="Users" Type="VersionR.Models.User" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Module">
-              <PropertyRef Name="ModNr" />
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
             </Principal>
-            <Dependent Role="Versionen">
-              <PropertyRef Name="ModNr" />
+            <Dependent Role="Versions">
+              <PropertyRef Name="EmId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -414,55 +446,54 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VersionRModelsStoreContainer" CdmEntityContainer="ia211Entities">
-          <EntitySetMapping Name="Anleitungens"><EntityTypeMapping TypeName="VersionR.Models.Anleitungen"><MappingFragment StoreEntitySet="Anleitungen">
-            <ScalarProperty Name="AlNr" ColumnName="AlNr" />
-            <ScalarProperty Name="VrNr" ColumnName="VrNr" />
-            <ScalarProperty Name="Titel" ColumnName="Titel" />
-            <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
-            <ScalarProperty Name="dateiName" ColumnName="dateiName" />
+          <EntitySetMapping Name="Customer_Modules"><EntityTypeMapping TypeName="VersionR.Models.Customer_Modules"><MappingFragment StoreEntitySet="Customer_Modules">
+            <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+            <ScalarProperty Name="CmId" ColumnName="CmId" />
+            <ScalarProperty Name="ModId" ColumnName="ModId" />
+            <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+            <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Downloads"><EntityTypeMapping TypeName="VersionR.Models.Download"><MappingFragment StoreEntitySet="Downloads">
-            <ScalarProperty Name="DlNr" ColumnName="DlNr" />
-            <ScalarProperty Name="DlDatum" ColumnName="DlDatum" />
-            <ScalarProperty Name="VrNr" ColumnName="VrNr" />
-            <ScalarProperty Name="KNr" ColumnName="KNr" />
+            <ScalarProperty Name="DlId" ColumnName="DlId" />
+            <ScalarProperty Name="DlDate" ColumnName="DlDate" />
+            <ScalarProperty Name="VrId" ColumnName="VrId" />
+            <ScalarProperty Name="CmId" ColumnName="CmId" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Kundens"><EntityTypeMapping TypeName="VersionR.Models.Kunden"><MappingFragment StoreEntitySet="Kunden">
-            <ScalarProperty Name="KNr" ColumnName="KNr" />
-            <ScalarProperty Name="NickName" ColumnName="NickName" />
-            <ScalarProperty Name="Email" ColumnName="Email" />
-            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-            <ScalarProperty Name="PwHash" ColumnName="PwHash" />
+          <EntitySetMapping Name="Manuals"><EntityTypeMapping TypeName="VersionR.Models.Manual"><MappingFragment StoreEntitySet="Manuals">
+            <ScalarProperty Name="MId" ColumnName="MId" />
+            <ScalarProperty Name="VrId" ColumnName="VrId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Filename" ColumnName="Filename" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Kunden_Module"><EntityTypeMapping TypeName="VersionR.Models.Kunden_Module"><MappingFragment StoreEntitySet="Kunden_Module">
-            <ScalarProperty Name="AuftragNr" ColumnName="AuftragNr" />
-            <ScalarProperty Name="KNr" ColumnName="KNr" />
-            <ScalarProperty Name="ModNr" ColumnName="ModNr" />
-            <ScalarProperty Name="KaufDatum" ColumnName="KaufDatum" />
-            <ScalarProperty Name="EndDatum" ColumnName="EndDatum" />
+          <EntitySetMapping Name="Modules"><EntityTypeMapping TypeName="VersionR.Models.Module"><MappingFragment StoreEntitySet="Modules">
+            <ScalarProperty Name="ModId" ColumnName="ModId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="PricePerYear" ColumnName="PricePerYear" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Mitarbeiters"><EntityTypeMapping TypeName="VersionR.Models.Mitarbeiter"><MappingFragment StoreEntitySet="Mitarbeiter">
-            <ScalarProperty Name="MNr" ColumnName="MNr" />
+          <EntitySetMapping Name="Roles"><EntityTypeMapping TypeName="VersionR.Models.Role"><MappingFragment StoreEntitySet="Roles">
+            <ScalarProperty Name="RId" ColumnName="RId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="VersionR.Models.User"><MappingFragment StoreEntitySet="Users">
+            <ScalarProperty Name="UId" ColumnName="UId" />
             <ScalarProperty Name="NickName" ColumnName="NickName" />
             <ScalarProperty Name="EMail" ColumnName="EMail" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="RId" ColumnName="RId" />
             <ScalarProperty Name="PwHash" ColumnName="PwHash" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Modules"><EntityTypeMapping TypeName="VersionR.Models.Module"><MappingFragment StoreEntitySet="Module">
-            <ScalarProperty Name="ModNr" ColumnName="ModNr" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="JahresPreis" ColumnName="JahresPreis" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Versionens"><EntityTypeMapping TypeName="VersionR.Models.Versionen"><MappingFragment StoreEntitySet="Versionen">
-            <ScalarProperty Name="VrNr" ColumnName="VrNr" />
+          <EntitySetMapping Name="Versions"><EntityTypeMapping TypeName="VersionR.Models.Version"><MappingFragment StoreEntitySet="Versions">
+            <ScalarProperty Name="VrId" ColumnName="VrId" />
             <ScalarProperty Name="Relase" ColumnName="Relase" />
             <ScalarProperty Name="SubRelease" ColumnName="SubRelease" />
-            <ScalarProperty Name="BuildNr" ColumnName="BuildNr" />
-            <ScalarProperty Name="Plattform" ColumnName="Plattform" />
-            <ScalarProperty Name="DateiName" ColumnName="DateiName" />
-            <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
-            <ScalarProperty Name="ErscheinungsDatum" ColumnName="ErscheinungsDatum" />
-            <ScalarProperty Name="MNr" ColumnName="MNr" />
-            <ScalarProperty Name="ModNr" ColumnName="ModNr" />
+            <ScalarProperty Name="BuildId" ColumnName="BuildId" />
+            <ScalarProperty Name="Platform" ColumnName="Platform" />
+            <ScalarProperty Name="Filename" ColumnName="Filename" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+            <ScalarProperty Name="EmId" ColumnName="EmId" />
+            <ScalarProperty Name="ModId" ColumnName="ModId" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
@@ -485,46 +516,64 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="VersionR">
-        <EntityTypeShape EntityType="VersionR.Models.Anleitungen" Width="1.5" PointX="8.25" PointY="4.25" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Download" Width="1.5" PointX="8.25" PointY="1.25" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Kunden" Width="1.5" PointX="0.75" PointY="1.125" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Kunden_Module" Width="1.5" PointX="3" PointY="4.125" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Mitarbeiter" Width="1.5" PointX="3.75" PointY="1.375" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Module" Width="1.5" PointX="0.75" PointY="4.375" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Versionen" Width="1.5" PointX="6" PointY="3.5" Height="3.7109993489583317" IsExpanded="true" />
-        <AssociationConnector Association="VersionR.Models.FK__Anleitunge__VrNr__693CA210" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="5.3362939453125" />
-          <ConnectorPoint PointX="8.25" PointY="5.3362939453125" />
+        <EntityTypeShape EntityType="VersionR.Models.Customer_Modules" Width="1.5" PointX="3" PointY="4" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR.Models.Download" Width="1.5" PointX="8.25" PointY="4.125" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR.Models.Manual" Width="1.5" PointX="8.25" PointY="6.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR.Models.Module" Width="1.5" PointX="0.75" PointY="4.125" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR.Models.Role" Width="1.5" PointX="1.5" PointY="7.375" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR.Models.User" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5783902994791665" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR.Models.Version" Width="1.5" PointX="6" PointY="3.375" Height="3.2357796223958322" IsExpanded="true" />
+        <AssociationConnector Association="VersionR.Models.FK__Customer___ModId__60924D76" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.0033268229166667" />
+          <ConnectorPoint PointX="2.5416691666666664" PointY="5.0033268229166659" />
+          <ConnectorPoint PointX="2.7083358333333334" PointY="5.0033268229166667" />
+          <ConnectorPoint PointX="3" PointY="5.0033268229166667" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Downloads__KNr__6754599E" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="1.28125" />
-          <ConnectorPoint PointX="3.2604166666666665" PointY="1.2812499999999993" />
-          <ConnectorPoint PointX="3.4270833333333335" PointY="1.28125" />
-          <ConnectorPoint PointX="8.25" PointY="1.28125" />
+        <AssociationConnector Association="VersionR.Models.FK__Customer_M__CmId__5F9E293D" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.0391951497395833" />
+          <ConnectorPoint PointX="2.5416691666666664" PointY="2.0391951497395828" />
+          <ConnectorPoint PointX="2.7083358333333334" PointY="2.0391951497395833" />
+          <ConnectorPoint PointX="3.75" PointY="2.0391951497395833" />
+          <ConnectorPoint PointX="3.75" PointY="4" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Downloads__VrNr__68487DD7" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="3.5" />
-          <ConnectorPoint PointX="6.75" PointY="2.3831714453124997" />
-          <ConnectorPoint PointX="8.25" PointY="2.3831714453124997" />
+        <AssociationConnector Association="VersionR.Models.FK__Downloads__CmId__627A95E8" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.7150452246093755" />
+          <ConnectorPoint PointX="2.5416691666666664" PointY="2.715045224609375" />
+          <ConnectorPoint PointX="2.7083358333333334" PointY="2.7150452246093755" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="2.715045224609375" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="2.7150452246093755" />
+          <ConnectorPoint PointX="9" PointY="2.7150452246093755" />
+          <ConnectorPoint PointX="9" PointY="4.125" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Kunden_Modu__KNr__656C112C" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="1.1718724999999992" />
-          <ConnectorPoint PointX="3.34375" PointY="1.1718724999999992" />
-          <ConnectorPoint PointX="3.34375" PointY="4.125" />
+        <AssociationConnector Association="VersionR.Models.FK__Downloads__VrId__618671AF" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="5.08550048828125" />
+          <ConnectorPoint PointX="8.25" PointY="5.08550048828125" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Kunden_Mo__ModNr__66603565" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.3651432291666667" />
-          <ConnectorPoint PointX="3" PointY="5.3651432291666667" />
+        <AssociationConnector Association="VersionR.Models.FK__Manuals__VrId__636EBA21" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="6.6107796223958317" />
+          <ConnectorPoint PointX="6.75" PointY="7.71050048828125" />
+          <ConnectorPoint PointX="8.25" PointY="7.71050048828125" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Versionen__MNr__628FA481" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="1.8790857226562499" />
-          <ConnectorPoint PointX="6.3437475" PointY="1.8790857226562499" />
-          <ConnectorPoint PointX="6.3437475" PointY="3.5" />
+        <AssociationConnector Association="VersionR.Models.FK__Versions__ModId__5EAA0504" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="5.8816536458333335" />
+          <ConnectorPoint PointX="1.5" PointY="6.37931396484375" />
+          <ConnectorPoint PointX="2.5416691666666664" PointY="6.3793139648437487" />
+          <ConnectorPoint PointX="2.7083358333333334" PointY="6.37931396484375" />
+          <ConnectorPoint PointX="6" PointY="6.37931396484375" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Versionen__ModNr__6477ECF3" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="6.3552864583333335" />
-          <ConnectorPoint PointX="1.5" PointY="6.8816943359374987" />
-          <ConnectorPoint PointX="6" PointY="6.8816943359374987" />
+        <AssociationConnector Association="VersionR.Models.FK__Users__RId__6462DE5A" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.6250025" PointY="7.375" />
+          <ConnectorPoint PointX="2.6250025" PointY="1.3633450748697908" />
+          <ConnectorPoint PointX="2.25" PointY="1.3633450748697908" />
+        </AssociationConnector>
+        <AssociationConnector Association="VersionR.Models.FK__Versions__EmId__5DB5E0CB" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.0529702620442718" />
+          <ConnectorPoint PointX="2.5416691666666664" PointY="3.0529702620442714" />
+          <ConnectorPoint PointX="2.7083358333333334" PointY="3.0529702620442718" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="3.0529702620442714" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="3.0529702620442718" />
+          <ConnectorPoint PointX="6.75" PointY="3.0529702620442718" />
+          <ConnectorPoint PointX="6.75" PointY="3.375" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
