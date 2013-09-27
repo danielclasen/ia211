@@ -10,7 +10,7 @@ namespace VersionR.Controllers
     public class AdminController : Controller
     {
 
-        VersionR.Models.VersionR_ia211_local_entities db = new VersionR_ia211_local_entities();
+        VersionR.Models.VersionR db = new VersionR.Models.VersionR();
 
         //
         // GET: /Admin/

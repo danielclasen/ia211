@@ -4,44 +4,44 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VersionR.Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="VersionRModelsStoreContainer">
-          <EntitySet Name="Customer_Modules" EntityType="VersionR.Models.Store.Customer_Modules" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Downloads" EntityType="VersionR.Models.Store.Downloads" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Manuals" EntityType="VersionR.Models.Store.Manuals" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Modules" EntityType="VersionR.Models.Store.Modules" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Roles" EntityType="VersionR.Models.Store.Roles" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Users" EntityType="VersionR.Models.Store.Users" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Versions" EntityType="VersionR.Models.Store.Versions" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__Customer___ModId__60924D76" Association="VersionR.Models.Store.FK__Customer___ModId__60924D76">
+      <Schema Namespace="VersionR_Entities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="VersionR_EntitiesStoreContainer">
+          <EntitySet Name="Customer_Modules" EntityType="VersionR_Entities.Store.Customer_Modules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Downloads" EntityType="VersionR_Entities.Store.Downloads" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Manuals" EntityType="VersionR_Entities.Store.Manuals" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modules" EntityType="VersionR_Entities.Store.Modules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="VersionR_Entities.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="VersionR_Entities.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Versions" EntityType="VersionR_Entities.Store.Versions" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Customer___ModId__60924D76" Association="VersionR_Entities.Store.FK__Customer___ModId__60924D76">
             <End Role="Modules" EntitySet="Modules" />
             <End Role="Customer_Modules" EntitySet="Customer_Modules" />
           </AssociationSet>
-          <AssociationSet Name="FK__Customer_M__CmId__5F9E293D" Association="VersionR.Models.Store.FK__Customer_M__CmId__5F9E293D">
+          <AssociationSet Name="FK__Customer_M__CmId__5F9E293D" Association="VersionR_Entities.Store.FK__Customer_M__CmId__5F9E293D">
             <End Role="Users" EntitySet="Users" />
             <End Role="Customer_Modules" EntitySet="Customer_Modules" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__CmId__627A95E8" Association="VersionR.Models.Store.FK__Downloads__CmId__627A95E8">
+          <AssociationSet Name="FK__Downloads__CmId__627A95E8" Association="VersionR_Entities.Store.FK__Downloads__CmId__627A95E8">
             <End Role="Users" EntitySet="Users" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__VrId__618671AF" Association="VersionR.Models.Store.FK__Downloads__VrId__618671AF">
+          <AssociationSet Name="FK__Downloads__VrId__618671AF" Association="VersionR_Entities.Store.FK__Downloads__VrId__618671AF">
             <End Role="Versions" EntitySet="Versions" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manuals__VrId__636EBA21" Association="VersionR.Models.Store.FK__Manuals__VrId__636EBA21">
+          <AssociationSet Name="FK__Manuals__VrId__636EBA21" Association="VersionR_Entities.Store.FK__Manuals__VrId__636EBA21">
             <End Role="Versions" EntitySet="Versions" />
             <End Role="Manuals" EntitySet="Manuals" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__RId__6462DE5A" Association="VersionR.Models.Store.FK__Users__RId__6462DE5A">
+          <AssociationSet Name="FK__Users__RId__6462DE5A" Association="VersionR_Entities.Store.FK__Users__RId__6462DE5A">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versions__EmId__5DB5E0CB" Association="VersionR.Models.Store.FK__Versions__EmId__5DB5E0CB">
+          <AssociationSet Name="FK__Versions__EmId__5DB5E0CB" Association="VersionR_Entities.Store.FK__Versions__EmId__5DB5E0CB">
             <End Role="Users" EntitySet="Users" />
             <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versions__ModId__5EAA0504" Association="VersionR.Models.Store.FK__Versions__ModId__5EAA0504">
+          <AssociationSet Name="FK__Versions__ModId__5EAA0504" Association="VersionR_Entities.Store.FK__Versions__ModId__5EAA0504">
             <End Role="Modules" EntitySet="Modules" />
             <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
@@ -117,8 +117,8 @@
           <Property Name="ModId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Customer___ModId__60924D76">
-          <End Role="Modules" Type="VersionR.Models.Store.Modules" Multiplicity="1" />
-          <End Role="Customer_Modules" Type="VersionR.Models.Store.Customer_Modules" Multiplicity="*" />
+          <End Role="Modules" Type="VersionR_Entities.Store.Modules" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR_Entities.Store.Customer_Modules" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modules">
               <PropertyRef Name="ModId" />
@@ -129,8 +129,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Customer_M__CmId__5F9E293D">
-          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="1" />
-          <End Role="Customer_Modules" Type="VersionR.Models.Store.Customer_Modules" Multiplicity="*" />
+          <End Role="Users" Type="VersionR_Entities.Store.Users" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR_Entities.Store.Customer_Modules" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UId" />
@@ -141,8 +141,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Downloads__CmId__627A95E8">
-          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="1" />
-          <End Role="Downloads" Type="VersionR.Models.Store.Downloads" Multiplicity="*" />
+          <End Role="Users" Type="VersionR_Entities.Store.Users" Multiplicity="1" />
+          <End Role="Downloads" Type="VersionR_Entities.Store.Downloads" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UId" />
@@ -153,8 +153,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Downloads__VrId__618671AF">
-          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="1" />
-          <End Role="Downloads" Type="VersionR.Models.Store.Downloads" Multiplicity="*" />
+          <End Role="Versions" Type="VersionR_Entities.Store.Versions" Multiplicity="1" />
+          <End Role="Downloads" Type="VersionR_Entities.Store.Downloads" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Versions">
               <PropertyRef Name="VrId" />
@@ -165,8 +165,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Manuals__VrId__636EBA21">
-          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="1" />
-          <End Role="Manuals" Type="VersionR.Models.Store.Manuals" Multiplicity="*" />
+          <End Role="Versions" Type="VersionR_Entities.Store.Versions" Multiplicity="1" />
+          <End Role="Manuals" Type="VersionR_Entities.Store.Manuals" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Versions">
               <PropertyRef Name="VrId" />
@@ -177,8 +177,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Users__RId__6462DE5A">
-          <End Role="Roles" Type="VersionR.Models.Store.Roles" Multiplicity="1" />
-          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="*" />
+          <End Role="Roles" Type="VersionR_Entities.Store.Roles" Multiplicity="1" />
+          <End Role="Users" Type="VersionR_Entities.Store.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="RId" />
@@ -189,8 +189,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Versions__EmId__5DB5E0CB">
-          <End Role="Users" Type="VersionR.Models.Store.Users" Multiplicity="1" />
-          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="*" />
+          <End Role="Users" Type="VersionR_Entities.Store.Users" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR_Entities.Store.Versions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UId" />
@@ -201,8 +201,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Versions__ModId__5EAA0504">
-          <End Role="Modules" Type="VersionR.Models.Store.Modules" Multiplicity="1" />
-          <End Role="Versions" Type="VersionR.Models.Store.Versions" Multiplicity="*" />
+          <End Role="Modules" Type="VersionR_Entities.Store.Modules" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR_Entities.Store.Versions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modules">
               <PropertyRef Name="ModId" />
@@ -216,44 +216,44 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="VersionR.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="VersionR_ia211_local_entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customer_Modules" EntityType="VersionR.Models.Customer_Modules" />
-          <EntitySet Name="Downloads" EntityType="VersionR.Models.Download" />
-          <EntitySet Name="Manuals" EntityType="VersionR.Models.Manual" />
-          <EntitySet Name="Modules" EntityType="VersionR.Models.Module" />
-          <EntitySet Name="Roles" EntityType="VersionR.Models.Role" />
-          <EntitySet Name="Users" EntityType="VersionR.Models.User" />
-          <EntitySet Name="Versions" EntityType="VersionR.Models.Version" />
-          <AssociationSet Name="FK__Customer___ModId__60924D76" Association="VersionR.Models.FK__Customer___ModId__60924D76">
+      <Schema Namespace="VersionR_Entities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="VersionR" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer_Modules" EntityType="VersionR_Entities.Customer_Modules" />
+          <EntitySet Name="Downloads" EntityType="VersionR_Entities.Download" />
+          <EntitySet Name="Manuals" EntityType="VersionR_Entities.Manual" />
+          <EntitySet Name="Modules" EntityType="VersionR_Entities.Module" />
+          <EntitySet Name="Roles" EntityType="VersionR_Entities.Role" />
+          <EntitySet Name="Users" EntityType="VersionR_Entities.User" />
+          <EntitySet Name="Versions" EntityType="VersionR_Entities.Version" />
+          <AssociationSet Name="FK__Customer___ModId__60924D76" Association="VersionR_Entities.FK__Customer___ModId__60924D76">
             <End Role="Modules" EntitySet="Modules" />
             <End Role="Customer_Modules" EntitySet="Customer_Modules" />
           </AssociationSet>
-          <AssociationSet Name="FK__Customer_M__CmId__5F9E293D" Association="VersionR.Models.FK__Customer_M__CmId__5F9E293D">
+          <AssociationSet Name="FK__Customer_M__CmId__5F9E293D" Association="VersionR_Entities.FK__Customer_M__CmId__5F9E293D">
             <End Role="Users" EntitySet="Users" />
             <End Role="Customer_Modules" EntitySet="Customer_Modules" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__CmId__627A95E8" Association="VersionR.Models.FK__Downloads__CmId__627A95E8">
+          <AssociationSet Name="FK__Downloads__CmId__627A95E8" Association="VersionR_Entities.FK__Downloads__CmId__627A95E8">
             <End Role="Users" EntitySet="Users" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Downloads__VrId__618671AF" Association="VersionR.Models.FK__Downloads__VrId__618671AF">
+          <AssociationSet Name="FK__Downloads__VrId__618671AF" Association="VersionR_Entities.FK__Downloads__VrId__618671AF">
             <End Role="Versions" EntitySet="Versions" />
             <End Role="Downloads" EntitySet="Downloads" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manuals__VrId__636EBA21" Association="VersionR.Models.FK__Manuals__VrId__636EBA21">
+          <AssociationSet Name="FK__Manuals__VrId__636EBA21" Association="VersionR_Entities.FK__Manuals__VrId__636EBA21">
             <End Role="Versions" EntitySet="Versions" />
             <End Role="Manuals" EntitySet="Manuals" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versions__ModId__5EAA0504" Association="VersionR.Models.FK__Versions__ModId__5EAA0504">
+          <AssociationSet Name="FK__Versions__ModId__5EAA0504" Association="VersionR_Entities.FK__Versions__ModId__5EAA0504">
             <End Role="Modules" EntitySet="Modules" />
             <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__RId__6462DE5A" Association="VersionR.Models.FK__Users__RId__6462DE5A">
+          <AssociationSet Name="FK__Users__RId__6462DE5A" Association="VersionR_Entities.FK__Users__RId__6462DE5A">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Versions__EmId__5DB5E0CB" Association="VersionR.Models.FK__Versions__EmId__5DB5E0CB">
+          <AssociationSet Name="FK__Versions__EmId__5DB5E0CB" Association="VersionR_Entities.FK__Versions__EmId__5DB5E0CB">
             <End Role="Users" EntitySet="Users" />
             <End Role="Versions" EntitySet="Versions" />
           </AssociationSet>
@@ -267,8 +267,8 @@
           <Property Name="ModId" Type="Int32" Nullable="false" />
           <Property Name="BuyDate" Type="DateTime" Nullable="false" />
           <Property Name="ExpiryDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Customer___ModId__60924D76" FromRole="Customer_Modules" ToRole="Modules" />
-          <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Customer_M__CmId__5F9E293D" FromRole="Customer_Modules" ToRole="Users" />
+          <NavigationProperty Name="Module" Relationship="VersionR_Entities.FK__Customer___ModId__60924D76" FromRole="Customer_Modules" ToRole="Modules" />
+          <NavigationProperty Name="User" Relationship="VersionR_Entities.FK__Customer_M__CmId__5F9E293D" FromRole="Customer_Modules" ToRole="Users" />
         </EntityType>
         <EntityType Name="Download">
           <Key>
@@ -278,8 +278,8 @@
           <Property Name="DlDate" Type="DateTime" Nullable="false" />
           <Property Name="VrId" Type="Int32" Nullable="false" />
           <Property Name="CmId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Downloads__CmId__627A95E8" FromRole="Downloads" ToRole="Users" />
-          <NavigationProperty Name="Version" Relationship="VersionR.Models.FK__Downloads__VrId__618671AF" FromRole="Downloads" ToRole="Versions" />
+          <NavigationProperty Name="User" Relationship="VersionR_Entities.FK__Downloads__CmId__627A95E8" FromRole="Downloads" ToRole="Users" />
+          <NavigationProperty Name="Version" Relationship="VersionR_Entities.FK__Downloads__VrId__618671AF" FromRole="Downloads" ToRole="Versions" />
         </EntityType>
         <EntityType Name="Manual">
           <Key>
@@ -290,7 +290,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Filename" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Version" Relationship="VersionR.Models.FK__Manuals__VrId__636EBA21" FromRole="Manuals" ToRole="Versions" />
+          <NavigationProperty Name="Version" Relationship="VersionR_Entities.FK__Manuals__VrId__636EBA21" FromRole="Manuals" ToRole="Versions" />
         </EntityType>
         <EntityType Name="Module">
           <Key>
@@ -299,8 +299,8 @@
           <Property Name="ModId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
           <Property Name="PricePerYear" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <NavigationProperty Name="Customer_Modules" Relationship="VersionR.Models.FK__Customer___ModId__60924D76" FromRole="Modules" ToRole="Customer_Modules" />
-          <NavigationProperty Name="Versions" Relationship="VersionR.Models.FK__Versions__ModId__5EAA0504" FromRole="Modules" ToRole="Versions" />
+          <NavigationProperty Name="Customer_Modules" Relationship="VersionR_Entities.FK__Customer___ModId__60924D76" FromRole="Modules" ToRole="Customer_Modules" />
+          <NavigationProperty Name="Versions" Relationship="VersionR_Entities.FK__Versions__ModId__5EAA0504" FromRole="Modules" ToRole="Versions" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -308,7 +308,7 @@
           </Key>
           <Property Name="RId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Users" Relationship="VersionR.Models.FK__Users__RId__6462DE5A" FromRole="Roles" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="VersionR_Entities.FK__Users__RId__6462DE5A" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -320,10 +320,10 @@
           <Property Name="Phone" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
           <Property Name="RId" Type="Int32" Nullable="false" />
           <Property Name="PwHash" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Customer_Modules" Relationship="VersionR.Models.FK__Customer_M__CmId__5F9E293D" FromRole="Users" ToRole="Customer_Modules" />
-          <NavigationProperty Name="Downloads" Relationship="VersionR.Models.FK__Downloads__CmId__627A95E8" FromRole="Users" ToRole="Downloads" />
-          <NavigationProperty Name="Role" Relationship="VersionR.Models.FK__Users__RId__6462DE5A" FromRole="Users" ToRole="Roles" />
-          <NavigationProperty Name="Versions" Relationship="VersionR.Models.FK__Versions__EmId__5DB5E0CB" FromRole="Users" ToRole="Versions" />
+          <NavigationProperty Name="Customer_Modules" Relationship="VersionR_Entities.FK__Customer_M__CmId__5F9E293D" FromRole="Users" ToRole="Customer_Modules" />
+          <NavigationProperty Name="Downloads" Relationship="VersionR_Entities.FK__Downloads__CmId__627A95E8" FromRole="Users" ToRole="Downloads" />
+          <NavigationProperty Name="Role" Relationship="VersionR_Entities.FK__Users__RId__6462DE5A" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="Versions" Relationship="VersionR_Entities.FK__Versions__EmId__5DB5E0CB" FromRole="Users" ToRole="Versions" />
         </EntityType>
         <EntityType Name="Version">
           <Key>
@@ -339,14 +339,14 @@
           <Property Name="ReleaseDate" Type="DateTime" Nullable="false" />
           <Property Name="EmId" Type="Int32" Nullable="false" />
           <Property Name="ModId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Downloads" Relationship="VersionR.Models.FK__Downloads__VrId__618671AF" FromRole="Versions" ToRole="Downloads" />
-          <NavigationProperty Name="Manuals" Relationship="VersionR.Models.FK__Manuals__VrId__636EBA21" FromRole="Versions" ToRole="Manuals" />
-          <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Versions__ModId__5EAA0504" FromRole="Versions" ToRole="Modules" />
-          <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Versions__EmId__5DB5E0CB" FromRole="Versions" ToRole="Users" />
+          <NavigationProperty Name="Downloads" Relationship="VersionR_Entities.FK__Downloads__VrId__618671AF" FromRole="Versions" ToRole="Downloads" />
+          <NavigationProperty Name="Manuals" Relationship="VersionR_Entities.FK__Manuals__VrId__636EBA21" FromRole="Versions" ToRole="Manuals" />
+          <NavigationProperty Name="Module" Relationship="VersionR_Entities.FK__Versions__ModId__5EAA0504" FromRole="Versions" ToRole="Modules" />
+          <NavigationProperty Name="User" Relationship="VersionR_Entities.FK__Versions__EmId__5DB5E0CB" FromRole="Versions" ToRole="Users" />
         </EntityType>
         <Association Name="FK__Customer___ModId__60924D76">
-          <End Role="Modules" Type="VersionR.Models.Module" Multiplicity="1" />
-          <End Role="Customer_Modules" Type="VersionR.Models.Customer_Modules" Multiplicity="*" />
+          <End Role="Modules" Type="VersionR_Entities.Module" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR_Entities.Customer_Modules" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modules">
               <PropertyRef Name="ModId" />
@@ -357,8 +357,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Customer_M__CmId__5F9E293D">
-          <End Role="Users" Type="VersionR.Models.User" Multiplicity="1" />
-          <End Role="Customer_Modules" Type="VersionR.Models.Customer_Modules" Multiplicity="*" />
+          <End Role="Users" Type="VersionR_Entities.User" Multiplicity="1" />
+          <End Role="Customer_Modules" Type="VersionR_Entities.Customer_Modules" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UId" />
@@ -369,8 +369,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Downloads__CmId__627A95E8">
-          <End Role="Users" Type="VersionR.Models.User" Multiplicity="1" />
-          <End Role="Downloads" Type="VersionR.Models.Download" Multiplicity="*" />
+          <End Role="Users" Type="VersionR_Entities.User" Multiplicity="1" />
+          <End Role="Downloads" Type="VersionR_Entities.Download" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UId" />
@@ -381,8 +381,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Downloads__VrId__618671AF">
-          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="1" />
-          <End Role="Downloads" Type="VersionR.Models.Download" Multiplicity="*" />
+          <End Role="Versions" Type="VersionR_Entities.Version" Multiplicity="1" />
+          <End Role="Downloads" Type="VersionR_Entities.Download" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Versions">
               <PropertyRef Name="VrId" />
@@ -393,8 +393,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Manuals__VrId__636EBA21">
-          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="1" />
-          <End Role="Manuals" Type="VersionR.Models.Manual" Multiplicity="*" />
+          <End Role="Versions" Type="VersionR_Entities.Version" Multiplicity="1" />
+          <End Role="Manuals" Type="VersionR_Entities.Manual" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Versions">
               <PropertyRef Name="VrId" />
@@ -405,8 +405,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Versions__ModId__5EAA0504">
-          <End Role="Modules" Type="VersionR.Models.Module" Multiplicity="1" />
-          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="*" />
+          <End Role="Modules" Type="VersionR_Entities.Module" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR_Entities.Version" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modules">
               <PropertyRef Name="ModId" />
@@ -417,8 +417,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Users__RId__6462DE5A">
-          <End Role="Roles" Type="VersionR.Models.Role" Multiplicity="1" />
-          <End Role="Users" Type="VersionR.Models.User" Multiplicity="*" />
+          <End Role="Roles" Type="VersionR_Entities.Role" Multiplicity="1" />
+          <End Role="Users" Type="VersionR_Entities.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="RId" />
@@ -429,8 +429,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Versions__EmId__5DB5E0CB">
-          <End Role="Users" Type="VersionR.Models.User" Multiplicity="1" />
-          <End Role="Versions" Type="VersionR.Models.Version" Multiplicity="*" />
+          <End Role="Users" Type="VersionR_Entities.User" Multiplicity="1" />
+          <End Role="Versions" Type="VersionR_Entities.Version" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UId" />
@@ -445,9 +445,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VersionRModelsStoreContainer" CdmEntityContainer="VersionR_ia211_local_entities">
+        <EntityContainerMapping StorageEntityContainer="VersionR_EntitiesStoreContainer" CdmEntityContainer="VersionR">
           <EntitySetMapping Name="Customer_Modules">
-            <EntityTypeMapping TypeName="VersionR.Models.Customer_Modules">
+            <EntityTypeMapping TypeName="VersionR_Entities.Customer_Modules">
               <MappingFragment StoreEntitySet="Customer_Modules">
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="CmId" ColumnName="CmId" />
@@ -458,7 +458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Downloads">
-            <EntityTypeMapping TypeName="VersionR.Models.Download">
+            <EntityTypeMapping TypeName="VersionR_Entities.Download">
               <MappingFragment StoreEntitySet="Downloads">
                 <ScalarProperty Name="DlId" ColumnName="DlId" />
                 <ScalarProperty Name="DlDate" ColumnName="DlDate" />
@@ -468,7 +468,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Manuals">
-            <EntityTypeMapping TypeName="VersionR.Models.Manual">
+            <EntityTypeMapping TypeName="VersionR_Entities.Manual">
               <MappingFragment StoreEntitySet="Manuals">
                 <ScalarProperty Name="MId" ColumnName="MId" />
                 <ScalarProperty Name="VrId" ColumnName="VrId" />
@@ -479,7 +479,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Modules">
-            <EntityTypeMapping TypeName="VersionR.Models.Module">
+            <EntityTypeMapping TypeName="VersionR_Entities.Module">
               <MappingFragment StoreEntitySet="Modules">
                 <ScalarProperty Name="ModId" ColumnName="ModId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -488,7 +488,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="VersionR.Models.Role">
+            <EntityTypeMapping TypeName="VersionR_Entities.Role">
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="RId" ColumnName="RId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -496,7 +496,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="VersionR.Models.User">
+            <EntityTypeMapping TypeName="VersionR_Entities.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="UId" ColumnName="UId" />
                 <ScalarProperty Name="NickName" ColumnName="NickName" />
@@ -508,7 +508,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Versions">
-            <EntityTypeMapping TypeName="VersionR.Models.Version">
+            <EntityTypeMapping TypeName="VersionR_Entities.Version">
               <MappingFragment StoreEntitySet="Versions">
                 <ScalarProperty Name="VrId" ColumnName="VrId" />
                 <ScalarProperty Name="Relase" ColumnName="Relase" />
@@ -543,28 +543,28 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="VersionR.ia211.local">
-        <EntityTypeShape EntityType="VersionR.Models.Customer_Modules" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Download" Width="1.5" PointX="8.25" PointY="5.125" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Manual" Width="1.5" PointX="8.25" PointY="8" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Module" Width="1.5" PointX="0.75" PointY="5.25" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Role" Width="1.5" PointX="1.5" PointY="8.625" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.User" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
-        <EntityTypeShape EntityType="VersionR.Models.Version" Width="1.5" PointX="6" PointY="4.375" Height="3.7109993489583317" IsExpanded="true" />
-        <AssociationConnector Association="VersionR.Models.FK__Customer___ModId__60924D76" ManuallyRouted="false">
+      <Diagram Name="VersionR">
+        <EntityTypeShape EntityType="VersionR_Entities.Customer_Modules" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR_Entities.Download" Width="1.5" PointX="8.25" PointY="5.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR_Entities.Manual" Width="1.5" PointX="8.25" PointY="8" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR_Entities.Module" Width="1.5" PointX="0.75" PointY="5.25" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR_Entities.Role" Width="1.5" PointX="1.5" PointY="8.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR_Entities.User" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="VersionR_Entities.Version" Width="1.5" PointX="6" PointY="4.375" Height="3.7109993489583317" IsExpanded="true" />
+        <AssociationConnector Association="VersionR_Entities.FK__Customer___ModId__60924D76" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="6.2401432291666667" />
           <ConnectorPoint PointX="2.5416691666666664" PointY="6.2401432291666659" />
           <ConnectorPoint PointX="2.7083358333333334" PointY="6.2401432291666667" />
           <ConnectorPoint PointX="3" PointY="6.2401432291666667" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Customer_M__CmId__5F9E293D" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Customer_M__CmId__5F9E293D" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.2208968098958333" />
           <ConnectorPoint PointX="2.5416691666666664" PointY="2.2208968098958328" />
           <ConnectorPoint PointX="2.7083358333333334" PointY="2.2208968098958333" />
           <ConnectorPoint PointX="3.75" PointY="2.2208968098958333" />
           <ConnectorPoint PointX="3.75" PointY="5" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Downloads__CmId__627A95E8" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Downloads__CmId__627A95E8" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.9875977148437505" />
           <ConnectorPoint PointX="2.5416691666666664" PointY="2.98759771484375" />
           <ConnectorPoint PointX="2.7083358333333334" PointY="2.9875977148437505" />
@@ -573,28 +573,28 @@
           <ConnectorPoint PointX="9" PointY="2.9875977148437505" />
           <ConnectorPoint PointX="9" PointY="5.125" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Downloads__VrId__618671AF" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Downloads__VrId__618671AF" ManuallyRouted="false">
           <ConnectorPoint PointX="7.5" PointY="6.2112939453125" />
           <ConnectorPoint PointX="8.25" PointY="6.2112939453125" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Manuals__VrId__636EBA21" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Manuals__VrId__636EBA21" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="8.0859993489583317" />
           <ConnectorPoint PointX="6.75" PointY="9.1292941197916662" />
           <ConnectorPoint PointX="8.25" PointY="9.1292941197916662" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Versions__ModId__5EAA0504" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Versions__ModId__5EAA0504" ManuallyRouted="false">
           <ConnectorPoint PointX="1.5" PointY="7.2302864583333335" />
           <ConnectorPoint PointX="1.5" PointY="7.7566943359374987" />
           <ConnectorPoint PointX="2.5416691666666664" PointY="7.7566943359374978" />
           <ConnectorPoint PointX="2.7083358333333334" PointY="7.7566943359374987" />
           <ConnectorPoint PointX="6" PointY="7.7566943359374987" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Users__RId__6462DE5A" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Users__RId__6462DE5A" ManuallyRouted="false">
           <ConnectorPoint PointX="2.6250025" PointY="8.625" />
           <ConnectorPoint PointX="2.6250025" PointY="1.4541959049479158" />
           <ConnectorPoint PointX="2.25" PointY="1.4541959049479158" />
         </AssociationConnector>
-        <AssociationConnector Association="VersionR.Models.FK__Versions__EmId__5DB5E0CB" ManuallyRouted="false">
+        <AssociationConnector Association="VersionR_Entities.FK__Versions__EmId__5DB5E0CB" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="3.3709481673177093" />
           <ConnectorPoint PointX="2.5416691666666664" PointY="3.3709481673177089" />
           <ConnectorPoint PointX="2.7083358333333334" PointY="3.3709481673177093" />

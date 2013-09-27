@@ -11,7 +11,7 @@ namespace VersionR.Controllers
     {
 
         //VersionR.Models.ia211Entities db = new ia211Entities();
-        VersionR.Models.VersionR_ia211_local_entities db = new VersionR_ia211_local_entities();
+        VersionR.Models.VersionR db = new VersionR.Models.VersionR();
         //
         // GET: /Account/
 

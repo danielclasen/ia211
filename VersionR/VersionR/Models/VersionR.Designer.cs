@@ -19,14 +19,14 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM-Beziehungsmetadaten
 
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Customer___ModId__60924D76", "Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Module), "Customer_Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Customer_Modules), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Customer_M__CmId__5F9E293D", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.User), "Customer_Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Customer_Modules), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Downloads__CmId__627A95E8", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.User), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Download), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Downloads__VrId__618671AF", "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Version), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Download), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Manuals__VrId__636EBA21", "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Version), "Manuals", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Manual), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Versions__ModId__5EAA0504", "Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Module), "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Version), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Users__RId__6462DE5A", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.User), true)]
-[assembly: EdmRelationshipAttribute("VersionR.Models", "FK__Versions__EmId__5DB5E0CB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.User), "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Version), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Customer___ModId__60924D76", "Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Module), "Customer_Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Customer_Modules), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Customer_M__CmId__5F9E293D", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.User), "Customer_Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Customer_Modules), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Downloads__CmId__627A95E8", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.User), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Download), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Downloads__VrId__618671AF", "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Version), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Download), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Manuals__VrId__636EBA21", "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Version), "Manuals", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Manual), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Versions__ModId__5EAA0504", "Modules", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Module), "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Version), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Users__RId__6462DE5A", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.User), true)]
+[assembly: EdmRelationshipAttribute("VersionR_Entities", "FK__Versions__EmId__5DB5E0CB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VersionR.Models.User), "Versions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VersionR.Models.Version), true)]
 
 #endregion
 
@@ -37,32 +37,32 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    public partial class VersionR_ia211_local_entities : ObjectContext
+    public partial class VersionR : ObjectContext
     {
         #region Konstruktoren
     
         /// <summary>
-        /// Initialisiert ein neues VersionR_ia211_local_entities-Objekt mithilfe der in Abschnitt 'VersionR_ia211_local_entities' der Anwendungskonfigurationsdatei gefundenen Verbindungszeichenfolge.
+        /// Initialisiert ein neues VersionR-Objekt mithilfe der in Abschnitt 'VersionR' der Anwendungskonfigurationsdatei gefundenen Verbindungszeichenfolge.
         /// </summary>
-        public VersionR_ia211_local_entities() : base("name=VersionR_ia211_local_entities", "VersionR_ia211_local_entities")
+        public VersionR() : base("name=VersionR", "VersionR")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialisiert ein neues VersionR_ia211_local_entities-Objekt.
+        /// Initialisiert ein neues VersionR-Objekt.
         /// </summary>
-        public VersionR_ia211_local_entities(string connectionString) : base(connectionString, "VersionR_ia211_local_entities")
+        public VersionR(string connectionString) : base(connectionString, "VersionR")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialisiert ein neues VersionR_ia211_local_entities-Objekt.
+        /// Initialisiert ein neues VersionR-Objekt.
         /// </summary>
-        public VersionR_ia211_local_entities(EntityConnection connection) : base(connection, "VersionR_ia211_local_entities")
+        public VersionR(EntityConnection connection) : base(connection, "VersionR")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -261,7 +261,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="Customer_Modules")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="Customer_Modules")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Customer_Modules : EntityObject
@@ -425,16 +425,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Customer___ModId__60924D76", "Modules")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Customer___ModId__60924D76", "Modules")]
         public Module Module
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR.Models.FK__Customer___ModId__60924D76", "Modules").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR_Entities.FK__Customer___ModId__60924D76", "Modules").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR.Models.FK__Customer___ModId__60924D76", "Modules").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR_Entities.FK__Customer___ModId__60924D76", "Modules").Value = value;
             }
         }
         /// <summary>
@@ -446,13 +446,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR.Models.FK__Customer___ModId__60924D76", "Modules");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR_Entities.FK__Customer___ModId__60924D76", "Modules");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Module>("VersionR.Models.FK__Customer___ModId__60924D76", "Modules", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Module>("VersionR_Entities.FK__Customer___ModId__60924D76", "Modules", value);
                 }
             }
         }
@@ -463,16 +463,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Customer_M__CmId__5F9E293D", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Customer_M__CmId__5F9E293D", "Users")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Customer_M__CmId__5F9E293D", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Customer_M__CmId__5F9E293D", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Customer_M__CmId__5F9E293D", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Customer_M__CmId__5F9E293D", "Users").Value = value;
             }
         }
         /// <summary>
@@ -484,13 +484,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Customer_M__CmId__5F9E293D", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Customer_M__CmId__5F9E293D", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("VersionR.Models.FK__Customer_M__CmId__5F9E293D", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("VersionR_Entities.FK__Customer_M__CmId__5F9E293D", "Users", value);
                 }
             }
         }
@@ -502,7 +502,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="Download")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="Download")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Download : EntityObject
@@ -640,16 +640,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Downloads__CmId__627A95E8", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Downloads__CmId__627A95E8", "Users")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Downloads__CmId__627A95E8", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Downloads__CmId__627A95E8", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Downloads__CmId__627A95E8", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Downloads__CmId__627A95E8", "Users").Value = value;
             }
         }
         /// <summary>
@@ -661,13 +661,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Downloads__CmId__627A95E8", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Downloads__CmId__627A95E8", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("VersionR.Models.FK__Downloads__CmId__627A95E8", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("VersionR_Entities.FK__Downloads__CmId__627A95E8", "Users", value);
                 }
             }
         }
@@ -678,16 +678,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Downloads__VrId__618671AF", "Versions")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Downloads__VrId__618671AF", "Versions")]
         public Version Version
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR.Models.FK__Downloads__VrId__618671AF", "Versions").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR_Entities.FK__Downloads__VrId__618671AF", "Versions").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR.Models.FK__Downloads__VrId__618671AF", "Versions").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR_Entities.FK__Downloads__VrId__618671AF", "Versions").Value = value;
             }
         }
         /// <summary>
@@ -699,13 +699,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR.Models.FK__Downloads__VrId__618671AF", "Versions");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR_Entities.FK__Downloads__VrId__618671AF", "Versions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Version>("VersionR.Models.FK__Downloads__VrId__618671AF", "Versions", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Version>("VersionR_Entities.FK__Downloads__VrId__618671AF", "Versions", value);
                 }
             }
         }
@@ -717,7 +717,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="Manual")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="Manual")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Manual : EntityObject
@@ -879,16 +879,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Manuals__VrId__636EBA21", "Versions")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Manuals__VrId__636EBA21", "Versions")]
         public Version Version
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR.Models.FK__Manuals__VrId__636EBA21", "Versions").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR_Entities.FK__Manuals__VrId__636EBA21", "Versions").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR.Models.FK__Manuals__VrId__636EBA21", "Versions").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR_Entities.FK__Manuals__VrId__636EBA21", "Versions").Value = value;
             }
         }
         /// <summary>
@@ -900,13 +900,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR.Models.FK__Manuals__VrId__636EBA21", "Versions");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Version>("VersionR_Entities.FK__Manuals__VrId__636EBA21", "Versions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Version>("VersionR.Models.FK__Manuals__VrId__636EBA21", "Versions", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Version>("VersionR_Entities.FK__Manuals__VrId__636EBA21", "Versions", value);
                 }
             }
         }
@@ -918,7 +918,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="Module")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="Module")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Module : EntityObject
@@ -1030,18 +1030,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Customer___ModId__60924D76", "Customer_Modules")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Customer___ModId__60924D76", "Customer_Modules")]
         public EntityCollection<Customer_Modules> Customer_Modules
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Customer_Modules>("VersionR.Models.FK__Customer___ModId__60924D76", "Customer_Modules");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Customer_Modules>("VersionR_Entities.FK__Customer___ModId__60924D76", "Customer_Modules");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Customer_Modules>("VersionR.Models.FK__Customer___ModId__60924D76", "Customer_Modules", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Customer_Modules>("VersionR_Entities.FK__Customer___ModId__60924D76", "Customer_Modules", value);
                 }
             }
         }
@@ -1052,18 +1052,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Versions__ModId__5EAA0504", "Versions")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Versions__ModId__5EAA0504", "Versions")]
         public EntityCollection<Version> Versions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Version>("VersionR.Models.FK__Versions__ModId__5EAA0504", "Versions");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Version>("VersionR_Entities.FK__Versions__ModId__5EAA0504", "Versions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Version>("VersionR.Models.FK__Versions__ModId__5EAA0504", "Versions", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Version>("VersionR_Entities.FK__Versions__ModId__5EAA0504", "Versions", value);
                 }
             }
         }
@@ -1075,7 +1075,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="Role")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="Role")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Role : EntityObject
@@ -1161,18 +1161,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Users__RId__6462DE5A", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Users__RId__6462DE5A", "Users")]
         public EntityCollection<User> Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("VersionR.Models.FK__Users__RId__6462DE5A", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("VersionR_Entities.FK__Users__RId__6462DE5A", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("VersionR.Models.FK__Users__RId__6462DE5A", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("VersionR_Entities.FK__Users__RId__6462DE5A", "Users", value);
                 }
             }
         }
@@ -1184,7 +1184,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="User")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class User : EntityObject
@@ -1372,18 +1372,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Customer_M__CmId__5F9E293D", "Customer_Modules")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Customer_M__CmId__5F9E293D", "Customer_Modules")]
         public EntityCollection<Customer_Modules> Customer_Modules
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Customer_Modules>("VersionR.Models.FK__Customer_M__CmId__5F9E293D", "Customer_Modules");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Customer_Modules>("VersionR_Entities.FK__Customer_M__CmId__5F9E293D", "Customer_Modules");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Customer_Modules>("VersionR.Models.FK__Customer_M__CmId__5F9E293D", "Customer_Modules", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Customer_Modules>("VersionR_Entities.FK__Customer_M__CmId__5F9E293D", "Customer_Modules", value);
                 }
             }
         }
@@ -1394,18 +1394,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Downloads__CmId__627A95E8", "Downloads")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Downloads__CmId__627A95E8", "Downloads")]
         public EntityCollection<Download> Downloads
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Download>("VersionR.Models.FK__Downloads__CmId__627A95E8", "Downloads");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Download>("VersionR_Entities.FK__Downloads__CmId__627A95E8", "Downloads");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Download>("VersionR.Models.FK__Downloads__CmId__627A95E8", "Downloads", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Download>("VersionR_Entities.FK__Downloads__CmId__627A95E8", "Downloads", value);
                 }
             }
         }
@@ -1416,16 +1416,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Users__RId__6462DE5A", "Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Users__RId__6462DE5A", "Roles")]
         public Role Role
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("VersionR.Models.FK__Users__RId__6462DE5A", "Roles").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("VersionR_Entities.FK__Users__RId__6462DE5A", "Roles").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("VersionR.Models.FK__Users__RId__6462DE5A", "Roles").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("VersionR_Entities.FK__Users__RId__6462DE5A", "Roles").Value = value;
             }
         }
         /// <summary>
@@ -1437,13 +1437,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("VersionR.Models.FK__Users__RId__6462DE5A", "Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("VersionR_Entities.FK__Users__RId__6462DE5A", "Roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Role>("VersionR.Models.FK__Users__RId__6462DE5A", "Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Role>("VersionR_Entities.FK__Users__RId__6462DE5A", "Roles", value);
                 }
             }
         }
@@ -1454,18 +1454,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Versions__EmId__5DB5E0CB", "Versions")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Versions__EmId__5DB5E0CB", "Versions")]
         public EntityCollection<Version> Versions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Version>("VersionR.Models.FK__Versions__EmId__5DB5E0CB", "Versions");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Version>("VersionR_Entities.FK__Versions__EmId__5DB5E0CB", "Versions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Version>("VersionR.Models.FK__Versions__EmId__5DB5E0CB", "Versions", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Version>("VersionR_Entities.FK__Versions__EmId__5DB5E0CB", "Versions", value);
                 }
             }
         }
@@ -1477,7 +1477,7 @@ namespace VersionR.Models
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="VersionR.Models", Name="Version")]
+    [EdmEntityTypeAttribute(NamespaceName="VersionR_Entities", Name="Version")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Version : EntityObject
@@ -1769,18 +1769,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Downloads__VrId__618671AF", "Downloads")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Downloads__VrId__618671AF", "Downloads")]
         public EntityCollection<Download> Downloads
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Download>("VersionR.Models.FK__Downloads__VrId__618671AF", "Downloads");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Download>("VersionR_Entities.FK__Downloads__VrId__618671AF", "Downloads");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Download>("VersionR.Models.FK__Downloads__VrId__618671AF", "Downloads", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Download>("VersionR_Entities.FK__Downloads__VrId__618671AF", "Downloads", value);
                 }
             }
         }
@@ -1791,18 +1791,18 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Manuals__VrId__636EBA21", "Manuals")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Manuals__VrId__636EBA21", "Manuals")]
         public EntityCollection<Manual> Manuals
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Manual>("VersionR.Models.FK__Manuals__VrId__636EBA21", "Manuals");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Manual>("VersionR_Entities.FK__Manuals__VrId__636EBA21", "Manuals");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Manual>("VersionR.Models.FK__Manuals__VrId__636EBA21", "Manuals", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Manual>("VersionR_Entities.FK__Manuals__VrId__636EBA21", "Manuals", value);
                 }
             }
         }
@@ -1813,16 +1813,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Versions__ModId__5EAA0504", "Modules")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Versions__ModId__5EAA0504", "Modules")]
         public Module Module
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR.Models.FK__Versions__ModId__5EAA0504", "Modules").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR_Entities.FK__Versions__ModId__5EAA0504", "Modules").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR.Models.FK__Versions__ModId__5EAA0504", "Modules").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR_Entities.FK__Versions__ModId__5EAA0504", "Modules").Value = value;
             }
         }
         /// <summary>
@@ -1834,13 +1834,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR.Models.FK__Versions__ModId__5EAA0504", "Modules");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Module>("VersionR_Entities.FK__Versions__ModId__5EAA0504", "Modules");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Module>("VersionR.Models.FK__Versions__ModId__5EAA0504", "Modules", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Module>("VersionR_Entities.FK__Versions__ModId__5EAA0504", "Modules", value);
                 }
             }
         }
@@ -1851,16 +1851,16 @@ namespace VersionR.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("VersionR.Models", "FK__Versions__EmId__5DB5E0CB", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("VersionR_Entities", "FK__Versions__EmId__5DB5E0CB", "Users")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Versions__EmId__5DB5E0CB", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Versions__EmId__5DB5E0CB", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Versions__EmId__5DB5E0CB", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Versions__EmId__5DB5E0CB", "Users").Value = value;
             }
         }
         /// <summary>
@@ -1872,13 +1872,13 @@ namespace VersionR.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR.Models.FK__Versions__EmId__5DB5E0CB", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("VersionR_Entities.FK__Versions__EmId__5DB5E0CB", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("VersionR.Models.FK__Versions__EmId__5DB5E0CB", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("VersionR_Entities.FK__Versions__EmId__5DB5E0CB", "Users", value);
                 }
             }
         }

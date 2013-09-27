@@ -78,10 +78,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\VersionR.ia211.local.Designer.cs">
+    <Compile Include="Models\VersionR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VersionR.ia211.local.edmx</DependentUpon>
+      <DependentUpon>VersionR.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -148,9 +148,9 @@
     <None Include="Content\font\fontawesome-webfont.ttf" />
     <None Include="Content\font\fontawesome-webfont.woff" />
     <None Include="Content\font\FontAwesome.otf" />
-    <EntityDeploy Include="Models\VersionR.ia211.local.edmx">
+    <EntityDeploy Include="Models\VersionR.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VersionR.ia211.local.Designer.cs</LastGenOutput>
+      <LastGenOutput>VersionR.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
