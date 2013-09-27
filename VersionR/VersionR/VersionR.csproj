@@ -78,6 +78,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MenuItemExtensions.cs" />
     <Compile Include="Models\VersionR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,10 +108,12 @@
     <Content Include="Views\Account\Create.aspx" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Admin\CreateRole.aspx" />
+    <Content Include="Views\Admin\EditRole.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Admin\Roles.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\HelloWorld\Welcome.aspx" />
+    <Content Include="Views\Shared\AdminSidebar.ascx" />
     <Content Include="Views\UserLicenses\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

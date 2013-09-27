@@ -4,6 +4,10 @@
 	Index
 </asp:Content>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
+	Benutzerverwaltung
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
         <h2>Kunden</h2>

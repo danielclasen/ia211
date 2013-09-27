@@ -1,11 +1,11 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
-
+<%@ Import Namespace="VersionR.Helpers" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />-->
     <link href="../../Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="../../Content/js/bootstrap.min.js" type="text/javascript"></script>
@@ -15,26 +15,65 @@
     <div class="page">
 
         <div id="header">
-            <div id="title">
-                <h1>Versionierung</h1>
-            </div>
-              
-            <div id="logindisplay">
+            
+            
+            <div class="navbar navbar-static-top">
+              <div class="navbar-inner">
+                <div class="container">
+ 
+                  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+ 
+                  <!-- Be sure to leave the brand out there if you want it shown -->
+                  <a class="brand" href="/"><i class="icon-time"></i> VersionR</a>
 
-            </div> 
-            
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Startseite", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("Info", "About", "Home")%></li>
-                </ul>
-            
+                  <ul class="nav">
+                        <%: Html.MenuItem("Startseite", "Index", "Home")%>
+                        <%: Html.MenuItem("Mein VersionR", "Index", "Account")%>
+                      <li><a href="#">Link</a></li>
+                    </ul>
+ 
+                  <!-- Everything you want hidden at 940px or less, place within here -->
+                  <div class="nav-collapse collapse">
+                    <!-- .nav, .navbar-search, .navbar-form, etc -->
+                  </div>
+
+                  <ul class="nav pull-right">
+                      <%: Html.MenuItem("Admin", "Index", "Admin")%>
+                    </ul>
+ 
+                </div>
+              </div>
             </div>
+
         </div>
 
-        <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        <div id="main">       
+
+                  <div class="container-fluid">
+                  <div class="row-fluid">
+                    <div class="span12">
+                        
+                      <div class="page-header">
+                        <h1><asp:ContentPlaceHolder ID="PageTitle" runat="server" /> <small><asp:ContentPlaceHolder ID="PageSubTitle" runat="server" /></small></h1>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="row-fluid">
+                    <div class="span2">
+                        <asp:ContentPlaceHolder ID="SidebarContent" runat="server" />
+                    </div>
+                    <div class="span10">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                    </div>
+                  </div>
+                </div>
 
             <div id="footer">
             </div>

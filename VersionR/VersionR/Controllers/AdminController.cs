@@ -55,6 +55,30 @@ namespace VersionR.Controllers
             }
         }
 
+        //
+        // GET: /Account/Edit/editRoleId
+        public ActionResult EditRole(int id)
+        {
+            return View(db.Roles.FirstOrDefault(R => R.RId == id));            
+        }
 
+        [HttpPost]
+        public ActionResult EditRole(int id, FormCollection collection)
+        {
+            var role = db.Roles.Single(r => r.RId == id);
+            
+            try
+            {                
+                UpdateModel(role);
+                db.SaveChanges();                
+                return RedirectToAction("Roles");                
+            }
+            catch(Exception e)
+            {
+                return View(role);
+            }
+
+        }
+        
     }
 }
