@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.ModelsLocale.Kunden>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.User>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Create
@@ -10,26 +10,36 @@
     <%: Html.ValidationSummary(true) %>
     <fieldset>
         <legend>Fields</legend>
+
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.NickName) %>
+            <%: Html.LabelFor(m => m.NickName) %>
         </div>
         <div class="editor-field">
             <%: Html.TextBoxFor(model => model.NickName) %>
             <%: Html.ValidationMessageFor(model => model.NickName) %>
         </div>
+
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.Email) %>
+            <%: Html.LabelFor(model => model.Role) %>
         </div>
         <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.Email) %>
-            <%: Html.ValidationMessageFor(model => model.Email) %>
+            <%: Html.ListBoxFor( m => m.RId, ViewData["roleSelect"] as SelectList) %>
+            <%: Html.ValidationMessageFor(model => model.NickName) %>
         </div>
+
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.Telefon) %>
+            <%: Html.LabelFor(model => model.EMail) %>
         </div>
         <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.Telefon) %>
-            <%: Html.ValidationMessageFor(model => model.Telefon) %>
+            <%: Html.TextBoxFor(model => model.EMail) %>
+            <%: Html.ValidationMessageFor(model => model.EMail) %>
+        </div>
+        <div class="editor-label">
+            <%: Html.LabelFor(model => model.Phone) %>
+        </div>
+        <div class="editor-field">
+            <%: Html.TextBoxFor(model => model.Phone) %>
+            <%: Html.ValidationMessageFor(model => model.Phone) %>
         </div>
         <div class="editor-label">
             Passwort

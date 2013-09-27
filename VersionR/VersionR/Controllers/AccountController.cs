@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using VersionR.ModelsLocale;
+using VersionR.Models;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -11,18 +11,18 @@ namespace VersionR.Controllers
     {
 
         //VersionR.Models.ia211Entities db = new ia211Entities();
-        VersionR.ModelsLocale.LocaleVersionREntities db = new ModelsLocale.LocaleVersionREntities();
+        VersionR.Models.VersionR_ia211_local_entities db = new VersionR_ia211_local_entities();
         //
         // GET: /Account/
 
         public ActionResult Index()
         {
             
-            var kunden = from m in db.Kunden
+            var users = from m in db.Users
                          where true
                          select m;
 
-            return View(kunden.ToList());
+            return View(users.ToList());
 
             //TODO: Check for Login, return different views
             //return View();
@@ -34,39 +34,30 @@ namespace VersionR.Controllers
 
         public ActionResult Create()
         {
+
+            ViewData["roleSelect"] = new SelectList(db.Roles, "RId", "Name");
+
             return View();
         }
         
         [HttpPost]
-        public ActionResult Create(Kunden newKunde)
+        public ActionResult Create(User newUser)
         {
 
             if (ModelState.IsValid)
             {
-                newKunde.PwHash = getMD5Hash(newKunde.PwHash);
-                db.AddToKunden(newKunde);
+                newUser.PwHash = getMD5Hash(newUser.PwHash);
+                db.AddToUsers(newUser);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(newKunde);
+                return View(newUser);
             }
         }
 
-        //
-        // GET: /Account/TestLocale/
-
-        public ActionResult TestLocale()
-        {
-            VersionR.ModelsLocale.LocaleVersionREntities ent = new ModelsLocale.LocaleVersionREntities();
-
-            var kundenList = from k in ent.Kunden
-                             select k;
-
-            return View(kundenList.ToList());
-        }
         /// <summary>
         /// Gibt einen MD5 Hash als String zurück
         /// </summary>

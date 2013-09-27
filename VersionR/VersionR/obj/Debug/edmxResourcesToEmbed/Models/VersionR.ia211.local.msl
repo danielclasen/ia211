@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VersionRModelsStoreContainer" CdmEntityContainer="VersionR_ia211_local_entities">
+    <EntitySetMapping Name="Customer_Modules">
+      <EntityTypeMapping TypeName="VersionR.Models.Customer_Modules">
+        <MappingFragment StoreEntitySet="Customer_Modules">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="CmId" ColumnName="CmId" />
+          <ScalarProperty Name="ModId" ColumnName="ModId" />
+          <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Downloads">
+      <EntityTypeMapping TypeName="VersionR.Models.Download">
+        <MappingFragment StoreEntitySet="Downloads">
+          <ScalarProperty Name="DlId" ColumnName="DlId" />
+          <ScalarProperty Name="DlDate" ColumnName="DlDate" />
+          <ScalarProperty Name="VrId" ColumnName="VrId" />
+          <ScalarProperty Name="CmId" ColumnName="CmId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manuals">
+      <EntityTypeMapping TypeName="VersionR.Models.Manual">
+        <MappingFragment StoreEntitySet="Manuals">
+          <ScalarProperty Name="MId" ColumnName="MId" />
+          <ScalarProperty Name="VrId" ColumnName="VrId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="VersionR.Models.Module">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="ModId" ColumnName="ModId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PricePerYear" ColumnName="PricePerYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="VersionR.Models.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RId" ColumnName="RId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="VersionR.Models.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="RId" ColumnName="RId" />
+          <ScalarProperty Name="PwHash" ColumnName="PwHash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Versions">
+      <EntityTypeMapping TypeName="VersionR.Models.Version">
+        <MappingFragment StoreEntitySet="Versions">
+          <ScalarProperty Name="VrId" ColumnName="VrId" />
+          <ScalarProperty Name="Relase" ColumnName="Relase" />
+          <ScalarProperty Name="SubRelease" ColumnName="SubRelease" />
+          <ScalarProperty Name="BuildId" ColumnName="BuildId" />
+          <ScalarProperty Name="Platform" ColumnName="Platform" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="EmId" ColumnName="EmId" />
+          <ScalarProperty Name="ModId" ColumnName="ModId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceUserController.cs" />
@@ -77,15 +78,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LocaleModel.Designer.cs">
+    <Compile Include="Models\VersionR.ia211.local.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LocaleModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VersionR.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VersionR.edmx</DependentUpon>
+      <DependentUpon>VersionR.ia211.local.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,13 +103,18 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Models\VersionR.edmx.sql" />
     <Content Include="Views\Account\Create.aspx" />
     <Content Include="Views\Account\Index.aspx" />
-    <Content Include="Views\Account\TestLocale.aspx" />
+    <Content Include="Views\Admin\CreateRole.aspx" />
+    <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Admin\Roles.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\HelloWorld\Welcome.aspx" />
     <Content Include="Views\UserLicenses\Index.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -147,13 +148,9 @@
     <None Include="Content\font\fontawesome-webfont.ttf" />
     <None Include="Content\font\fontawesome-webfont.woff" />
     <None Include="Content\font\FontAwesome.otf" />
-    <EntityDeploy Include="Models\VersionR.edmx">
+    <EntityDeploy Include="Models\VersionR.ia211.local.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VersionR.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Models\LocaleModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LocaleModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>VersionR.ia211.local.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

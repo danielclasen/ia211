@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VersionR.ModelsLocale.Kunden>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VersionR.Models.User>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -14,15 +14,17 @@
             <th>E-Mail</th>
             <th>Telefon</th>
             <th>Password-Hash</th>
+            <th>Rolle</th>
         </tr>
         <% foreach (var item in Model)
            { %>
         <tr>
-            <td><%: item.KNr %></td>
+            <td><%: item.UId %></td>
             <td><%: item.NickName %></td>
-            <td><%: item.Email %></td>
-            <td><%: item.Telefon %></td>
+            <td><%: item.EMail %></td>
+            <td><%: item.Phone %></td>
             <td><%: item.PwHash %></td>
+            <td><%: item.Role.Name %></td>
         </tr>
         <% } %>
     </table>

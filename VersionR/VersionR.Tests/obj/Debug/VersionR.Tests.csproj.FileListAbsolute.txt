@@ -22,3 +22,11 @@ F:\GitHub\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.pdb
 F:\GitHub\ia211\VersionR\VersionR.Tests\obj\Debug\ResolveAssemblyReference.cache
 F:\GitHub\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
 F:\GitHub\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll.config
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.pdb
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.dll
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.pdb
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.csprojResolveAssemblyReference.cache
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
+C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb
