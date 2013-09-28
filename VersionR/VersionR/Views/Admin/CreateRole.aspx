@@ -4,16 +4,26 @@
 	CreateRole
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
+Rechte-Verwaltung
+</asp:Content>
 
-    <h2>CreateRole</h2>
+<asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
+Neue Rolle anlegen
+</asp:Content>
+
+
+<asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
+<% Html.RenderPartial("AdminSidebar"); %>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Neue Rolle anlegen</legend>
-                        
+                    
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Name) %>
             </div>
@@ -30,7 +40,7 @@
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Back to List", "Roles") %>
     </div>
 
 </asp:Content>

@@ -13,7 +13,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    Dashboard coming soon...
 </asp:Content>
 
 <asp:Content ID="SidebarContent" ContentPlaceHolderID="SidebarContent" runat="server">

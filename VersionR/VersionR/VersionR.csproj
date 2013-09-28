@@ -53,14 +53,15 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.RegularExpressions" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -78,6 +79,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BootstrapHelper.cs" />
     <Compile Include="Helpers\MenuItemExtensions.cs" />
     <Compile Include="Models\VersionR.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -99,6 +101,7 @@
     <Content Include="Content\css\font-awesome-ie7.min.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Content\js\bootstrap.js" />
@@ -108,12 +111,14 @@
     <Content Include="Views\Account\Create.aspx" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Admin\CreateRole.aspx" />
+    <Content Include="Views\Admin\CreateUser.aspx" />
     <Content Include="Views\Admin\EditRole.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Admin\Roles.aspx" />
+    <Content Include="Views\Admin\Users.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\HelloWorld\Welcome.aspx" />
-    <Content Include="Views\Shared\AdminSidebar.ascx" />
+    <Content Include="Views\Admin\AdminSidebar.ascx" />
     <Content Include="Views\UserLicenses\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -146,6 +151,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Content\font\fontawesome-webfont.eot" />
     <None Include="Content\font\fontawesome-webfont.svg" />
     <None Include="Content\font\fontawesome-webfont.ttf" />
@@ -171,7 +179,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1596</DevelopmentServerPort>
+          <DevelopmentServerPort>26060</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
