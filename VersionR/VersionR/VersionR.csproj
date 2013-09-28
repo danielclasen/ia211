@@ -112,6 +112,7 @@
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Admin\CreateRole.aspx" />
     <Content Include="Views\Admin\CreateUser.aspx" />
+    <Content Include="Views\Admin\DeleteRole.aspx" />
     <Content Include="Views\Admin\EditRole.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Admin\Roles.aspx" />

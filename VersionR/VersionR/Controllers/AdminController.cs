@@ -160,6 +160,50 @@ namespace VersionR.Controllers
             }
 
         }
+
+
+        //
+        // GET: /Account/Edit/editRoleId
+        public ActionResult DeleteRole(int id)
+        {
+
+            var affectedUsers = from m in db.Users
+                        where m.RId == id
+                        select m;
+
+            ViewData["affectedUsers"] = affectedUsers.ToList();
+
+            return View(db.Roles.FirstOrDefault(R => R.RId == id));
+        }
+
+        [HttpPost]
+        public ActionResult DeleteRole(int id, Role roleToDelete)
+        {
+
+            var role = db.Roles.FirstOrDefault(r => r.RId == id);
+            
+            try
+            {   
+               
+                var affectedUsers = from u in db.Users
+                                    where u.RId == role.RId
+                                    select u;
+
+                foreach (var user in affectedUsers){
+                    db.Users.DeleteObject(user);
+                }                    
+                db.Roles.DeleteObject(role);
+                db.SaveChanges();
+                return RedirectToAction("Roles");
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = e.ToString();
+                return View(role);
+            }
+
+        }
+
         
     }
 }

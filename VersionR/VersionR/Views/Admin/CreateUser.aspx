@@ -55,9 +55,13 @@
         </div>
 
         <div class="control-group">
-        
+            
             <div class="controls">
-             <input type="submit" class="btn" value="Benutzer anlegen" />
+            <div class="btn-group">
+            <button class="btn" type="reset" value="">Zurücksetzen</button>
+            <button type="submit" class="btn" value="">Benutzer anlegen</button>
+            </div>
+
             </div>
 
         </div>

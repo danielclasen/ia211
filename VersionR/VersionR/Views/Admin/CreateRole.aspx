@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.Role>" %>
-
+<%@ Import Namespace="VersionR.Helpers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	CreateRole
 </asp:Content>
@@ -19,28 +19,32 @@ Neue Rolle anlegen
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <% using (Html.BeginForm()) {%>
+    <% Html.BeginForm("CreateRole", "Admin", FormMethod.Post, new { @class = "form-horizontal" }); %>
         <%: Html.ValidationSummary(true) %>
 
-        <fieldset>
-                    
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Name) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Name) %>
-                <%: Html.ValidationMessageFor(model => model.Name) %>
-            </div>
-            
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
 
-    <% } %>
+        <div class="control-group">
+            <%: Html.BootstrapLabelFor(m => m.Name, "Bezeichnung")%>
+            <div class="controls">
+            <%: Html.TextBoxFor(model => model.Name) %>
+            <%: Html.ValidationMessageFor(model => model.Name) %>
+            </div>
+        </div>
+                    
+        <div class="control-group">
+            <label class="control-label">Aktion</label>
+            <div class="controls">
+            <div class="btn-group">        
+                <button class="btn" type="reset" value="">Zurücksetzen</button>
+                <button type="submit" class="btn btn-primary" value="Create">Rolle anlegen</button>
+            </div>
+            </div>
+        </div>
+
+    <% Html.EndForm(); %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Roles") %>
+        <%: Html.ActionLink("Zurück zur Übersicht", "Roles", "Admin", new { }, new { @class = "btn" })%> 
     </div>
 
 </asp:Content>
