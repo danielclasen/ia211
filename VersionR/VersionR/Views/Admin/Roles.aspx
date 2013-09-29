@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
-	Rollen-Verwaltung
+	Rechteverwaltung
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubtitle" runat="server">
@@ -48,7 +48,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Create New", "CreateRole") %>
+        <%: Html.ActionLink("Neue Rolle anlegen", "CreateRole", "Admin", new { }, new { @class = "btn" })%> 
     </p>
 
 </asp:Content>

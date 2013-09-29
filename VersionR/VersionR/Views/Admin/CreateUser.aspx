@@ -71,7 +71,7 @@
 
     <% Html.EndForm();%>
     <div>
-        <%: Html.ActionLink("Back to List", "Users") %>
+        <%: Html.ActionLink("Zurück zur Übersicht", "Users", "Admin", new { }, new { @class = "btn" })%> 
     </div>
 
 </asp:Content>

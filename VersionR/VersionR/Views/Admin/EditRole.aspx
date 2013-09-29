@@ -6,7 +6,7 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
-Rolle bearbeiten
+Rechteverwaltung
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">

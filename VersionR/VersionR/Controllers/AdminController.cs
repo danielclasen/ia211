@@ -113,6 +113,22 @@ namespace VersionR.Controllers
         }
 
         //
+        // GET: /DetailsRole/
+        public ActionResult DetailsRole(int id)
+        {
+            try
+            {
+                var role = db.Roles.FirstOrDefault(r => r.RId == id);
+                return View(role);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Roles");
+            }
+
+        }
+
+        //
         // GET: /Account/Create/
         public ActionResult CreateRole()
         {

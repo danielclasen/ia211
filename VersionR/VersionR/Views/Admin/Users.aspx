@@ -44,7 +44,7 @@ Fügen Sie neue Benutzer hinzu oder bearbeiten Sie bestehende.
         </tbody>
     </table>
     <p>
-        <%: Html.ActionLink("Neuen Benutzer anlegen", "CreateUser") %>
+        <%: Html.ActionLink("Neuen Benutzer anlegen", "CreateUser", "Admin", new { }, new { @class = "btn" })%> 
     </p>
 
 </asp:Content>

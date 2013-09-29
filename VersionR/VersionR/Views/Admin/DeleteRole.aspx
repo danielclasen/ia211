@@ -24,31 +24,7 @@
 
         <h3>Betroffene Benutzer</h3><small>Diese Benutzer werden ebenfalls beim Löschen der Rolle entfernt.</small>
 
-        <table class="table table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th>User-ID</th>
-                    <th>Benutzername</th>
-                    <th>E-Mail</th>
-                    <th>Telefon</th>
-                </tr>
-            </thead>
-            <tbody>
-
-       <% foreach (var user in Model.Users)
-           { %>
-           
-               <tr>
-                    <td><%: user.UId %></td>
-                    <td><%: user.NickName %></td>
-                    <td><%: user.EMail %></td>
-                    <td><%: user.Phone %></td>
-                </tr>
-        
-        <% } %>
-        
-            </tbody>
-        </table>
+        <% Html.RenderPartial("RoleAffectedUsers"); %>
 
 
 
@@ -64,10 +40,12 @@
         </div>
     <% Html.EndForm(); %>
 
+    <%: Html.ActionLink("Zurück zur Übersicht", "Roles", "Admin", new { }, new { @class = "btn" })%> 
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
-Rolle Löschen
+Rechteverwaltung
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">

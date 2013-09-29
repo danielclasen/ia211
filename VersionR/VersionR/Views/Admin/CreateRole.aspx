@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
-Rechte-Verwaltung
+Rechteverwaltung
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
