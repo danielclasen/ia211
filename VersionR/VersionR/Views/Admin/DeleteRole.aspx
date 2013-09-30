@@ -22,25 +22,23 @@
             </tbody>
         </table>
 
-        <h3>Betroffene Benutzer</h3><small>Diese Benutzer werden ebenfalls beim Löschen der Rolle entfernt.</small>
+        <h3>Betroffene Benutzer</h3>
+        
+        <div class="alert alert-error"><b>Achtung!</b> Diese Benutzer werden ebenfalls beim Löschen der Rolle entfernt</div>
 
         <% Html.RenderPartial("RoleAffectedUsers"); %>
 
 
 
     <% Html.BeginForm("DeleteRole", "Admin", FormMethod.Post, new { @class = "form-horizontal" }); %>
-        <div class="control-group">
-            <label class="control-label">Aktion</label>
-            <div class="controls">     
+  
                 <div class="btn-group">
                     <%: Html.ActionLink("Abbrechen", "Roles", "Admin", new { }, new { @class = "btn" })%> 
-                    <button type="submit" class="btn btn-danger" value="Delete">Rolle lsöchen</button>
+                    <button type="submit" class="btn btn-danger" value="Delete">Rolle löschen</button>
                 </div>               
-            </div>
-        </div>
+
     <% Html.EndForm(); %>
 
-    <%: Html.ActionLink("Zurück zur Übersicht", "Roles", "Admin", new { }, new { @class = "btn" })%> 
 
 </asp:Content>
 

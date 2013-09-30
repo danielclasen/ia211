@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceUserController.cs" />
@@ -81,12 +82,14 @@
     </Compile>
     <Compile Include="Helpers\BootstrapHelper.cs" />
     <Compile Include="Helpers\MenuItemExtensions.cs" />
+    <Compile Include="Models\AuthModels.cs" />
     <Compile Include="Models\VersionR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VersionR.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuthorizationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\VerionRLocale.mdf" />
@@ -119,6 +122,8 @@
     <Content Include="Views\Admin\Roles.aspx" />
     <Content Include="Views\Admin\Users.aspx" />
     <Content Include="Views\Admin\RoleAffectedUsers.ascx" />
+    <Content Include="Views\Auth\AccessDenied.aspx" />
+    <Content Include="Views\Auth\LogOn.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\HelloWorld\Welcome.aspx" />
     <Content Include="Views\Admin\AdminSidebar.ascx" />
