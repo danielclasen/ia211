@@ -28,6 +28,7 @@ Fügen Sie neue Benutzer hinzu oder bearbeiten Sie bestehende.
             <th>E-Mail</th>
             <th>Telefon</th>
             <th>Rolle</th>
+            <th></th>
         </tr>
     </thead>    
     <tbody>
@@ -39,6 +40,13 @@ Fügen Sie neue Benutzer hinzu oder bearbeiten Sie bestehende.
             <td><%: item.EMail %></td>
             <td><%: item.Phone %></td>
             <td><%: item.Role.Name %></td>
+            <td class="span3"> 
+                <div class="btn-group">
+                <%: Html.ActionLink("Bearbeiten", "EditUser", "Admin", new { id = item.UId }, new { @class = "btn" })%>
+                <%: Html.ActionLink("Details", "DetailsUser", "Admin", new { id = item.UId }, new { @class = "btn", disabled = "disabled", onclick="return false;" })%>
+                <%: Html.ActionLink("Löschen", "DeleteUser", "Admin", new { id = item.UId }, new { @class = "btn btn-danger", disabled = "disabled", onclick = "return false;" })%>
+                </div> 
+            </td>
         </tr>
         <% } %>
         </tbody>

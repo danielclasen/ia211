@@ -42,6 +42,7 @@ Hier können Sie die Rolle "<%: Model.Name %>" bearbeiten
                 <button class="btn" type="reset" value="">Zurücksetzen</button>
                 <button type="submit" class="btn btn-primary" value="Edit">Rolle speichern</button>
             </div>
+            <%: Html.ActionLink("Rolle " + Model.Name + " löschen", "DeleteRole", "Admin", new { id = Model.RId }, new { @class = "btn btn-danger" })%>
             </div>
         </div>
 

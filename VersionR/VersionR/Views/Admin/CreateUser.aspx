@@ -59,7 +59,7 @@
             <div class="controls">
             <div class="btn-group">
             <button class="btn" type="reset" value="">Zurücksetzen</button>
-            <button type="submit" class="btn" value="">Benutzer anlegen</button>
+            <button type="submit" class="btn btn-primary" value="">Benutzer anlegen</button>
             </div>
 
             </div>

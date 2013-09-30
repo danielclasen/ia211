@@ -80,6 +80,44 @@ namespace VersionR.Controllers
 
 
         //
+        // GET: /Admin/EditUser/Id
+        public ActionResult EditUser(int id)
+        {
+            var user = db.Users.FirstOrDefault(u => u.UId == id);
+            var roles = from r in db.Roles select r;
+            ViewData["roleSelect"] = new SelectList(roles, "RId", "Name", user.RId);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(int id, FormCollection collection, int roleSelect, string newPassword)
+        {
+            var user = db.Users.Single(u => u.UId == id);
+
+
+            if (ModelState.IsValid && roleSelect != 0)
+            {
+                user.RId = roleSelect;
+                if (newPassword.Length > 0 && newPassword != "")
+                {
+                    user.PwHash = PasswordService.getMD5Hash(newPassword);
+                }
+                UpdateModel(user);
+                db.SaveChanges();
+                return RedirectToAction("Users");
+            }
+            else
+            {
+                var roles = from r in db.Roles select r;
+                ViewData["roleSelect"] = new SelectList(roles, "RId", "Name", user.RId);
+                return View(user);
+            }
+
+        }
+
+
+
+        //
         // GET: /Roles/
         public ActionResult Roles()
         {
@@ -131,7 +169,7 @@ namespace VersionR.Controllers
         }
 
         //
-        // GET: /Account/Edit/editRoleId
+        // GET: /Account/Edit/EditRoleId
         public ActionResult EditRole(int id)
         {
             return View(db.Roles.FirstOrDefault(R => R.RId == id));            
