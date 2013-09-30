@@ -14,3 +14,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewData["Message"] %><h2>
 </asp:Content>
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
+VersionR
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
+Das Software-Modul Versions und Revisions System
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
+
+</asp:Content>
