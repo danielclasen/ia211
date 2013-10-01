@@ -30,3 +30,11 @@ C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.p
 C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.csprojResolveAssemblyReference.cache
 C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
 C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll.config
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.dll
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.Tests.pdb
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.dll
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\bin\Debug\VersionR.pdb
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.csprojResolveAssemblyReference.cache
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.dll
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR.Tests\obj\Debug\VersionR.Tests.pdb

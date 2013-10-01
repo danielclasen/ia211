@@ -23,3 +23,8 @@ C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR\bin\VersionR.dll
 C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR\bin\VersionR.pdb
 C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
 C:\Users\clase_000\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\bin\VersionR.dll
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\bin\VersionR.pdb
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.csprojResolveAssemblyReference.cache
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
+E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
