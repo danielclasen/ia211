@@ -92,9 +92,9 @@
     <Compile Include="Services\AuthorizationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\VerionRLocale.mdf" />
-    <Content Include="App_Data\VerionRLocale_log.ldf">
-      <DependentUpon>VerionRLocale.mdf</DependentUpon>
+    <Content Include="App_Data\VersionR.mdf" />
+    <Content Include="App_Data\VersionR_log.ldf">
+      <DependentUpon>VersionR.mdf</DependentUpon>
     </Content>
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
@@ -112,6 +112,7 @@
     <Content Include="Content\js\jquery-1.10.2.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Models\VersionR.20131001.edmx.sql" />
     <Content Include="Models\VersionR.edmx.sql" />
     <Content Include="Views\Account\Create.aspx" />
     <Content Include="Views\Account\Index.aspx" />
