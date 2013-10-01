@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using VersionR.Models;
-using System.Security.Cryptography;
-using System.Text;
-using System.Data.Objects;
-
 using VersionR.Services;
 
 namespace VersionR.Controllers
@@ -15,26 +9,21 @@ namespace VersionR.Controllers
     [AuthorizeWithNotify(Roles = "Administrator")]
     public class AdminController : Controller
     {
-
-        VersionR.Models.VersionR db = new VersionR.Models.VersionR();
+        private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
 
         //
         // GET: /Admin/
         public ActionResult Index()
         {
-            
             return View();
         }
-
-       
 
         //
         // GET: /Account/
 
         public ActionResult Users()
         {
-
-            var users = from m in db.Users
+            var users = from m in _db.Users
                         where true
                         select m;
 
@@ -42,7 +31,6 @@ namespace VersionR.Controllers
 
             //TODO: Check for Login, return different views
             //return View();
-
         }
 
         //
@@ -50,8 +38,7 @@ namespace VersionR.Controllers
 
         public ActionResult CreateUser()
         {
-
-            var roles = from r in db.Roles select r;
+            var roles = from r in _db.Roles select r;
             ViewData["roleSelect"] = new SelectList(roles, "RId", "Name");
 
             return View();
@@ -60,31 +47,29 @@ namespace VersionR.Controllers
         [HttpPost]
         public ActionResult CreateUser(User newUser, int newUserRole)
         {
-
             if (ModelState.IsValid && newUserRole != 0)
             {
                 newUser.RId = newUserRole;
                 newUser.PwHash = PasswordService.getMD5Hash(newUser.PwHash);
-                db.AddToUsers(newUser);
-                db.SaveChanges();
+                _db.AddToUsers(newUser);
+                _db.SaveChanges();
 
                 return RedirectToAction("Users");
             }
             else
             {
-                var roles = from r in db.Roles select r;
+                var roles = from r in _db.Roles select r;
                 ViewData["roleSelect"] = new SelectList(roles, "RId", "Name");
                 return View(newUser);
             }
         }
 
-
         //
         // GET: /Admin/EditUser/Id
         public ActionResult EditUser(int id)
         {
-            var user = db.Users.FirstOrDefault(u => u.UId == id);
-            var roles = from r in db.Roles select r;
+            var user = _db.Users.FirstOrDefault(u => u.UId == id);
+            var roles = from r in _db.Roles select r;
             ViewData["roleSelect"] = new SelectList(roles, "RId", "Name", user.RId);
             return View(user);
         }
@@ -92,8 +77,7 @@ namespace VersionR.Controllers
         [HttpPost]
         public ActionResult EditUser(int id, FormCollection collection, int roleSelect, string newPassword)
         {
-            var user = db.Users.Single(u => u.UId == id);
-
+            var user = _db.Users.Single(u => u.UId == id);
 
             if (ModelState.IsValid && roleSelect != 0)
             {
@@ -103,25 +87,52 @@ namespace VersionR.Controllers
                     user.PwHash = PasswordService.getMD5Hash(newPassword);
                 }
                 UpdateModel(user);
-                db.SaveChanges();
+                _db.SaveChanges();
                 return RedirectToAction("Users");
             }
             else
             {
-                var roles = from r in db.Roles select r;
+                var roles = from r in _db.Roles select r;
                 ViewData["roleSelect"] = new SelectList(roles, "RId", "Name", user.RId);
                 return View(user);
             }
-
         }
 
+        public ActionResult DeleteUser(int id)
+        {
+            try
+            {
+                var user = (from u in _db.Users where u.UId == id select u).Single();
+                return View(user);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Users");
+            }
+        }
 
+        [HttpPost]
+        public ActionResult DeleteUser(int id, User userToDelete)
+        {
+            try
+            {
+                var user = (from u in _db.Users where u.UId == id select u).Single();
+                _db.Users.DeleteObject(user);
+                _db.SaveChanges();
+                return RedirectToAction("Users");
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = e.ToString();
+                return RedirectToAction("Users");
+            }
+        }
 
         //
         // GET: /Roles/
         public ActionResult Roles()
         {
-            var roles = from m in db.Roles
+            var roles = from m in _db.Roles
                         where true
                         select m;
 
@@ -134,14 +145,13 @@ namespace VersionR.Controllers
         {
             try
             {
-                var role = db.Roles.FirstOrDefault(r => r.RId == id);
+                var role = _db.Roles.FirstOrDefault(r => r.RId == id);
                 return View(role);
             }
             catch (Exception e)
             {
                 return RedirectToAction("Roles");
             }
-
         }
 
         //
@@ -154,11 +164,10 @@ namespace VersionR.Controllers
         [HttpPost]
         public ActionResult CreateRole(Role newRole)
         {
-
             if (ModelState.IsValid)
             {
-                db.AddToRoles(newRole);
-                db.SaveChanges();
+                _db.AddToRoles(newRole);
+                _db.SaveChanges();
 
                 return RedirectToAction("Roles");
             }
@@ -172,60 +181,56 @@ namespace VersionR.Controllers
         // GET: /Account/Edit/EditRoleId
         public ActionResult EditRole(int id)
         {
-            return View(db.Roles.FirstOrDefault(R => R.RId == id));            
+            return View(_db.Roles.FirstOrDefault(R => R.RId == id));
         }
 
         [HttpPost]
         public ActionResult EditRole(int id, FormCollection collection)
         {
-            var role = db.Roles.Single(r => r.RId == id);
-            
+            var role = _db.Roles.Single(r => r.RId == id);
+
             try
-            {                
+            {
                 UpdateModel(role);
-                db.SaveChanges();                
-                return RedirectToAction("Roles");                
+                _db.SaveChanges();
+                return RedirectToAction("Roles");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return View(role);
             }
-
         }
-
 
         //
         // GET: /Account/Edit/editRoleId
         public ActionResult DeleteRole(int id)
         {
-
-            var affectedUsers = from m in db.Users
-                        where m.RId == id
-                        select m;
+            var affectedUsers = from m in _db.Users
+                                where m.RId == id
+                                select m;
 
             ViewData["affectedUsers"] = affectedUsers.ToList();
 
-            return View(db.Roles.FirstOrDefault(R => R.RId == id));
+            return View(_db.Roles.FirstOrDefault(R => R.RId == id));
         }
 
         [HttpPost]
         public ActionResult DeleteRole(int id, Role roleToDelete)
         {
+            var role = _db.Roles.FirstOrDefault(r => r.RId == id);
 
-            var role = db.Roles.FirstOrDefault(r => r.RId == id);
-            
             try
-            {   
-               
-                var affectedUsers = from u in db.Users
+            {
+                var affectedUsers = from u in _db.Users
                                     where u.RId == role.RId
                                     select u;
 
-                foreach (var user in affectedUsers){
-                    db.Users.DeleteObject(user);
-                }                    
-                db.Roles.DeleteObject(role);
-                db.SaveChanges();
+                foreach (var user in affectedUsers)
+                {
+                    _db.Users.DeleteObject(user);
+                }
+                _db.Roles.DeleteObject(role);
+                _db.SaveChanges();
                 return RedirectToAction("Roles");
             }
             catch (Exception e)
@@ -233,9 +238,6 @@ namespace VersionR.Controllers
                 ViewData["error"] = e.ToString();
                 return View(role);
             }
-
         }
-
-        
     }
 }
