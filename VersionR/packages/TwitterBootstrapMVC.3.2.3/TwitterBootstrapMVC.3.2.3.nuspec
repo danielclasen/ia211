@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>TwitterBootstrapMVC</id>
+    <version>3.2.3</version>
+    <title>Twitter Bootstrap MVC</title>
+    <authors>Dmitry A. Efimenko</authors>
+    <owners>Dmitry A. Efimenko</owners>
+    <licenseUrl>https://www.twitterbootstrapmvc.com/Documentation/LicenseTerms</licenseUrl>
+    <projectUrl>https://www.twitterbootstrapmvc.com/</projectUrl>
+    <iconUrl>http://www.personalitymatch.net/nuget-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fluent implementation of ASP.NET-MVC HTML helpers for Twitter Bootstrap.
+
+This library aids developers in writing Twitter Bootstrap related html code faster.</description>
+    <releaseNotes />
+    <copyright>Copyright ©  2013</copyright>
+    <language />
+    <dependencies>
+      <dependency id="T4MVCExtensions" version="3.6.5" />
+      <dependency id="Portable.Licensing" version="1.1.0" />
+    </dependencies>
+  </metadata>
+</package>

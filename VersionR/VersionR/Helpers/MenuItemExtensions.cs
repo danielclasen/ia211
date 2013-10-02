@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Web.Routing;
 using System.Web.Mvc;
-using System.Web.Mvc.Html;
 using System.Web.Mvc.ExpressionUtil;
+using System.Web.Mvc.Html;
 using System.Web.RegularExpressions;
+using System.Web.Routing;
 
-
-
-namespace VersionR.Helpers{
-
-    public static class MenuItemExtensions{
-
+namespace VersionR.Helpers
+{
+    public static class MenuItemExtensions
+    {
         public static MvcHtmlString MenuItem(
-        this HtmlHelper htmlHelper,
-        string text,
-        string action,
-        string controller
-        )
+            this HtmlHelper htmlHelper,
+            string text,
+            string action,
+            string controller
+            )
         {
             var li = new TagBuilder("li");
             var routeData = htmlHelper.ViewContext.RouteData;
@@ -31,5 +29,4 @@ namespace VersionR.Helpers{
             return MvcHtmlString.Create(li.ToString());
         }
     }
-
 }

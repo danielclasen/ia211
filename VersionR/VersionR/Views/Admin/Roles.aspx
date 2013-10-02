@@ -31,7 +31,7 @@
                     <%: item.RId %>
                 </td>
                 <td>
-                    <%: item.Name %>
+                    <%: Html.ActionLink(item.Name, "DetailsRole", new { id = item.RId })%>
                 </td>
                 <td class="span3">
                     <div class="btn-group">
@@ -45,7 +45,7 @@
         </tbody>
     </table>
     <p>
-        <%: Html.ActionLink("Neue Rolle anlegen", "CreateRole", "Admin", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Neue Rolle anlegen", "CreateRole", "Admin", new { }, new { @class = "btn btn-primary" })%>
     </p>
 </asp:Content>
 <asp:Content ID="SidebarContent" ContentPlaceHolderID="SidebarContent" runat="server">

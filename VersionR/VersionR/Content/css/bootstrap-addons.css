@@ -1,0 +1,11 @@
+﻿input[required]
+{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[required]:after
+{
+    content: " * ";
+    display: inline-block;
+}

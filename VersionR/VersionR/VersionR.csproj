@@ -35,6 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Portable.Licensing">
+      <HintPath>..\packages\Portable.Licensing.1.1.0\lib\portable-net40+sl4+wp7+win8\Portable.Licensing.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -81,6 +84,29 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BootstrapHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Badge\BadgeHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Bootstrap.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Breadcrumb\BreadcrumbHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Button\ButtonHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\DropDown\DropDownHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Enums\BootstrapStatus.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Enums\BrandPosition.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Enums\ButtonStatus.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Enums\NavBarDisplay.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Enums\NavBarPosition.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Interfaces\IBootstrapComponent.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Label\LabelHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\NavBar\NavBarHelper.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Shared\MenuItem.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\DangerStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\DefaultStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\ImportantStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\InfoStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\InverseStatusStragety.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\IStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\PrimaryStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\SuccessStatusStrategy.cs" />
+    <Compile Include="Helpers\BootstrapMvcHelpers\Strategies\WarningStatusStrategy.cs" />
     <Compile Include="Helpers\MenuItemExtensions.cs" />
     <Compile Include="Models\AuthModels.cs" />
     <Compile Include="Models\VersionR.Designer.cs">
@@ -88,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VersionR.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\Admin\CreateUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
   </ItemGroup>
@@ -96,6 +123,11 @@
     <Content Include="App_Data\VersionR_log.ldf">
       <DependentUpon>VersionR.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-addons.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -105,15 +137,20 @@
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery.BootstrapValidation.js" />
     <Content Include="Content\js\jquery-1.10.2.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\VersionR.20131001.edmx.sql" />
     <Content Include="Models\VersionR.edmx.sql" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Views\Account\Create.aspx" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Admin\CreateRole.aspx" />
@@ -121,6 +158,7 @@
     <Content Include="Views\Admin\DeleteRole.aspx" />
     <Content Include="Views\Admin\DeleteUser.aspx" />
     <Content Include="Views\Admin\DetailsRole.aspx" />
+    <Content Include="Views\Admin\DetailsUser.aspx" />
     <Content Include="Views\Admin\EditRole.aspx" />
     <Content Include="Views\Admin\EditUser.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
@@ -176,6 +214,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VersionR.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Content\js\jquery-1.10.2.min.map" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

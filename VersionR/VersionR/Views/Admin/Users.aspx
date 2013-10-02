@@ -44,7 +44,7 @@
                     <%: item.UId %>
                 </td>
                 <td>
-                    <%: item.NickName %>
+                    <%: Html.ActionLink(item.NickName, "DetailsUser", new { id = item.UId })%>
                 </td>
                 <td>
                     <%: item.EMail %>
@@ -57,7 +57,7 @@
                 </td>
                 <td class="span3">
                     <div class="btn-group">
-                        <%: Html.ActionLink("Details", "DetailsUser", "Admin", new { id = item.UId }, new { @class = "btn", disabled = "disabled", onclick="return false;" })%>
+                        <%: Html.ActionLink("Details", "DetailsUser", "Admin", new { id = item.UId }, new { @class = "btn" })%>
                         <%: Html.ActionLink("Bearbeiten", "EditUser", "Admin", new { id = item.UId }, new { @class = "btn" })%>
                         <%: Html.ActionLink("Löschen", "DeleteUser", "Admin", new { id = item.UId }, new { @class = "btn btn-danger" })%>
                     </div>
@@ -67,6 +67,6 @@
         </tbody>
     </table>
     <p>
-        <%: Html.ActionLink("Neuen Benutzer anlegen", "CreateUser", "Admin", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Neuen Benutzer anlegen", "CreateUser", "Admin", new { }, new { @class = "btn btn-primary" })%>
     </p>
 </asp:Content>

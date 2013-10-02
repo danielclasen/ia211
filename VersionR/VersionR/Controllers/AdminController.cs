@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 using VersionR.Models;
+using VersionR.Models.ViewModels.Admin;
 using VersionR.Services;
 
 namespace VersionR.Controllers
@@ -33,34 +35,41 @@ namespace VersionR.Controllers
             //return View();
         }
 
+        public ActionResult DetailsUser(int id)
+        {
+            try
+            {
+                var user = (from u in _db.Users where u.UId == id select u).Single();
+                return View(user);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Users");
+            }
+        }
+
         //
         // GET: /Account/Create/
 
         public ActionResult CreateUser()
         {
-            var roles = from r in _db.Roles select r;
-            ViewData["roleSelect"] = new SelectList(roles, "RId", "Name");
-
-            return View();
+            return View(new CreateUserViewModel());
         }
 
         [HttpPost]
-        public ActionResult CreateUser(User newUser, int newUserRole)
+        public ActionResult CreateUser(CreateUserViewModel model)
         {
-            if (ModelState.IsValid && newUserRole != 0)
+            if (!ModelState.IsValid || model.User.RId == 0)
             {
-                newUser.RId = newUserRole;
-                newUser.PwHash = PasswordService.getMD5Hash(newUser.PwHash);
-                _db.AddToUsers(newUser);
-                _db.SaveChanges();
-
-                return RedirectToAction("Users");
+                return View(new CreateUserViewModel());
             }
             else
             {
-                var roles = from r in _db.Roles select r;
-                ViewData["roleSelect"] = new SelectList(roles, "RId", "Name");
-                return View(newUser);
+                model.User.PwHash = PasswordService.getMD5Hash(model.User.PwHash);
+                _db.AddToUsers(model.User);
+                _db.SaveChanges();
+
+                return RedirectToAction("DetailsUser", new { id = model.User.UId });
             }
         }
 

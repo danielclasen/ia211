@@ -1,92 +1,90 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
 <%@ Import Namespace="VersionR.Helpers" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
     <!--<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />-->
     <link href="../../Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/bootstrap-addons.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="../../Content/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../../Content/js/jquery.BootstrapValidation.js" type="text/javascript"
+        charset="UTF-8"></script>
     <script src="../../Content/js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
-
     <div class="page">
-
         <div id="header">
-            
-            
             <div class="navbar navbar-static-top">
-              <div class="navbar-inner">
-                <div class="container">
- 
-                  <!-- .btn-navbar is used as the toggle for collapsed navbar content 
+                <div class="navbar-inner">
+                    <div class="container">
+                        <!-- .btn-navbar is used as the toggle for collapsed navbar content
                   <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>-->
- 
-                  <!-- Be sure to leave the brand out there if you want it shown -->
-                  <a class="brand" href="/"><i class="icon-time"></i> VersionR</a>
-
-                  <ul class="nav">
-                        <%: Html.MenuItem("Startseite", "Index", "Home")%>
-                        <%: Html.MenuItem("Mein VersionR", "Index", "Account")%>
-                      <li><a href="#">Link</a></li>
-                    </ul>
- 
-                  <!-- Everything you want hidden at 940px or less, place within here -->
-                  <!-- <div class="nav-collapse collapse">
-                    .nav, .navbar-search, .navbar-form, etc 
+                        <!-- Be sure to leave the brand out there if you want it shown -->
+                        <a class="brand" href="/"><i class="icon-time"></i>VersionR</a>
+                        <ul class="nav">
+                            <%: Html.MenuItem("Startseite", "Index", "Home")%>
+                            <%: Html.MenuItem("Mein VersionR", "Index", "Account")%>
+                            <li><a href="#">Link</a></li>
+                        </ul>
+                        <!-- Everything you want hidden at 940px or less, place within here -->
+                        <!-- <div class="nav-collapse collapse">
+                    .nav, .navbar-search, .navbar-form, etc
                   </div>-->
-
-                  <ul class="nav pull-right">
-                      <% if (Context.User.IsInRole("Administrator")) { %>
-                        <%: Html.MenuItem("Admin", "Index", "Admin")%>
-                      <% } %>
-                      <% if (Context.User.Identity.IsAuthenticated) { %>
-                        <%: Html.MenuItem("Logout", "LogOff", "Auth")%>
-                      <% } else { %>
-                        <%: Html.MenuItem("Login", "LogOn", "Auth")%>
-                      <% } %>
-                    </ul>
- 
-                </div>
-              </div>
-            </div>
-
-        </div>
-
-        <div id="main">       
-
-                  <div class="container-fluid">
-                  <div class="row-fluid">
-                    <div class="span12">
-                        
-                      <div class="page-header">
-                        <h1><asp:ContentPlaceHolder ID="PageTitle" runat="server" /> <small><asp:ContentPlaceHolder ID="PageSubTitle" runat="server" /></small></h1>
-                      </div>
-
+                        <ul class="nav pull-right">
+                            <% if (Context.User.IsInRole("Administrator"))
+                               { %>
+                            <%: Html.MenuItem("Admin", "Index", "Admin")%>
+                            <% } %>
+                            <% if (Context.User.Identity.IsAuthenticated)
+                               { %>
+                            <%: Html.MenuItem("Logout", "LogOff", "Auth")%>
+                            <% }
+                               else
+                               { %>
+                            <%: Html.MenuItem("Login", "LogOn", "Auth")%>
+                            <% } %>
+                        </ul>
                     </div>
-                  </div>
-
-                  <div class="row-fluid">
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="page-header">
+                            <h1>
+                                <asp:ContentPlaceHolder ID="PageTitle" runat="server" />
+                                <small>
+                                    <asp:ContentPlaceHolder ID="PageSubTitle" runat="server" />
+                                </small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
                     <div class="span2">
                         <asp:ContentPlaceHolder ID="SidebarContent" runat="server" />
                     </div>
                     <div class="span10">
                         <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                     </div>
-                  </div>
                 </div>
-
+            </div>
             <div id="footer">
             </div>
         </div>
     </div>
-
 </body>
 </html>
