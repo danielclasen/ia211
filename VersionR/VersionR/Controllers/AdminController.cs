@@ -428,10 +428,15 @@ namespace VersionR.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Modules");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return RedirectToAction("Modules");
             }
+        }
+
+        public ActionResult testme()
+        {
+            return View();
         }
 
         #endregion Delete
