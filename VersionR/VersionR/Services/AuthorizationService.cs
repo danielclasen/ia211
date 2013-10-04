@@ -1,30 +1,28 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Xml.Serialization;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.ComponentModel.DataAnnotations;
-using System.Data.SqlClient;
-using System.Security.Cryptography;
-using System.Text;
+using System.Xml.Serialization;
 using VersionR.Models;
-
 
 namespace VersionR.Services
 {
-
     public class VersionRMembershipProvider : SqlMembershipProvider
     {
         private VersionR.Models.VersionR db = new VersionR.Models.VersionR();
+
         public override bool ValidateUser(string email, string password)
         {
-
             string hashedPassword = PasswordService.getMD5Hash(password);
 
             try
@@ -43,10 +41,8 @@ namespace VersionR.Services
         }
     }
 
-
     public class VersionRRoleProvider : RoleProvider
     {
-       
         private VersionR.Models.VersionR db = new VersionR.Models.VersionR();
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
@@ -89,9 +85,8 @@ namespace VersionR.Services
         public override string[] GetRolesForUser(string email)
         {
             string[] roles = (from r in db.Roles
-                         where r.Users.Any(u => u.EMail == email)
-                         select r.Name).ToArray();
-
+                              where r.Users.Any(u => u.EMail == email)
+                              select r.Name).ToArray();
 
             //throw new Exception("email = " + email + " roles = " + roles[0]);
 
@@ -105,12 +100,11 @@ namespace VersionR.Services
 
         public override bool IsUserInRole(string email, string roleName)
         {
-
             bool inRole = (from u in db.Users
                            where u.EMail == email && u.Role.Name == roleName
                            select u).Any();
 
-            throw new Exception("email = " + email + " rolename = " + roleName);
+            //throw new Exception("email = " + email + " rolename = " + roleName);
 
             return inRole;
         }
@@ -126,18 +120,14 @@ namespace VersionR.Services
         }
     }
 
-
-
     public class AuthorizeWithNotifyAttribute : AuthorizeAttribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             base.OnAuthorization(filterContext);
 
-
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
-
                 if (filterContext.HttpContext.Request.HttpMethod.Equals("GET", System.StringComparison.CurrentCultureIgnoreCase))
                 {
                     filterContext.Result = new RedirectResult("~/Auth/LogOn?ReturnUrl=" + HttpUtility.UrlEncode(filterContext.HttpContext.Request.RawUrl));
@@ -146,8 +136,6 @@ namespace VersionR.Services
                 {
                     filterContext.Result = new RedirectResult("~/Auth/LogOn");
                 }
-
-                
             }
             else if (filterContext.Result is HttpUnauthorizedResult)
             {
@@ -155,10 +143,6 @@ namespace VersionR.Services
             }
         }
     }
-
-
-
-
 
     public class PasswordService
     {
@@ -185,5 +169,4 @@ namespace VersionR.Services
             return ret.Replace("-", "");
         }
     }
-
 }

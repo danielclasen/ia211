@@ -64,7 +64,7 @@
     Benutzerkonten-Verwaltung
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
-    Hier können Sie den Benutzer "<%: Model.NickName %>" bearbeiten.
+    Benutzer "<%: Model.NickName %>" bearbeiten.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <% Html.RenderPartial("AdminSidebar"); %>

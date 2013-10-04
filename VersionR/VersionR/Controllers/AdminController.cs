@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 using VersionR.Models;
-using VersionR.Models.ViewModels.Admin;
 using VersionR.Services;
+using VersionR.ViewModels.Admin;
 
 namespace VersionR.Controllers
 {
@@ -13,6 +14,8 @@ namespace VersionR.Controllers
     {
         private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
 
+        #region INDEX
+
         //
         // GET: /Admin/
         public ActionResult Index()
@@ -20,9 +23,14 @@ namespace VersionR.Controllers
             return View();
         }
 
-        //
-        // GET: /Account/
+        #endregion INDEX
 
+        #region User Actions
+
+        #region List
+
+        //
+        // GET: /Admin/Users
         public ActionResult Users()
         {
             var users = from m in _db.Users
@@ -35,6 +43,12 @@ namespace VersionR.Controllers
             //return View();
         }
 
+        #endregion List
+
+        #region Details
+
+        //
+        // GET: /Admin/User/id
         public ActionResult DetailsUser(int id)
         {
             try
@@ -48,9 +62,12 @@ namespace VersionR.Controllers
             }
         }
 
+        #endregion Details
+
+        #region Create
+
         //
         // GET: /Account/Create/
-
         public ActionResult CreateUser()
         {
             return View(new CreateUserViewModel());
@@ -69,9 +86,13 @@ namespace VersionR.Controllers
                 _db.AddToUsers(model.User);
                 _db.SaveChanges();
 
-                return RedirectToAction("DetailsUser", new { id = model.User.UId });
+                return RedirectToAction("DetailsUser", new {id = model.User.UId});
             }
         }
+
+        #endregion Create
+
+        #region Edit
 
         //
         // GET: /Admin/EditUser/Id
@@ -107,6 +128,10 @@ namespace VersionR.Controllers
             }
         }
 
+        #endregion Edit
+
+        #region Delete
+
         public ActionResult DeleteUser(int id)
         {
             try
@@ -137,6 +162,14 @@ namespace VersionR.Controllers
             }
         }
 
+        #endregion Delete
+
+        #endregion User Actions
+
+        #region Role Actions
+
+        #region List
+
         //
         // GET: /Roles/
         public ActionResult Roles()
@@ -147,6 +180,10 @@ namespace VersionR.Controllers
 
             return View(roles.ToList());
         }
+
+        #endregion List
+
+        #region Details
 
         //
         // GET: /DetailsRole/
@@ -162,6 +199,10 @@ namespace VersionR.Controllers
                 return RedirectToAction("Roles");
             }
         }
+
+        #endregion Details
+
+        #region Create
 
         //
         // GET: /Account/Create/
@@ -186,6 +227,10 @@ namespace VersionR.Controllers
             }
         }
 
+        #endregion Create
+
+        #region Edit
+
         //
         // GET: /Account/Edit/EditRoleId
         public ActionResult EditRole(int id)
@@ -209,6 +254,10 @@ namespace VersionR.Controllers
                 return View(role);
             }
         }
+
+        #endregion Edit
+
+        #region Delete
 
         //
         // GET: /Account/Edit/editRoleId
@@ -248,5 +297,145 @@ namespace VersionR.Controllers
                 return View(role);
             }
         }
+
+        #endregion Delete
+
+        #endregion Role Actions
+
+        #region Module Actions
+
+        #region List
+
+        //
+        // GET: /Account/
+        public ActionResult Modules()
+        {
+            var roles = from m in _db.Modules select m;
+            return View(roles.ToList());
+
+            //TODO: Check for Login, return different views
+            //return View();
+        }
+
+        #endregion List
+
+        #region Details
+
+        public ActionResult DetailsModule(int id)
+        {
+            try
+            {
+                var module = _db.Modules.Single(m => m.ModId == id);
+                return View(module);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Modules");
+            }
+        }
+
+        #endregion Details
+
+        #region Create
+
+        //
+        // GET: /Admin/CreateModule/
+        public ActionResult CreateModule()
+        {
+            return View(new Module());
+        }
+
+        [HttpPost]
+        public ActionResult CreateModule(Module model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(new Module());
+            }
+            else
+            {
+                _db.AddToModules(model);
+                _db.SaveChanges();
+
+                return RedirectToAction("DetailsModule", new {id = model.ModId});
+            }
+        }
+
+        #endregion Create
+
+        #region Edit
+
+        //
+        // GET: /Admin/EditUser/Id
+        public ActionResult EditModule(int id)
+        {
+            try
+            {
+                var module = _db.Modules.Single(m => m.ModId == id);
+                module.PricePerYear = Convert.ToInt32(module.PricePerYear);
+                return View(module);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Modules");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditModule(int id, FormCollection collection)
+        {
+            try
+            {
+                var module = _db.Modules.Single(m => m.ModId == id);
+                if (ModelState.IsValid)
+                {
+                    UpdateModel(module);
+                    _db.SaveChanges();
+                    return RedirectToAction("DetailsModule", new {id = id});
+                }
+                return View(module);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Modules");
+            }
+        }
+
+        #endregion Edit
+
+        #region Delete
+
+        public ActionResult DeleteModule(int id)
+        {
+            try
+            {
+                var module = _db.Modules.Single(m => m.ModId == id);
+                return View(module);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Modules");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult DeleteModule(int id, Module moduleToDelete)
+        {
+            try
+            {
+                var module = _db.Modules.Single(m => m.ModId == id);
+                _db.Modules.DeleteObject(module);
+                _db.SaveChanges();
+                return RedirectToAction("Modules");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Modules");
+            }
+        }
+
+        #endregion Delete
+
+        #endregion Module Actions
     }
 }

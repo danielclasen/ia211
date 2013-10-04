@@ -31,15 +31,15 @@
     <% Html.RenderPartial("RoleAffectedUsers"); %>
     <div class="btn-group">
         <%: Html.ActionLink("Zurück zur Übersicht", "Roles", "Admin", new { }, new { @class = "btn" })%>
-        <%: Html.ActionLink("Rolle " + Model.Name + " Bearbeiten", "EditRole", "Admin", new { id=Model.RId }, new { @class = "btn btn-primary" })%>
-        <%: Html.ActionLink("Rolle " + Model.Name + " Löschen", "DeleteRole", "Admin", new { id = Model.RId }, new { @class = "btn btn-danger" })%>
+        <%: Html.ActionLink("Rolle bearbeiten", "EditRole", "Admin", new { id=Model.RId }, new { @class = "btn btn-primary" })%>
+        <%: Html.ActionLink("Rolle löschen", "DeleteRole", "Admin", new { id = Model.RId }, new { @class = "btn btn-danger" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
     Rechteverwaltung
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
-    Rolle "<%: Model.Name %>"
+    Rolle "<%: Model.Name %>".
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <% Html.RenderPartial("AdminSidebar"); %>

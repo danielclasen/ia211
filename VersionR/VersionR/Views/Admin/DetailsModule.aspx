@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.User>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.Module>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    DetailsUser
+    DetailsModule
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <table class="table table-bordered">
@@ -11,56 +11,45 @@
                     ID
                 </th>
                 <th>
-                    Benutzername
+                    Modulname
                 </th>
                 <th>
-                    E-Mail
+                    Jährliche Lizenz-Gebühren
                 </th>
                 <th>
-                    Telefon
-                </th>
-                <th>
-                    Rolle
+                    Aktuelle Version
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <%: Model.UId %>
+                    <%: Model.ModId %>
                 </td>
                 <td>
-                    <%: Model.NickName %>
+                    <%: Model.Name %>
                 </td>
                 <td>
-                    <%: Model.EMail %>
+                    <%: String.Format("{0:F}", Model.PricePerYear) %>
+                    €
                 </td>
                 <td>
-                    <%: Model.Phone %>
-                </td>
-                <td>
-                    <%: Model.Role.Name %>
+                    to be added...
                 </td>
             </tr>
         </tbody>
     </table>
-    <h3>
-        Downloads
-    </h3>
-    <p>
-        //TODO
-    </p>
     <div class="btn-group">
-        <%: Html.ActionLink("Zurück zur Übersicht", "Users", "Admin", new { }, new { @class = "btn" })%>
-        <%: Html.ActionLink("Benutzer bearbeiten", "EditUser", "Admin", new { id=Model.UId }, new { @class = "btn btn-primary" })%>
-        <%: Html.ActionLink("Benutzer löschen", "DeleteUser", "Admin", new { id = Model.UId }, new { @class = "btn btn-danger" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "Modules", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Modul bearbeiten", "EditModule", new { id = Model.ModId }, new { @class = "btn btn-primary" })%>
+        <%: Html.ActionLink("Modul löschen", "DeleteModule", new { id = Model.ModId }, new { @class = "btn btn-danger" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
-    Benutzerkonten-Verwaltung
+    Modulverwaltung
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
-    Benutzer "<%: Model.NickName %>".
+    Modul "<%: Model.Name %>".
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <% Html.RenderPartial("AdminSidebar"); %>

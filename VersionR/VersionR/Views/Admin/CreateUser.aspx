@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.ViewModels.Admin.CreateUserViewModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.ViewModels.Admin.CreateUserViewModel>" %>
 
 <%@ Import Namespace="VersionR.Helpers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
@@ -61,7 +61,7 @@
     Benutzerkonten-Verwaltung
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
-    Neuen Benutzer anlegen
+    Neuen Benutzer anlegen.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <% Html.RenderPartial("AdminSidebar"); %>

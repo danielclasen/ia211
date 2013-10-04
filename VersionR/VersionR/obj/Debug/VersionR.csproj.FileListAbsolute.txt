@@ -28,5 +28,3 @@ E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\bin\VersionR.pdb
 E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.csprojResolveAssemblyReference.cache
 E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.dll
 E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\obj\Debug\VersionR.pdb
-E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\bin\Portable.Licensing.dll
-E:\Benutzer\Daniel\.git-repos\ia211\VersionR\VersionR\bin\Portable.Licensing.xml

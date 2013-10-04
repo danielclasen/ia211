@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
+using VersionR.Models;
 
-namespace VersionR.Models.ViewModels.Admin
+namespace VersionR.ViewModels.Admin
 {
     public class CreateUserViewModel
     {
-        private readonly VersionR _db = new VersionR();
+        private readonly Models.VersionR _db = new Models.VersionR();
 
         public CreateUserViewModel()
         {
