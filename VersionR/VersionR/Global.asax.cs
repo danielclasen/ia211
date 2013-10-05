@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace VersionR
 {
-    // Hinweis: Anweisungen zum Aktivieren des klassischen Modus von IIS6 oder IIS7 
+    // Hinweis: Anweisungen zum Aktivieren des klassischen Modus von IIS6 oder IIS7
     // finden Sie unter "http://go.microsoft.com/?LinkId=9394801".
 
     public class MvcApplication : System.Web.HttpApplication
@@ -19,9 +19,9 @@ namespace VersionR
             routes.MapRoute(
                 "Default", // Routenname
                 "{controller}/{action}/{id}", // URL mit Parametern
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameterstandardwerte
-            );
-
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional}, // Parameterstandardwerte
+                new[] {"VersionR.Controllers"}
+                ).DataTokens["UseNamespaceFallback"] = false;
         }
 
         protected void Application_Start()

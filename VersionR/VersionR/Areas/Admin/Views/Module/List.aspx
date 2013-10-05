@@ -31,7 +31,7 @@
                     <%: item.ModId %>
                 </td>
                 <td>
-                    <%: Html.ActionLink(item.Name, "DetailsModule", new { id = item.ModId })%>
+                    <%: Html.ActionLink(item.Name, "Details", new { id = item.ModId })%>
                 </td>
                 <td>
                     <%: String.Format("{0:F}", item.PricePerYear) %>
@@ -42,16 +42,16 @@
                 </td>
                 <td class="span3">
                     <div class="btn-group">
-                        <%: Html.ActionLink("Details", "DetailsModule", new { id=item.ModId }, new { @class = "btn" })%>
-                        <%: Html.ActionLink("Bearbeiten", "EditModule", new { id=item.ModId }, new { @class = "btn" }) %>
-                        <%: Html.ActionLink("Löschen", "DeleteModule", new { id=item.ModId }, new { @class = "btn btn-danger" })%>
+                        <%: Html.ActionLink("Details", "Details", new { id=item.ModId }, new { @class = "btn" })%>
+                        <%: Html.ActionLink("Bearbeiten", "Edit", new { id=item.ModId }, new { @class = "btn" }) %>
+                        <%: Html.ActionLink("Löschen", "Delete", new { id=item.ModId }, new { @class = "btn btn-danger" })%>
                     </div>
                 </td>
             </tr>
             <% } %>
         </tbody>
     </table>
-    <%: Html.ActionLink("Neues Modul anlegen", "CreateModule", ViewContext.RouteData.Values["Controller"].ToString() /*Controller*/, new { }, new { @class = "btn btn-primary" }) %>
+    <%: Html.ActionLink("Neues Modul anlegen", "Create", ViewContext.RouteData.Values["Controller"].ToString() /*Controller*/, new { }, new { @class = "btn btn-primary" }) %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
     Modulverwaltung

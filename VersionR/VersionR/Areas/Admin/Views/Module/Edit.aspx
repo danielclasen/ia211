@@ -5,7 +5,7 @@
     EditModule
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% Html.BeginForm("EditModule", "Admin", FormMethod.Post, new { @class = "form-horizontal" });%>
+    <% Html.BeginForm("Edit", "Module", FormMethod.Post, new { @class = "form-horizontal" });%>
     <%: Html.ValidationSummary(true) %>
     <div class="control-group">
         <%: Html.BootstrapLabelFor(model => model.Name, "Modulname")%>
@@ -31,12 +31,12 @@
                 <button type="submit" class="btn btn-primary" value="Edit">
                     Speichern</button>
             </div>
-            <%: Html.ActionLink("Modul " + Model.Name + " Löschen", "DeleteModule", new { Model.ModId }, new { @class = "btn btn-danger" })%>
+            <%: Html.ActionLink("Modul " + Model.Name + " Löschen", "Delete", new { Model.ModId }, new { @class = "btn btn-danger" })%>
         </div>
     </div>
     <% Html.EndForm();%>
     <div>
-        <%: Html.ActionLink("Zurück zur Übersicht", "Modules", "Admin", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "List", "Module", new { }, new { @class = "btn" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">

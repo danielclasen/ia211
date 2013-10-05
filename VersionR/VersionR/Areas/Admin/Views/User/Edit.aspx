@@ -5,7 +5,7 @@
     EditUser
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% Html.BeginForm("EditUser", "Admin", FormMethod.Post, new { @class = "form-horizontal" }); %>
+    <% Html.BeginForm("Edit", "User", FormMethod.Post, new { @class = "form-horizontal" }); %>
     <%: Html.ValidationSummary(true) %>
     <div class="control-group">
         <%: Html.BootstrapLabelFor(m => m.NickName, "Benutzername")%>
@@ -52,12 +52,12 @@
                 <button type="submit" class="btn btn-primary" value="Edit">
                     Benutzer speichern</button>
             </div>
-            <%: Html.ActionLink("Benutzer " + Model.NickName + " löschen", "DeleteUser", "Admin", new { id = Model.UId }, new { @class = "btn btn-danger" })%>
+            <%: Html.ActionLink("Benutzer " + Model.NickName + " löschen", "Delete", "User", new { id = Model.UId }, new { @class = "btn btn-danger" })%>
         </div>
     </div>
     <% Html.EndForm(); %>
     <div>
-        <%: Html.ActionLink("Zurück zur Übersicht", "Users", "Admin", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "List", "User", new { }, new { @class = "btn" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">

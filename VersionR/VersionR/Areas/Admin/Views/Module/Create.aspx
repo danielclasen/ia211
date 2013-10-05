@@ -5,7 +5,7 @@
     CreateModule
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% Html.BeginForm("CreateModule", "Admin", FormMethod.Post, new { @class = "form-horizontal" });%>
+    <% Html.BeginForm("Create", "Module", FormMethod.Post, new { @class = "form-horizontal" });%>
     <%: Html.ValidationSummary(true) %>
     <div class="control-group">
         <%: Html.BootstrapLabelFor(model => model.Name, "Modulname")%>
@@ -33,7 +33,7 @@
     </div>
     <% Html.EndForm();%>
     <div>
-        <%: Html.ActionLink("Zurück zur Übersicht", "Modules", "Admin", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "List", "Module", new { }, new { @class = "btn" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">

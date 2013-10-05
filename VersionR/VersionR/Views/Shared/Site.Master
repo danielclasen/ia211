@@ -10,13 +10,13 @@
         <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
     </title>
     <!--<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />-->
-    <link href="../../Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../Content/css/bootstrap-addons.css" rel="stylesheet" type="text/css" />
-    <link href="../../Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <script src="../../Content/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="../../Content/js/jquery.BootstrapValidation.js" type="text/javascript"></script>
-    <script src="../../Content/js/jquery.maskMoney.js" type="text/javascript"></script>
-    <script src="../../Content/js/bootstrap.js" type="text/javascript"></script>
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/bootstrap-addons.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="/Content/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="/Content/js/jquery.BootstrapValidation.js" type="text/javascript"></script>
+    <script src="/Content/js/jquery.maskMoney.js" type="text/javascript"></script>
+    <script src="/Content/js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="page">
@@ -33,8 +33,8 @@
                         <!-- Be sure to leave the brand out there if you want it shown -->
                         <a class="brand" href="/"><i class="icon-time"></i>VersionR</a>
                         <ul class="nav">
-                            <%: Html.MenuItem("Startseite", "Index", "Home")%>
-                            <%: Html.MenuItem("Mein VersionR", "Index", "Account")%>
+                            <%: Html.MenuItem("Startseite", "Index", "Home", "")%>
+                            <%: Html.MenuItem("Mein VersionR", "Index", "Account", "")%>
                             <li><a href="#">Link</a></li>
                         </ul>
                         <!-- Everything you want hidden at 940px or less, place within here -->
@@ -44,15 +44,15 @@
                         <ul class="nav pull-right">
                             <% if (Context.User.IsInRole("Administrator"))
                                { %>
-                            <%: Html.MenuItem("Admin", "Index", "Admin")%>
+                            <%: Html.MenuItem("Admin", "Index", "Home", "Admin")%>
                             <% } %>
                             <% if (Context.User.Identity.IsAuthenticated)
                                { %>
-                            <%: Html.MenuItem("Logout", "LogOff", "Auth")%>
+                            <%: Html.MenuItem("Logout", "LogOff", "Auth", "")%>
                             <% }
                                else
                                { %>
-                            <%: Html.MenuItem("Login", "LogOn", "Auth")%>
+                            <%: Html.MenuItem("Login", "LogOn", "Auth", "")%>
                             <% } %>
                         </ul>
                     </div>

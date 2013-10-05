@@ -31,13 +31,13 @@
                     <%: item.RId %>
                 </td>
                 <td>
-                    <%: Html.ActionLink(item.Name, "DetailsRole", new { id = item.RId })%>
+                    <%: Html.ActionLink(item.Name, "Details", new { id = item.RId })%>
                 </td>
                 <td class="span3">
                     <div class="btn-group">
-                        <%: Html.ActionLink("Details", "DetailsRole", "Admin", new { id = item.RId }, new { @class = "btn" })%>
-                        <%: Html.ActionLink("Bearbeiten", "EditRole", "Admin", new { id = item.RId }, new { @class = "btn" })%>
-                        <%: Html.ActionLink("Löschen", "DeleteRole", "Admin", new { id = item.RId }, new { @class = "btn btn-danger" })%>
+                        <%: Html.ActionLink("Details", "Details", "Role", new { id = item.RId }, new { @class = "btn" })%>
+                        <%: Html.ActionLink("Bearbeiten", "Edit", "Role", new { id = item.RId }, new { @class = "btn" })%>
+                        <%: Html.ActionLink("Löschen", "Delete", "Role", new { id = item.RId }, new { @class = "btn btn-danger" })%>
                     </div>
                 </td>
             </tr>
@@ -45,7 +45,7 @@
         </tbody>
     </table>
     <p>
-        <%: Html.ActionLink("Neue Rolle anlegen", "CreateRole", "Admin", new { }, new { @class = "btn btn-primary" })%>
+        <%: Html.ActionLink("Neue Rolle anlegen", "Create", "Role", new { }, new { @class = "btn btn-primary" })%>
     </p>
 </asp:Content>
 <asp:Content ID="SidebarContent" ContentPlaceHolderID="SidebarContent" runat="server">

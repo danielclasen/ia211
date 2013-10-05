@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.User>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.Module>" %>
 
+<%@ Import Namespace="VersionR.Helpers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    DeleteUser
+    DeleteModule
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <table class="table table-bordered">
@@ -11,52 +12,53 @@
                     ID
                 </th>
                 <th>
-                    Nickname
+                    Modulname
                 </th>
                 <th>
-                    E-Mail
+                    Jährliche Lizenz-Gebühren
                 </th>
                 <th>
-                    Telefon
-                </th>
-                <th>
-                    Rolle
+                    Aktuelle Version
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <%: Model.UId %>
+                    <%: Model.ModId %>
                 </td>
                 <td>
-                    <%: Model.NickName %>
+                    <%: Model.Name %>
                 </td>
                 <td>
-                    <%: Model.EMail %>
+                    <%: String.Format("{0:F}", Model.PricePerYear) %>
+                    €
                 </td>
                 <td>
-                    <%: Model.Phone %>
-                </td>
-                <td>
-                    <%: Model.Role.Name %>
+                    to be added...
                 </td>
             </tr>
         </tbody>
     </table>
-    <% Html.BeginForm("DeleteUser", "Admin", FormMethod.Post, new { @class = "form-horizontal" }); %>
+    <h3>
+        Abhängigkeiten</h3>
+    <div class="alert alert-error">
+        <b>Achtung!</b> -- Hier Abhängigkeiten einfügen</div>
+    to be added...
+    <% Html.BeginForm("Delete", "Module", FormMethod.Post, new { @class = "form-horizontal" });%>
     <div class="btn-group">
-        <%: Html.ActionLink("Abbrechen", "Users", "Admin", new { }, new { @class = "btn" }) %>
+        <%: Html.ActionLink("Abbrechen", "List", "Module", new { }, new { @class = "btn" })%>
         <button type="submit" class="btn btn-danger" value="Delete">
-            Benutzer löschen</button>
+            Modul "<%: Model.Name %>" löschen</button>
     </div>
-    <% Html.EndForm();%>
+    <% Html.EndForm(); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
-    Benutzerkonten-Verwaltung
+    Modulverwaltung
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
-    Sind Sie sicher, dass Sie den Benutzer "<%: Model.NickName %>" löschen möchten?
+    Sind Sie sicher, dass Sie das Modul "<%: Model.Name %>" mit all seinen Abhängigkeiten
+    löschen möchten?
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <% Html.RenderPartial("AdminSidebar"); %>

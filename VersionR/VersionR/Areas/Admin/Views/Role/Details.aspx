@@ -30,9 +30,9 @@
         Benutzer mit der Rolle "<%: Model.Name %>"</h3>
     <% Html.RenderPartial("RoleAffectedUsers"); %>
     <div class="btn-group">
-        <%: Html.ActionLink("Zurück zur Übersicht", "Roles", "Admin", new { }, new { @class = "btn" })%>
-        <%: Html.ActionLink("Rolle bearbeiten", "EditRole", "Admin", new { id=Model.RId }, new { @class = "btn btn-primary" })%>
-        <%: Html.ActionLink("Rolle löschen", "DeleteRole", "Admin", new { id = Model.RId }, new { @class = "btn btn-danger" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "List", "Role", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Rolle bearbeiten", "Edit", "Role", new { id=Model.RId }, new { @class = "btn btn-primary" })%>
+        <%: Html.ActionLink("Rolle löschen", "Delete", "Role", new { id = Model.RId }, new { @class = "btn btn-danger" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">

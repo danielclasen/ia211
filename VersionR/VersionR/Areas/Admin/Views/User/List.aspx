@@ -2,7 +2,7 @@
 
 <%@ Import Namespace="VersionR.Helpers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Users
+    List
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
     Benutzerkonten-Verwaltung
@@ -44,7 +44,7 @@
                     <%: item.UId %>
                 </td>
                 <td>
-                    <%: Html.ActionLink(item.NickName, "DetailsUser", new { id = item.UId })%>
+                    <%: Html.ActionLink(item.NickName, "Details", new { id = item.UId })%>
                 </td>
                 <td>
                     <%: item.EMail %>
@@ -57,9 +57,9 @@
                 </td>
                 <td class="span3">
                     <div class="btn-group">
-                        <%: Html.ActionLink("Details", "DetailsUser", "Admin", new { id = item.UId }, new { @class = "btn" })%>
-                        <%: Html.ActionLink("Bearbeiten", "EditUser", "Admin", new { id = item.UId }, new { @class = "btn" })%>
-                        <%: Html.ActionLink("Löschen", "DeleteUser", "Admin", new { id = item.UId }, new { @class = "btn btn-danger" })%>
+                        <%: Html.ActionLink("Details", "Details", "User", new { id = item.UId }, new { @class = "btn" })%>
+                        <%: Html.ActionLink("Bearbeiten", "Edit", "User", new { id = item.UId }, new { @class = "btn" })%>
+                        <%: Html.ActionLink("Löschen", "Delete", "User", new { id = item.UId }, new { @class = "btn btn-danger" })%>
                     </div>
                 </td>
             </tr>
@@ -67,6 +67,6 @@
         </tbody>
     </table>
     <p>
-        <%: Html.ActionLink("Neuen Benutzer anlegen", "CreateUser", "Admin", new { }, new { @class = "btn btn-primary" })%>
+        <%: Html.ActionLink("Neuen Benutzer anlegen", "Create", "User", new { }, new { @class = "btn btn-primary" })%>
     </p>
 </asp:Content>

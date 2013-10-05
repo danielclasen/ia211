@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.Role>" %>
 
 <%@ Import Namespace="VersionR.Helpers" %>
+<%@ Import Namespace="VersionR.Helpers.BootstrapMvcHelpers" %>
 <%@ Import Namespace="VersionR.Helpers.BootstrapMvcHelpers.Enums" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     CreateRole
@@ -15,7 +16,7 @@
     <% Html.RenderPartial("AdminSidebar"); %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% Html.BeginForm("CreateRole", "Admin", FormMethod.Post, new { @class = "form-horizontal" }); %>
+    <% Html.BeginForm("Create", "Role", FormMethod.Post, new { @class = "form-horizontal" }); %>
     <%: Html.ValidationSummary(true) %>
     <div class="control-group">
         <%: Html.BootstrapLabelFor(m => m.Name, "Bezeichnung")%>
@@ -38,7 +39,7 @@
     </div>
     <% Html.EndForm(); %>
     <div>
-        <% //Html.ActionLink("Zurück zur Übersicht", "Roles", "Admin", new { }, new { @class = "btn" })%>
-        <%: Html.Button("Zurück zur Übersicht", "Roles", "Admin") %>
+        <% //Html.ActionLink("Zurück zur Übersicht", "List", "Role", new { }, new { @class = "btn" })%>
+        <%: Html.Button("Zurück zur Übersicht", "List", "Role") %>
     </div>
 </asp:Content>

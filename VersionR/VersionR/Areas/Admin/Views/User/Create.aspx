@@ -5,7 +5,7 @@
     CreateUser
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% Html.BeginForm("CreateUser", "Admin", FormMethod.Post, new { @class = "form-horizontal" });%>
+    <% Html.BeginForm("Create", "User", FormMethod.Post, new { @class = "form-horizontal" });%>
     <%: Html.ValidationSummary(true) %>
     <div class="control-group">
         <%: Html.BootstrapLabelFor(m => m.User.NickName, "Benutzername")%>
@@ -54,7 +54,7 @@
     </div>
     <% Html.EndForm();%>
     <div>
-        <%: Html.ActionLink("Zurück zur Übersicht", "Users", "Admin", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "List", "User", new { }, new { @class = "btn" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">

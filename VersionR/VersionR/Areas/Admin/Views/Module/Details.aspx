@@ -40,9 +40,9 @@
         </tbody>
     </table>
     <div class="btn-group">
-        <%: Html.ActionLink("Zurück zur Übersicht", "Modules", new { }, new { @class = "btn" })%>
-        <%: Html.ActionLink("Modul bearbeiten", "EditModule", new { id = Model.ModId }, new { @class = "btn btn-primary" })%>
-        <%: Html.ActionLink("Modul löschen", "DeleteModule", new { id = Model.ModId }, new { @class = "btn btn-danger" })%>
+        <%: Html.ActionLink("Zurück zur Übersicht", "List", new { }, new { @class = "btn" })%>
+        <%: Html.ActionLink("Modul bearbeiten", "Edit", new { id = Model.ModId }, new { @class = "btn btn-primary" })%>
+        <%: Html.ActionLink("Modul löschen", "Delete", new { id = Model.ModId }, new { @class = "btn btn-danger" })%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.User>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    DetailsUser
+    DeleteUser
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <table class="table table-bordered">
@@ -11,7 +11,7 @@
                     ID
                 </th>
                 <th>
-                    Benutzername
+                    Nickname
                 </th>
                 <th>
                     E-Mail
@@ -44,23 +44,19 @@
             </tr>
         </tbody>
     </table>
-    <h3>
-        Downloads
-    </h3>
-    <p>
-        //TODO
-    </p>
+    <% Html.BeginForm("Delete", "User", FormMethod.Post, new { @class = "form-horizontal" }); %>
     <div class="btn-group">
-        <%: Html.ActionLink("Zurück zur Übersicht", "Users", "Admin", new { }, new { @class = "btn" })%>
-        <%: Html.ActionLink("Benutzer bearbeiten", "EditUser", "Admin", new { id=Model.UId }, new { @class = "btn btn-primary" })%>
-        <%: Html.ActionLink("Benutzer löschen", "DeleteUser", "Admin", new { id = Model.UId }, new { @class = "btn btn-danger" })%>
+        <%: Html.ActionLink("Abbrechen", "List", "User", new { }, new { @class = "btn" }) %>
+        <button type="submit" class="btn btn-danger" value="Delete">
+            Benutzer löschen</button>
     </div>
+    <% Html.EndForm();%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
     Benutzerkonten-Verwaltung
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageSubTitle" runat="server">
-    Benutzer "<%: Model.NickName %>".
+    Sind Sie sicher, dass Sie den Benutzer "<%: Model.NickName %>" löschen möchten?
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <% Html.RenderPartial("AdminSidebar"); %>
