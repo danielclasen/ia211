@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.User>" %>
 
+<%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     DetailsUser
 </asp:Content>
@@ -44,9 +45,19 @@
             </tr>
         </tbody>
     </table>
-    <h3>
-        Downloads
-    </h3>
+    <div class="row-fluid">
+        <div class="span6 well well-small">
+            <h3>
+                Modul-Lizenzen <a href="<%= Url.Action("Add", "License", new {id = Model.UId}) %>"
+                    class="btn btn-success pull-right"><i class="icon-plus" title="Hinzufügen"></i>
+                </a>
+            </h3>
+            <% Html.RenderPartial("Customer_ModulesList", Model.Customer_Modules.OrderBy(cm => cm.Module.Name)); %>
+        </div>
+        <div class="span6 well well-small">
+            right content.
+        </div>
+    </div>
     <p>
         //TODO
     </p>

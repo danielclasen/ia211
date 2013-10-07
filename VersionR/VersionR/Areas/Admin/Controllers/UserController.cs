@@ -16,7 +16,7 @@ namespace VersionR.Areas.Admin.Controllers
         // GET: /Admin/User/id
         public ActionResult Index(int id = 0)
         {
-            return id != 0 ? RedirectToAction("Details", new { id = id }) : RedirectToAction("List");
+            return id != 0 ? RedirectToAction("Details", new {id = id}) : RedirectToAction("List");
         }
 
         #region User Actions
@@ -78,7 +78,7 @@ namespace VersionR.Areas.Admin.Controllers
             _db.AddToUsers(model.User);
             _db.SaveChanges();
 
-            return RedirectToAction("Details", new { id = model.User.UId });
+            return RedirectToAction("Details", new {id = model.User.UId});
         }
 
         #endregion Create

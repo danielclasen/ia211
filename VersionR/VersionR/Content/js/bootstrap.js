@@ -2015,5 +2015,12 @@ $(document).ready(function () {
                 $input.val(value);
             });
         });
+
+        $(".datepicker").datepicker({
+            format: "dd.mm.yyyy",
+            todayBtn: "linked",
+            language: "de",
+            todayHighlight: true
+        });
     });
 })
