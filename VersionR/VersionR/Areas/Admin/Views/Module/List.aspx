@@ -38,19 +38,26 @@
                     €
                 </td>
                 <td>
-                    <% var orderedVersions = item.Versions.OrderByDescending(v => v.Relase + v.SubRelease + v.BuildId);
+                    <% var orderedVersions = item.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId);
                        if (orderedVersions.Any())
                        {
                            var lastVersion = orderedVersions.First();
                     %>
-                    <%: lastVersion.Relase %>.<%: lastVersion.SubRelease %>.<%: lastVersion.BuildId %>
+                    <%: lastVersion.Release %>.<%: lastVersion.SubRelease %>.<%: lastVersion.BuildId %>
+                    <div class="btn-group pull-right">
+                        <a href="<%= Url.Action("Details", "Version", new {id = lastVersion.VrId}) %>" class="btn"
+                            title="Details ansehen"><i class="icon-folder-open"></i></a><a href="<%= Url.Action("Edit", "Version", new {id = lastVersion.VrId}) %>"
+                                class="btn" title="Bearbeiten"><i class="icon-wrench"></i></a><a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>"
+                                    class="btn btn-success pull-right" title="Neue Version erstellen"><i class="icon-plus">
+                                    </i></a>
+                    </div>
                     <% }
                        else
                        {%>
-                    <small>Noch keine Version.</small>
+                    <small class="text-error">Noch keine Version.</small> <a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>"
+                        class="btn btn-success pull-right" title="Neue Version erstellen"><i class="icon-plus">
+                        </i></a>
                     <%} %>
-                    <a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>" class="btn btn-success pull-right"
-                        title="Neue Version erstellen"><i class="icon-plus"></i></a>
                 </td>
                 <td class="span3">
                     <div class="btn-group">

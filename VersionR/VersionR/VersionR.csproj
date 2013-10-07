@@ -80,6 +80,7 @@
     <Compile Include="Areas\Admin\Controllers\ModuleController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VersionController.cs" />
     <Compile Include="Areas\Admin\ViewModels\AddUserLicenseViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\EditUserLicenseViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -138,6 +139,7 @@
     <Content Include="Areas\Admin\Views\License\Delete.aspx" />
     <Content Include="Areas\Admin\Views\License\Edit.aspx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
+    <Content Include="Areas\Admin\Views\Version\Add.aspx" />
     <Content Include="Content\css\bootstrap-addons.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />

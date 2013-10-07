@@ -1,19 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data.EntityClient;
-using System.Data.Objects;
-using System.Data.Objects.DataClasses;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.Xml.Serialization;
-using VersionR.Models;
 
 namespace VersionR.Services
 {
@@ -52,14 +43,8 @@ namespace VersionR.Services
 
         public override string ApplicationName
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
         }
 
         public override void CreateRole(string roleName)
@@ -128,9 +113,12 @@ namespace VersionR.Services
 
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                if (filterContext.HttpContext.Request.HttpMethod.Equals("GET", System.StringComparison.CurrentCultureIgnoreCase))
+                if (filterContext.HttpContext.Request.HttpMethod.Equals("GET",
+                                                                        System.StringComparison.CurrentCultureIgnoreCase))
                 {
-                    filterContext.Result = new RedirectResult("~/Auth/LogOn?ReturnUrl=" + HttpUtility.UrlEncode(filterContext.HttpContext.Request.RawUrl));
+                    filterContext.Result =
+                        new RedirectResult("~/Auth/LogOn?ReturnUrl=" +
+                                           HttpUtility.UrlEncode(filterContext.HttpContext.Request.RawUrl));
                 }
                 else
                 {

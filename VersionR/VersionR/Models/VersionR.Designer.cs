@@ -1488,7 +1488,6 @@ namespace VersionR.Models
         /// Erstellt ein neues Version-Objekt.
         /// </summary>
         /// <param name="vrId">Anfangswert der Eigenschaft VrId.</param>
-        /// <param name="relase">Anfangswert der Eigenschaft Relase.</param>
         /// <param name="subRelease">Anfangswert der Eigenschaft SubRelease.</param>
         /// <param name="buildId">Anfangswert der Eigenschaft BuildId.</param>
         /// <param name="platform">Anfangswert der Eigenschaft Platform.</param>
@@ -1496,11 +1495,11 @@ namespace VersionR.Models
         /// <param name="releaseDate">Anfangswert der Eigenschaft ReleaseDate.</param>
         /// <param name="emId">Anfangswert der Eigenschaft EmId.</param>
         /// <param name="modId">Anfangswert der Eigenschaft ModId.</param>
-        public static Version CreateVersion(global::System.Int32 vrId, global::System.Byte relase, global::System.Byte subRelease, global::System.String buildId, global::System.String platform, global::System.String filename, global::System.DateTime releaseDate, global::System.Int32 emId, global::System.Int32 modId)
+        /// <param name="release">Anfangswert der Eigenschaft Release.</param>
+        public static Version CreateVersion(global::System.Int32 vrId, global::System.Byte subRelease, global::System.String buildId, global::System.String platform, global::System.String filename, global::System.DateTime releaseDate, global::System.Int32 emId, global::System.Int32 modId, global::System.Byte release)
         {
             Version version = new Version();
             version.VrId = vrId;
-            version.Relase = relase;
             version.SubRelease = subRelease;
             version.BuildId = buildId;
             version.Platform = platform;
@@ -1508,6 +1507,7 @@ namespace VersionR.Models
             version.ReleaseDate = releaseDate;
             version.EmId = emId;
             version.ModId = modId;
+            version.Release = release;
             return version;
         }
 
@@ -1541,30 +1541,6 @@ namespace VersionR.Models
         private global::System.Int32 _VrId;
         partial void OnVrIdChanging(global::System.Int32 value);
         partial void OnVrIdChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte Relase
-        {
-            get
-            {
-                return _Relase;
-            }
-            set
-            {
-                OnRelaseChanging(value);
-                ReportPropertyChanging("Relase");
-                _Relase = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Relase");
-                OnRelaseChanged();
-            }
-        }
-        private global::System.Byte _Relase;
-        partial void OnRelaseChanging(global::System.Byte value);
-        partial void OnRelaseChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -1757,6 +1733,30 @@ namespace VersionR.Models
         private global::System.Int32 _ModId;
         partial void OnModIdChanging(global::System.Int32 value);
         partial void OnModIdChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte Release
+        {
+            get
+            {
+                return _Release;
+            }
+            set
+            {
+                OnReleaseChanging(value);
+                ReportPropertyChanging("Release");
+                _Release = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Release");
+                OnReleaseChanged();
+            }
+        }
+        private global::System.Byte _Release;
+        partial void OnReleaseChanging(global::System.Byte value);
+        partial void OnReleaseChanged();
 
         #endregion
 

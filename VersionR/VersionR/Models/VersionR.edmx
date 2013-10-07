@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VersionR.Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="VersionR.Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="VersionRModelsStoreContainer">
           <EntitySet Name="Customer_Modules" EntityType="VersionR.Models.Store.Customer_Modules" store:Type="Tables" Schema="gr2" />
           <EntitySet Name="Downloads" EntityType="VersionR.Models.Store.Downloads" store:Type="Tables" Schema="gr2" />
@@ -106,7 +106,7 @@
             <PropertyRef Name="VrId" />
           </Key>
           <Property Name="VrId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Relase" Type="tinyint" Nullable="false" />
+          <Property Name="Release" Type="tinyint" Nullable="false" />
           <Property Name="SubRelease" Type="tinyint" Nullable="false" />
           <Property Name="BuildId" Type="varchar" Nullable="false" MaxLength="32" />
           <Property Name="Platform" Type="varchar" Nullable="false" MaxLength="50" />
@@ -212,8 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VersionR.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -330,7 +329,6 @@
             <PropertyRef Name="VrId" />
           </Key>
           <Property Name="VrId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Relase" Type="Byte" Nullable="false" />
           <Property Name="SubRelease" Type="Byte" Nullable="false" />
           <Property Name="BuildId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
           <Property Name="Platform" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -343,6 +341,7 @@
           <NavigationProperty Name="Manuals" Relationship="VersionR.Models.FK__Manuals__VrId__636EBA21" FromRole="Versions" ToRole="Manuals" />
           <NavigationProperty Name="Module" Relationship="VersionR.Models.FK__Versions__ModId__5EAA0504" FromRole="Versions" ToRole="Modules" />
           <NavigationProperty Name="User" Relationship="VersionR.Models.FK__Versions__EmId__5DB5E0CB" FromRole="Versions" ToRole="Users" />
+          <Property Type="Byte" Name="Release" Nullable="false" />
         </EntityType>
         <Association Name="FK__Customer___ModId__60924D76">
           <End Role="Modules" Type="VersionR.Models.Module" Multiplicity="1" />
@@ -510,8 +509,8 @@
           <EntitySetMapping Name="Versions">
             <EntityTypeMapping TypeName="VersionR.Models.Version">
               <MappingFragment StoreEntitySet="Versions">
+                <ScalarProperty Name="Release" ColumnName="Release" />
                 <ScalarProperty Name="VrId" ColumnName="VrId" />
-                <ScalarProperty Name="Relase" ColumnName="Relase" />
                 <ScalarProperty Name="SubRelease" ColumnName="SubRelease" />
                 <ScalarProperty Name="BuildId" ColumnName="BuildId" />
                 <ScalarProperty Name="Platform" ColumnName="Platform" />
@@ -537,13 +536,13 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="VersionR">
+      <Diagram Name="VersionR" ZoomLevel="100">
         <EntityTypeShape EntityType="VersionR.Models.Customer_Modules" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
         <EntityTypeShape EntityType="VersionR.Models.Download" Width="1.5" PointX="8.25" PointY="5.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="VersionR.Models.Manual" Width="1.5" PointX="8.25" PointY="8" Height="2.1725878906249996" IsExpanded="true" />
@@ -595,12 +594,12 @@
           <ConnectorPoint PointX="2.25" PointY="1.4541959049479158" />
         </AssociationConnector>
         <AssociationConnector Association="VersionR.Models.FK__Versions__EmId__5DB5E0CB" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.3709481673177093" />
-          <ConnectorPoint PointX="2.5416691666666664" PointY="3.3709481673177089" />
-          <ConnectorPoint PointX="2.7083358333333334" PointY="3.3709481673177093" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="3.3709481673177089" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="3.3709481673177093" />
-          <ConnectorPoint PointX="6.75" PointY="3.3709481673177093" />
+          <ConnectorPoint PointX="2.25" PointY="3.3709481673177097" />
+          <ConnectorPoint PointX="2.5416691666666664" PointY="3.3709481673177093" />
+          <ConnectorPoint PointX="2.7083358333333334" PointY="3.3709481673177097" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="3.3709481673177093" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="3.3709481673177097" />
+          <ConnectorPoint PointX="6.75" PointY="3.3709481673177097" />
           <ConnectorPoint PointX="6.75" PointY="4.375" />
         </AssociationConnector>
       </Diagram>
