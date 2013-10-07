@@ -38,7 +38,19 @@
                     €
                 </td>
                 <td>
-                    to be added...
+                    <% var orderedVersions = item.Versions.OrderByDescending(v => v.Relase + v.SubRelease + v.BuildId);
+                       if (orderedVersions.Any())
+                       {
+                           var lastVersion = orderedVersions.First();
+                    %>
+                    <%: lastVersion.Relase %>.<%: lastVersion.SubRelease %>.<%: lastVersion.BuildId %>
+                    <% }
+                       else
+                       {%>
+                    <small>Noch keine Version.</small>
+                    <%} %>
+                    <a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>" class="btn btn-success pull-right"
+                        title="Neue Version erstellen"><i class="icon-plus"></i></a>
                 </td>
                 <td class="span3">
                     <div class="btn-group">

@@ -81,6 +81,7 @@
                         <asp:ContentPlaceHolder ID="SidebarContent" runat="server" />
                     </div>
                     <div class="span10">
+                        <%: Html.UiHint(TempData["uihint"] as UiHint) %>
                         <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                     </div>
                 </div>

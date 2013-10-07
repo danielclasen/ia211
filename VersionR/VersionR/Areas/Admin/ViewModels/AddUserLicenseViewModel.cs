@@ -25,27 +25,22 @@ namespace VersionR.Areas.Admin.ViewModels
         {
             BuyDate = DateTime.Now.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"));
             LicenseYears = 1;
-            PopulateSelectList();
         }
 
-        public void PopulateSelectList()
+        public bool PopulateSelectList()
         {
-            //var negativeList = _db.Customer_Modules.Where(m => m.CmId == UId).Select(m => m.Module).ToList();
+            var negativeList = _db.Customer_Modules.Where(m => m.CmId == User.UId).Select(m => m.Module);
 
-            var moduleList = _db.Modules.ToList();
-            var moduleSelectList =
-                moduleList.Select(m => new SelectListItem
-                                           {
-                                               Text = m.Name,
-                                               Value =
-                                                   m.ModId.
-                                                   ToString(
-                                                       CultureInfo
-                                                           .
-                                                           InvariantCulture),
-                                               Selected = false
-                                           }).ToList();
+            var moduleList = _db.Modules.Where(p => !negativeList.Any(q => q.ModId == p.ModId)).ToList();
+            var moduleSelectList = moduleList.Select(m => new SelectListItem
+                                                              {
+                                                                  Text = m.Name,
+                                                                  Value = m.ModId.ToString(CultureInfo.InvariantCulture),
+                                                                  Selected = false
+                                                              }).ToList();
+
             Modules = new SelectList(moduleSelectList, "Value", "Text", 0);
+            return Modules.Any();
         }
     }
 }
