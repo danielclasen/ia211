@@ -39,6 +39,19 @@
             </tr>
         </tbody>
     </table>
+    <div class="row-fluid">
+        <div class="span6 well well-small">
+            <h3>
+                Modul-Versionen <a href="<%= Url.Action("Add", "Version", new {id = Model.ModId}) %>"
+                    class="btn btn-success pull-right"><i class="icon-plus" title="Hinzufügen"></i>
+                </a>
+            </h3>
+            <% Html.RenderPartial("Module_VersionsList", Model.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId)); %>
+        </div>
+        <div class="span6 well well-small">
+            right content.
+        </div>
+    </div>
     <div class="btn-group">
         <%: Html.ActionLink("Zurück zur Übersicht", "List", new { }, new { @class = "btn" })%>
         <%: Html.ActionLink("Modul bearbeiten", "Edit", new { id = Model.ModId }, new { @class = "btn btn-primary" })%>

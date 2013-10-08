@@ -457,7 +457,7 @@
 
             dimension = this.dimension()
             scroll = $.camelCase(['scroll', dimension].join('-'))
-            actives = this.$parent && this.$parent.find('> .accordion-group > .in')
+            actives = this.$parent && this.$parent.find('* > .accordion-group > .in')
 
             if (actives && actives.length) {
                 hasData = actives.data('collapse')
@@ -1518,14 +1518,14 @@
             })
         },
         activate: function (element, container, callback) {
-            var $active = container.find('> .active'), transition = callback
+            var $active = container.find('* > .active'), transition = callback
                 && $.support.transition
                 && $active.hasClass('fade')
 
             function next() {
                 $active
                     .removeClass('active')
-                    .find('> .dropdown-menu > .active')
+                    .find('* > .dropdown-menu > .active')
                     .removeClass('active')
 
                 element.addClass('active')
@@ -1989,9 +1989,14 @@
 
 $(document).ready(function () {
     $(function () {
-        $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+        $("input, select, textarea").not("[type=submit]").jqBootstrapValidation();
         $("input[required], select[required]").each(function () {
             var $wrapper = $("<div></div>").addClass("input-append");
+
+            if ($(this).attr('type') == "file") {
+                $wrapper.addClass("input-prepend");
+            }
+
             $(this).wrap($wrapper);
             $(this).after($('<span>*</span>').addClass("add-on").css('line-height', '25px'));
             $(this).width(function (i, w) { return w - 28; });
@@ -2022,5 +2027,7 @@ $(document).ready(function () {
             language: "de",
             todayHighlight: true
         });
+
+        $('input[type=file]').bootstrapFileInput();
     });
 })

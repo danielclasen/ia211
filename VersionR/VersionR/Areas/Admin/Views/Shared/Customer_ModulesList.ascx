@@ -48,7 +48,7 @@
             <td style="text-align: center;">
                 <div class="btn-group">
                     <a href="<%= Url.Action("Edit", "License", new {id = moduleLicense.OrderId}) %>"
-                        class="btn" title="Bearbeiten"><i class="icon-wrench"></i></a><a href="<%= Url.Action("Delete", "License", new {id = moduleLicense.OrderId}) %>"
+                        class="btn btn-white" title="Bearbeiten"><i class="icon-wrench"></i></a><a href="<%= Url.Action("Delete", "License", new {id = moduleLicense.OrderId}) %>"
                             class="btn btn-danger" title="Löschen"><i class="icon-trash"></i></a>
                 </div>
             </td>

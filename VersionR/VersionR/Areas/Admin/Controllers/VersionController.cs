@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using VersionR.Helpers;
 using VersionR.Models;
 using Version = VersionR.Models.Version;
 
@@ -25,11 +27,29 @@ namespace VersionR.Areas.Admin.Controllers
         public ActionResult Add(int id)
         {
             var currentUser = _db.Users.Single(u => u.EMail == User.Identity.Name);
+            var currentModule = _db.Modules.Single(m => m.ModId == id);
+
             var model = new Version();
             model.EmId = currentUser.UId;
             model.User = currentUser;
             model.ModId = id;
-            model.Module = _db.Modules.Single(m => m.ModId == id);
+            model.Module = currentModule;
+
+            try
+            {
+                var lastVersion =
+                    currentModule.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId).First();
+                model.Release = lastVersion.Release;
+                model.SubRelease = lastVersion.SubRelease;
+                model.BuildId = lastVersion.BuildId;
+            }
+            catch (Exception)
+            {
+                model.Release = 0;
+                model.SubRelease = 0;
+                model.BuildId = "1";
+            }
+
             model.ReleaseDate = DateTime.Now;
             return View(model);
         }
@@ -60,10 +80,13 @@ namespace VersionR.Areas.Admin.Controllers
 
                         string filePath =
                             Path.Combine(HttpContext.Server.MapPath("~/Uploads/Modules/" + model.Module.Name),
-                                         Path.GetFileName(file.FileName));
+                                model.Module.Name + "-" + model.Release + "." + model.SubRelease + "." + model.BuildId +
+                                Path.GetExtension(file.FileName).ToLower());
                         file.SaveAs(filePath);
 
-                        model.Filename = filePath;
+                        model.Filename = "Uploads/Modules/" + model.Module.Name + "/" + model.Module.Name + "-" +
+                                         model.Release + "." + model.SubRelease + "." + model.BuildId +
+                                         Path.GetExtension(file.FileName).ToLower();
                     }
                 }
 
@@ -74,8 +97,61 @@ namespace VersionR.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString());
                 return View(model);
+            }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                return View(_db.Versions.Single(v => v.VrId == id));
+            }
+            catch (Exception)
+            {
+                TempData["uihint"] = new UiHint("Fehler!",
+                    "Die Version wurde nicht gefunden!",
+                    new { @class = "alert alert-error" });
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id, Version model)
+        {
+            try
+            {
+                var toDelete = _db.Versions.Single(v => v.VrId == id);
+
+                try
+                {
+                    var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"),
+                        toDelete.Filename);
+                    var fileDelete = new FileInfo(deletePath);
+                    fileDelete.Delete();
+
+                    TempData["uihint"] = new UiHint("Erfolg!",
+                        "Die Version wurde erfolgriech gelöscht!",
+                        new { @class = "alert alert-success" });
+                }
+                catch (Exception)
+                {
+                    TempData["uihint"] = new UiHint("Achtung!",
+                        "Die Version wurde erfolgriech gelöscht, allerdings konnte die Versions-Datei nicht gefunden oder gelöscht werden!",
+                        new { @class = "alert alert-warning" });
+                }
+
+                _db.Versions.DeleteObject(toDelete);
+                _db.SaveChanges();
+
+                return RedirectToAction("Details", "Module", new { id = toDelete.ModId });
+            }
+            catch (Exception)
+            {
+                TempData["uihint"] = new UiHint("Fehler!",
+                    "Da ist etwas schief gelaufen oder die Version wurde nicht gefunden!",
+                    new { @class = "alert alert-error" });
+                return RedirectToAction("List", "Module");
             }
         }
     }

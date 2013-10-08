@@ -1,11 +1,16 @@
 ﻿input[required]
 {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 input[required]:after
 {
-    content: " * ";
-    display: inline-block;
+	content: " * ";
+	display: inline-block;
+}
+
+.btn-white
+{
+	background-color: white;
 }

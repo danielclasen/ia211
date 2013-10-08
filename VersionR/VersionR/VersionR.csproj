@@ -139,7 +139,9 @@
     <Content Include="Areas\Admin\Views\License\Delete.aspx" />
     <Content Include="Areas\Admin\Views\License\Edit.aspx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
+    <Content Include="Areas\Admin\Views\Shared\Module_VersionsList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Add.aspx" />
+    <Content Include="Areas\Admin\Views\Version\Delete.aspx" />
     <Content Include="Content\css\bootstrap-addons.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
@@ -155,9 +157,11 @@
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\js\bootstrap.file-input.js" />
     <Content Include="Content\js\bootstrap.datepicker.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-1.9.1.js" />
     <Content Include="Content\js\jquery.BootstrapValidation.js" />
     <Content Include="Content\js\jquery-1.10.2.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
