@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using VersionR.Models;
 using VersionR.Services;
+using Version = VersionR.Models.Version;
 
 namespace VersionR.Areas.Admin.Controllers
 {
@@ -91,7 +92,7 @@ namespace VersionR.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Version model)
         {
             try
             {

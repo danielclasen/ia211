@@ -52,8 +52,8 @@
             <td style="text-align: center;">
                 <div class="btn-group">
                     <a href="/<%: item.Filename %>" class="btn btn-white" title="Download"><i class="icon-download-alt">
-                    </i></a><a href="<%= Url.Action("Edit", "Version", new {id = item.VrId}) %>" class="btn btn-white"
-                        title="Bearbeiten"><i class="icon-wrench"></i></a><a href="<%= Url.Action("Delete", "Version", new {id = item.VrId}) %>"
+                    </i></a><a href="<%= Url.Action("Details", "Version", new {id = item.VrId}) %>" class="btn btn-white"
+                        title="Details anzeigen"><i class="icon-folder-open"></i></a><a href="<%= Url.Action("Delete", "Version", new {id = item.VrId}) %>"
                             class="btn btn-danger" title="Löschen"><i class="icon-trash"></i></a>
                 </div>
             </td>

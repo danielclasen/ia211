@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using VersionR.Areas.Admin.ViewModels;
 using VersionR.Helpers;
 using VersionR.Models;
 using Version = VersionR.Models.Version;
@@ -51,46 +53,62 @@ namespace VersionR.Areas.Admin.Controllers
             }
 
             model.ReleaseDate = DateTime.Now;
-            return View(model);
+
+            var viewModel = new VersionViewModel
+                                {
+                                    Version = model,
+                                    ReleaseDate =
+                                        model.ReleaseDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))
+                                };
+
+            return View(viewModel);
         }
 
         //
         // POST: /Admin/Version/Create
         [HttpPost]
-        public ActionResult Add(int id, Version model)
+        public ActionResult Add(int id, VersionViewModel model)
         {
             try
             {
                 var currentUser = _db.Users.Single(u => u.EMail == User.Identity.Name);
 
-                model.EmId = currentUser.UId;
-                model.User = currentUser;
-                model.ModId = id;
-                model.Module = _db.Modules.Single(m => m.ModId == id);
+                model.Version.EmId = currentUser.UId;
+                model.Version.User = currentUser;
+                model.Version.ModId = id;
+                model.Version.Module = _db.Modules.Single(m => m.ModId == id);
+                model.Version.ReleaseDate = DateTime.ParseExact(model.ReleaseDate, "d",
+                                                                CultureInfo.CreateSpecificCulture("de-DE"));
 
                 foreach (string inputTagName in Request.Files)
                 {
                     HttpPostedFileBase file = Request.Files[inputTagName];
                     if (file.ContentLength > 0)
                     {
-                        if (!System.IO.Directory.Exists(Server.MapPath(@"~/Uploads/Modules/" + model.Module.Name)))
+                        if (
+                            !System.IO.Directory.Exists(Server.MapPath(@"~/Uploads/Modules/" + model.Version.Module.Name)))
                         {
-                            System.IO.Directory.CreateDirectory(Server.MapPath(@"~/Uploads/Modules/" + model.Module.Name));
+                            System.IO.Directory.CreateDirectory(
+                                Server.MapPath(@"~/Uploads/Modules/" + model.Version.Module.Name));
                         }
 
                         string filePath =
-                            Path.Combine(HttpContext.Server.MapPath("~/Uploads/Modules/" + model.Module.Name),
-                                model.Module.Name + "-" + model.Release + "." + model.SubRelease + "." + model.BuildId +
-                                Path.GetExtension(file.FileName).ToLower());
+                            Path.Combine(HttpContext.Server.MapPath("~/Uploads/Modules/" + model.Version.Module.Name),
+                                         model.Version.Module.Name + "-" + model.Version.Release + "." +
+                                         model.Version.SubRelease + "." +
+                                         model.Version.BuildId +
+                                         Path.GetExtension(file.FileName).ToLower());
                         file.SaveAs(filePath);
 
-                        model.Filename = "Uploads/Modules/" + model.Module.Name + "/" + model.Module.Name + "-" +
-                                         model.Release + "." + model.SubRelease + "." + model.BuildId +
-                                         Path.GetExtension(file.FileName).ToLower();
+                        model.Version.Filename = "Uploads/Modules/" + model.Version.Module.Name + "/" +
+                                                 model.Version.Module.Name + "-" +
+                                                 model.Version.Release + "." + model.Version.SubRelease + "." +
+                                                 model.Version.BuildId +
+                                                 Path.GetExtension(file.FileName).ToLower();
                     }
                 }
 
-                _db.AddToVersions(model);
+                _db.AddToVersions(model.Version);
                 _db.SaveChanges();
 
                 return RedirectToAction("Details", "Module", new { id = id });
@@ -109,10 +127,7 @@ namespace VersionR.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                TempData["uihint"] = new UiHint("Fehler!",
-                    "Die Version wurde nicht gefunden!",
-                    new { @class = "alert alert-error" });
-                return RedirectToAction("Index", "Home");
+                return this.HandleError404();
             }
         }
 
@@ -126,19 +141,19 @@ namespace VersionR.Areas.Admin.Controllers
                 try
                 {
                     var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"),
-                        toDelete.Filename);
+                                                  toDelete.Filename);
                     var fileDelete = new FileInfo(deletePath);
                     fileDelete.Delete();
 
                     TempData["uihint"] = new UiHint("Erfolg!",
-                        "Die Version wurde erfolgriech gelöscht!",
-                        new { @class = "alert alert-success" });
+                                                    "Die Version wurde erfolgriech gelöscht!",
+                                                    new { @class = "alert alert-success" });
                 }
                 catch (Exception)
                 {
                     TempData["uihint"] = new UiHint("Achtung!",
-                        "Die Version wurde erfolgriech gelöscht, allerdings konnte die Versions-Datei nicht gefunden oder gelöscht werden!",
-                        new { @class = "alert alert-warning" });
+                                                    "Die Version wurde erfolgriech gelöscht, allerdings konnte die Versions-Datei nicht gefunden oder gelöscht werden!",
+                                                    new { @class = "alert alert-warning" });
                 }
 
                 _db.Versions.DeleteObject(toDelete);
@@ -148,11 +163,32 @@ namespace VersionR.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                TempData["uihint"] = new UiHint("Fehler!",
-                    "Da ist etwas schief gelaufen oder die Version wurde nicht gefunden!",
-                    new { @class = "alert alert-error" });
-                return RedirectToAction("List", "Module");
+                return this.HandleError404();
             }
+        }
+
+        public ActionResult Details(int id)
+        {
+            try
+            {
+                var version = _db.Versions.Single(v => v.VrId == id);
+                var viewModel = new VersionViewModel();
+                viewModel.Version = version;
+                viewModel.ReleaseDate = version.ReleaseDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"));
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return this.HandleError404();
+            }
+        }
+
+        public RedirectToRouteResult HandleError404()
+        {
+            TempData["uihint"] = new UiHint("Fehler!",
+                                            "Da ist etwas schief gelaufen oder das Element wurde nicht gefunden!",
+                                            new { @class = "alert alert-error" });
+            return RedirectToAction("List", "Module");
         }
     }
 }

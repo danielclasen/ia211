@@ -83,6 +83,7 @@
     <Compile Include="Areas\Admin\Controllers\VersionController.cs" />
     <Compile Include="Areas\Admin\ViewModels\AddUserLicenseViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\EditUserLicenseViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\VersionViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
@@ -142,6 +143,7 @@
     <Content Include="Areas\Admin\Views\Shared\Module_VersionsList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Add.aspx" />
     <Content Include="Areas\Admin\Views\Version\Delete.aspx" />
+    <Content Include="Areas\Admin\Views\Version\Details.aspx" />
     <Content Include="Content\css\bootstrap-addons.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
@@ -152,6 +154,7 @@
     <Content Include="Content\css\font-awesome-ie7.min.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\morris.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
@@ -162,6 +165,7 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-1.9.1.js" />
+    <Content Include="Content\js\jquery.bootstrap.startup.js" />
     <Content Include="Content\js\jquery.BootstrapValidation.js" />
     <Content Include="Content\js\jquery-1.10.2.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
@@ -210,6 +214,9 @@
     <Content Include="Content\js\locales\bootstrap-datepicker.uk.js" />
     <Content Include="Content\js\locales\bootstrap-datepicker.zh-CN.js" />
     <Content Include="Content\js\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Content\js\morris.js" />
+    <Content Include="Content\js\morris.min.js" />
+    <Content Include="Content\js\raphael-min.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\VersionR.20131001.edmx.sql" />
     <Content Include="Models\VersionR.edmx.sql" />
@@ -312,7 +319,7 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>26060</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>

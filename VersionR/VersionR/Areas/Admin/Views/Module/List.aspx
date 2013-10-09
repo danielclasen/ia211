@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VersionR.Models.Module>>" %>
 
+<%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Modules
 </asp:Content>
@@ -43,13 +44,23 @@
                        {
                            var lastVersion = orderedVersions.First();
                     %>
+                    <% if (lastVersion.ReleaseDate.Date > DateTime.Now.Date)
+                       { %>
+                    <span class="label label-important" title="Ausstehend"><i class="icon-coffee"></i>
+                    </span>
+                    <% }
+                       else
+                       { %>
+                    <span class="label label-success" title="Veröffentlicht"><i class="icon-ok"></i>
+                    </span>
+                    <% } %>
                     <a href="<%= Url.Action("Details", "Version", new {id = lastVersion.VrId}) %>" title="Details anzeigen">
                         <%: lastVersion.Release %>.<%: lastVersion.SubRelease %>.<%: lastVersion.BuildId %>
                     </a>
                     <div class="btn-group pull-right">
                         <a href="/<%: lastVersion.Filename %>" class="btn" title="Download"><i class="icon-download-alt">
-                        </i></a><a href="<%= Url.Action("Edit", "Version", new {id = lastVersion.VrId}) %>"
-                            class="btn" title="Bearbeiten"><i class="icon-wrench"></i></a><a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>"
+                        </i></a><a href="<%= Url.Action("Details", "Version", new {id = lastVersion.VrId}) %>"
+                            class="btn" title="Details anzeigen"><i class="icon-folder-open"></i></a><a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>"
                                 class="btn btn-success" title="Neue Version erstellen"><i class="icon-plus"></i>
                             </a>
                     </div>

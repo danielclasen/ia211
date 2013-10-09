@@ -49,7 +49,21 @@
             <% Html.RenderPartial("Module_VersionsList", Model.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId)); %>
         </div>
         <div class="span6 well well-small">
-            right content.
+            <h3>
+                Downloads nach Version</h3>
+            <div id="donut-dl-version" style="width: 200px; height: 200px; display: block;">
+            </div>
+            <script>
+                Morris.Donut({
+                    element: 'donut-dl-version',
+                    data: [
+                            { label: "1.0.441-alpha", value: 12 },
+                            { label: "2.0.441-nightly", value: 38 },
+                            { label: "4.0.661 RC1", value: 50 }
+                          ],
+                    formatter: function (y) { return y + "%" }
+                });
+            </script>
         </div>
     </div>
     <div class="btn-group">

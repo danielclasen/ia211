@@ -17,7 +17,6 @@
     <li class="nav-header">Modulverwaltung</li>
     <%: Html.MenuItem("Module", "List", "Module", "Admin")%>
     <%: Html.MenuItem("Modul anlegen", "Create", "Module", "Admin")%>
-    <%: Html.MenuItem("Neue Version anlegen", "Create", "Version", "Admin")%>
     <li class="nav-header">Auswertung</li>
     <%: Html.MenuItem("Module nach Downloads", "StatisticModule", "Statistic", "Admin")%>
     <% } %>
