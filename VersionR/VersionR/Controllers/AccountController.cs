@@ -22,12 +22,14 @@ namespace VersionR.Controllers
 
         public ActionResult Index()
         {
-            
             //var users = from m in db.Users
             //             where true
             //             select m;
 
             var users = repos.UserRepoistory.Get();
+
+            repos.UserRepoistory.GetByID(0);
+            
             /*
              * TODO Codebeispiel!
              * Beispiel für ein Filter z.B. für select Anweisungen o.ä.

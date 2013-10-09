@@ -11,10 +11,10 @@ namespace VersionR.DAL
 
         private GenericRepository<Customer_Modules> customerModulesRepoistory;
         private GenericRepository<Download> downloadRepoistory;
-        private GenericRepository<Manual> manualRepoistory;
+        private ManualRepository manualRepoistory;
         private GenericRepository<Module> moduleRepoistory;
         private GenericRepository<Role> roleRepoistory;
-        private GenericRepository<User> userRepoistory;
+        private UserRepository userRepoistory;
         private GenericRepository<Version> versionRepoistory;
 
         private bool disposed = false;
@@ -31,17 +31,18 @@ namespace VersionR.DAL
             }
         }
 
-        public GenericRepository<Manual> ManualRepoistory
+        public ManualRepository ManualRepoistory
         {
             get
             {
                 if (manualRepoistory == null)
                 {
-                    manualRepoistory = new GenericRepository<Manual>(context);
+                    manualRepoistory = new ManualRepository(context);
                 }
                 return manualRepoistory;
             }
         }
+
 
         public GenericRepository<Module> ModuleRepoistory
         {
@@ -67,13 +68,13 @@ namespace VersionR.DAL
             }
         }
 
-        public GenericRepository<User> UserRepoistory
+        public UserRepository UserRepoistory
         {
             get
             {
                 if (userRepoistory == null)
                 {
-                    userRepoistory = new GenericRepository<User>(context);
+                    userRepoistory = new UserRepository(context, this);
                 }
                 return userRepoistory;
             }
