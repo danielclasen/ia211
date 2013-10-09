@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Portable.Licensing">
       <HintPath>..\packages\Portable.Licensing.1.1.0\lib\portable-net40+sl4+wp7+win8\Portable.Licensing.dll</HintPath>
@@ -90,6 +93,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceUserController.cs" />
     <Compile Include="Controllers\UserLicensesController.cs" />
+    <Compile Include="DAL\VersionRContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
