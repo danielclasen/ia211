@@ -51,7 +51,7 @@
                     .nav, .navbar-search, .navbar-form, etc
                   </div>-->
                         <ul class="nav pull-right">
-                            <% if (Context.User.IsInRole("Administrator"))
+                            <% if (Context.User.IsInRole("Administrator") || Context.User.IsInRole("Supporter"))
                                { %>
                             <%: Html.MenuItem("Admin", "Index", "Home", "Admin")%>
                             <% } %>

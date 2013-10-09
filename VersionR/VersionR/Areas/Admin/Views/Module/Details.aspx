@@ -51,19 +51,7 @@
         <div class="span6 well well-small">
             <h3>
                 Downloads nach Version</h3>
-            <div id="donut-dl-version" style="width: 200px; height: 200px; display: block;">
-            </div>
-            <script>
-                Morris.Donut({
-                    element: 'donut-dl-version',
-                    data: [
-                            { label: "1.0.441-alpha", value: 12 },
-                            { label: "2.0.441-nightly", value: 38 },
-                            { label: "4.0.661 RC1", value: 50 }
-                          ],
-                    formatter: function (y) { return y + "%" }
-                });
-            </script>
+            <% Html.RenderPartial("Modul_Download_VersionDonut", Model.Versions); %>
         </div>
     </div>
     <div class="btn-group">

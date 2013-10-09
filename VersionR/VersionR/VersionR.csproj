@@ -147,12 +147,14 @@
     <Content Include="Areas\Admin\Views\License\Add.aspx" />
     <Content Include="Areas\Admin\Views\License\Delete.aspx" />
     <Content Include="Areas\Admin\Views\License\Edit.aspx" />
+    <Content Include="Areas\Admin\Views\Module\Modul_Download_VersionDonut.ascx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
-    <Content Include="Areas\Admin\Views\Shared\Module_VersionsList.ascx" />
-    <Content Include="Areas\Admin\Views\Shared\Version_DownloadList.ascx" />
+    <Content Include="Areas\Admin\Views\Module\Module_VersionsList.ascx" />
+    <Content Include="Areas\Admin\Views\Version\Version_DownloadList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Add.aspx" />
     <Content Include="Areas\Admin\Views\Version\Delete.aspx" />
     <Content Include="Areas\Admin\Views\Version\Details.aspx" />
+    <Content Include="Areas\Admin\Views\Version\Version_DownloadGraph.ascx" />
     <Content Include="Content\css\bootstrap-addons.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
