@@ -13,23 +13,29 @@ namespace VersionR.Controllers
     public class AccountController : Controller
     {
 
-        //VersionR.Models.ia211Entities db = new ia211Entities();
+        
         VersionR.Models.VersionR db = new VersionR.Models.VersionR();
+        DAL.Repositories repos = new DAL.Repositories();
+
         //
         // GET: /Account/
 
         public ActionResult Index()
         {
-            
-            var users = from m in db.Users
-                         where true
-                         select m;
+            //var users = from m in db.Users
+            //             where true
+            //             select m;
 
-            return View(users.ToList());
+            var users = repos.UserRepoistory.Get();
 
-            //TODO: Check for Login, return different views
-            //return View();
+            repos.UserRepoistory.GetByID(0);
             
+            /*
+             * TODO Codebeispiel!
+             * Beispiel für ein Filter z.B. für select Anweisungen o.ä.
+                var users = repos.UserRepoistory.Get(filter: f => f.NickName.StartsWith("test"));
+             * */
+            return View(users.ToList());            
         }
 
         //
@@ -50,8 +56,8 @@ namespace VersionR.Controllers
             if (ModelState.IsValid)
             {
                 newUser.PwHash = PasswordService.getMD5Hash(newUser.PwHash);
-                db.AddToUsers(newUser);
-                db.SaveChanges();
+                repos.UserRepoistory.Insert(newUser);
+                repos.Save();
 
                 return RedirectToAction("Index");
             }

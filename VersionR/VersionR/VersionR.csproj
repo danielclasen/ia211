@@ -93,6 +93,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceUserController.cs" />
     <Compile Include="Controllers\UserLicensesController.cs" />
+    <Compile Include="DAL\ICostumerModulesRepo.cs" />
+    <Compile Include="DAL\SpecialRepositories.cs" />
+    <Compile Include="DAL\Repositories.cs" />
     <Compile Include="DAL\VersionRContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
