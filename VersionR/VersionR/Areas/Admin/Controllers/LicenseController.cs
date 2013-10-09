@@ -3,12 +3,15 @@ using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using VersionR.Areas.Admin.ViewModels;
+using VersionR.DAL;
 using VersionR.Helpers;
 using VersionR.Models;
+using VersionR.Services;
 using VersionR.ViewModels.Admin;
 
 namespace VersionR.Areas.Admin.Controllers
 {
+    [AuthorizeWithNotify(Roles = "Administrator")]
     public class LicenseController : Controller
     {
         private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
@@ -22,15 +25,15 @@ namespace VersionR.Areas.Admin.Controllers
 
         public ActionResult Add(int id)
         {
-            var viewModel = new AddUserLicenseViewModel { User = _db.Users.Single(u => u.UId == id) };
+            var viewModel = new AddUserLicenseViewModel {User = _db.Users.Single(u => u.UId == id)};
             if (viewModel.PopulateSelectList())
             {
                 return View(viewModel);
             }
             TempData["uihint"] = new UiHint("Das geht nicht.",
-                                            "Der Benutzer verfügt schon über die Lizenzen aller Module!",
-                                            new { @class = "alert alert-error" });
-            return RedirectToAction("Details", "User", new { id = id });
+                "Der Benutzer verfügt schon über die Lizenzen aller Module!",
+                new {@class = "alert alert-error"});
+            return RedirectToAction("Details", "User", new {id = id});
         }
 
         [HttpPost]
@@ -44,8 +47,8 @@ namespace VersionR.Areas.Admin.Controllers
                 }
 
                 var parsedBuyDate = DateTime.ParseExact(model.BuyDate,
-                                                        "d",
-                                                        CultureInfo.CreateSpecificCulture("de-DE"));
+                    "d",
+                    CultureInfo.CreateSpecificCulture("de-DE"));
 
                 var expiryDate = parsedBuyDate.AddYears(model.LicenseYears);
 
@@ -57,8 +60,8 @@ namespace VersionR.Areas.Admin.Controllers
                 _db.Users.Single(u => u.UId == id).Customer_Modules.Add(customerModules);
                 _db.SaveChanges();
                 TempData["uihint"] = new UiHint("Erfolg!", "Die Lizenz wurde hinzugefügt!",
-                                                new { @class = "alert alert-success" });
-                return RedirectToAction("Details", "User", new { id = id });
+                    new {@class = "alert alert-success"});
+                return RedirectToAction("Details", "User", new {id = id});
             }
             catch
             {
@@ -88,15 +91,15 @@ namespace VersionR.Areas.Admin.Controllers
                 _db.SaveChanges();
 
                 TempData["uihint"] = new UiHint("Erfolg!", "Die Lizenz wurde erfolgreich gelöscht!",
-                                            new { @class = "alert alert-success" });
+                    new {@class = "alert alert-success"});
             }
             catch (Exception)
             {
                 TempData["uihint"] = new UiHint("Fehler.", "Da ist etwas schief gelaufen. Das sollte nicht so sein!",
-                                            new { @class = "alert alert-error" });
+                    new {@class = "alert alert-error"});
             }
 
-            return RedirectToAction("Details", "User", new { id = delObject.CmId });
+            return RedirectToAction("Details", "User", new {id = delObject.CmId});
         }
 
         public ActionResult Edit(int id)
@@ -131,14 +134,14 @@ namespace VersionR.Areas.Admin.Controllers
                 _db.SaveChanges();
 
                 TempData["uihint"] = new UiHint("Erfolg!", "Die Lizenz wurde erfolgreich bearbeitet!",
-                                                new { @class = "alert alert-success" });
-                return RedirectToAction("Details", "User", new { id = toUpdate.User.UId });
+                    new {@class = "alert alert-success"});
+                return RedirectToAction("Details", "User", new {id = toUpdate.User.UId});
             }
             catch (Exception)
             {
                 TempData["uihint"] = new UiHint("Fehler!", "Da ist etwas schief gelaufen!",
-                                                new { @class = "alert alert-error" });
-                return RedirectToAction("Details", "User", new { id = model.CmId });
+                    new {@class = "alert alert-error"});
+                return RedirectToAction("Details", "User", new {id = model.CmId});
             }
         }
     }

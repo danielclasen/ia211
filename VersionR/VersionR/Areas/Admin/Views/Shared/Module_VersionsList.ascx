@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<VersionR.Models.Version>>" %>
 <%@ Import Namespace="System.Globalization" %>
 <%@ Import Namespace="VersionR.Helpers" %>
+<% if (Model.Any())
+   { %>
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
@@ -51,13 +53,19 @@
             </td>
             <td style="text-align: center;">
                 <div class="btn-group">
-                    <a href="/<%: item.Filename %>" class="btn btn-white" title="Download"><i class="icon-download-alt">
-                    </i></a><a href="<%= Url.Action("Details", "Version", new {id = item.VrId}) %>" class="btn btn-white"
-                        title="Details anzeigen"><i class="icon-folder-open"></i></a><a href="<%= Url.Action("Delete", "Version", new {id = item.VrId}) %>"
-                            class="btn btn-danger" title="Löschen"><i class="icon-trash"></i></a>
+                    <a href="<%= Url.Action("Download", "Version", new {id = item.VrId}) %>" class="btn btn-white"
+                        title="Download"><i class="icon-download-alt"></i></a><a href="<%= Url.Action("Details", "Version", new {id = item.VrId}) %>"
+                            class="btn btn-white" title="Details anzeigen"><i class="icon-folder-open"></i>
+                    </a><a href="<%= Url.Action("Delete", "Version", new {id = item.VrId}) %>" class="btn btn-danger"
+                        title="Löschen"><i class="icon-trash"></i></a>
                 </div>
             </td>
         </tr>
         <% } %>
     </tbody>
 </table>
+<% }
+   else
+   {%>
+<small>Für dieses Modul wurde noch keine Version angelegt.</small>
+<% } %>

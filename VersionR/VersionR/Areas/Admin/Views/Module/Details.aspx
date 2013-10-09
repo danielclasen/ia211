@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VersionR.Models.Module>" %>
 
+<%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     DetailsModule
 </asp:Content>
@@ -30,8 +31,7 @@
                     <%: Model.Name %>
                 </td>
                 <td>
-                    <%: String.Format("{0:F}", Model.PricePerYear) %>
-                    €
+                    <%: String.Format(CultureInfo.CreateSpecificCulture("de-DE"), "{0:c}", Model.PricePerYear)%>
                 </td>
                 <td>
                     to be added...

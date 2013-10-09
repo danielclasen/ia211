@@ -9,10 +9,12 @@ using System.Web.Routing;
 using VersionR.Areas.Admin.ViewModels;
 using VersionR.Helpers;
 using VersionR.Models;
+using VersionR.Services;
 using Version = VersionR.Models.Version;
 
 namespace VersionR.Areas.Admin.Controllers
 {
+    [AuthorizeWithNotify(Roles = "Administrator,Supporter")]
     public class VersionController : Controller
     {
         private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
@@ -55,11 +57,11 @@ namespace VersionR.Areas.Admin.Controllers
             model.ReleaseDate = DateTime.Now;
 
             var viewModel = new VersionViewModel
-                                {
-                                    Version = model,
-                                    ReleaseDate =
-                                        model.ReleaseDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))
-                                };
+            {
+                Version = model,
+                ReleaseDate =
+                    model.ReleaseDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))
+            };
 
             return View(viewModel);
         }
@@ -78,7 +80,7 @@ namespace VersionR.Areas.Admin.Controllers
                 model.Version.ModId = id;
                 model.Version.Module = _db.Modules.Single(m => m.ModId == id);
                 model.Version.ReleaseDate = DateTime.ParseExact(model.ReleaseDate, "d",
-                                                                CultureInfo.CreateSpecificCulture("de-DE"));
+                    CultureInfo.CreateSpecificCulture("de-DE"));
 
                 foreach (string inputTagName in Request.Files)
                 {
@@ -94,10 +96,10 @@ namespace VersionR.Areas.Admin.Controllers
 
                         string filePath =
                             Path.Combine(HttpContext.Server.MapPath("~/Uploads/Modules/" + model.Version.Module.Name),
-                                         model.Version.Module.Name + "-" + model.Version.Release + "." +
-                                         model.Version.SubRelease + "." +
-                                         model.Version.BuildId +
-                                         Path.GetExtension(file.FileName).ToLower());
+                                model.Version.Module.Name + "-" + model.Version.Release + "." +
+                                model.Version.SubRelease + "." +
+                                model.Version.BuildId +
+                                Path.GetExtension(file.FileName).ToLower());
                         file.SaveAs(filePath);
 
                         model.Version.Filename = "Uploads/Modules/" + model.Version.Module.Name + "/" +
@@ -141,19 +143,19 @@ namespace VersionR.Areas.Admin.Controllers
                 try
                 {
                     var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"),
-                                                  toDelete.Filename);
+                        toDelete.Filename);
                     var fileDelete = new FileInfo(deletePath);
                     fileDelete.Delete();
 
                     TempData["uihint"] = new UiHint("Erfolg!",
-                                                    "Die Version wurde erfolgriech gelöscht!",
-                                                    new { @class = "alert alert-success" });
+                        "Die Version wurde erfolgriech gelöscht!",
+                        new { @class = "alert alert-success" });
                 }
                 catch (Exception)
                 {
                     TempData["uihint"] = new UiHint("Achtung!",
-                                                    "Die Version wurde erfolgriech gelöscht, allerdings konnte die Versions-Datei nicht gefunden oder gelöscht werden!",
-                                                    new { @class = "alert alert-warning" });
+                        "Die Version wurde erfolgriech gelöscht, allerdings konnte die Versions-Datei nicht gefunden oder gelöscht werden!",
+                        new { @class = "alert alert-warning" });
                 }
 
                 _db.Versions.DeleteObject(toDelete);
@@ -183,11 +185,54 @@ namespace VersionR.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult Download(int id)
+        {
+            try
+            {
+                var version = _db.Versions.Single(v => v.VrId == id);
+                return this.performDownload(version);
+            }
+            catch (Exception)
+            {
+                return this.HandleError404();
+            }
+        }
+
+        [NonAction]
+        private ActionResult performDownload(Version version)
+        {
+            string pfn = Server.MapPath("~/" + version.Filename);
+
+            if (!System.IO.File.Exists(pfn))
+            {
+                //throw new ArgumentException("Invalid file name or file not exists!");
+
+                return this.HandleError404();
+            }
+            else
+            {
+                var download = new Download()
+                {
+                    DlDate = DateTime.Now,
+                    CmId = _db.Users.Single(u => u.EMail == User.Identity.Name).UId,
+                    VrId = version.VrId
+                };
+                _db.AddToDownloads(download);
+                _db.SaveChanges();
+                return new BinaryContentResult()
+                {
+                    FileName = Path.GetFileName(@pfn),
+                    ContentType = "application/octet-stream",
+                    Content = System.IO.File.ReadAllBytes(pfn)
+                };
+            }
+        }
+
         public RedirectToRouteResult HandleError404()
         {
             TempData["uihint"] = new UiHint("Fehler!",
-                                            "Da ist etwas schief gelaufen oder das Element wurde nicht gefunden!",
-                                            new { @class = "alert alert-error" });
+                "Da ist etwas schief gelaufen oder das Element wurde nicht gefunden!",
+                new { @class = "alert alert-error" });
             return RedirectToAction("List", "Module");
         }
     }

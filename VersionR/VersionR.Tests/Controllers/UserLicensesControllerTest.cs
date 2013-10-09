@@ -11,14 +11,15 @@ namespace VersionR.Tests.Controllers
 {
     [TestClass]
     public class UserLicensesControllerTest
-	{
-		[TestMethod]
-		public void Index()
-		{
-			UserLicensesController controller = new UserLicensesController();
-			
-			ViewResult result = controller.Index() as ViewResult;
-			
-			Assert.IsNotNull(result);
-		}
-	}
+    {
+        [TestMethod]
+        public void Index()
+        {
+            UserLicensesController controller = new UserLicensesController();
+
+            ViewResult result = controller.Index() as ViewResult;
+
+            Assert.IsNotNull(result);
+        }
+    }
+}

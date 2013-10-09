@@ -125,6 +125,7 @@
     <Compile Include="Helpers\MenuItemExtensions.cs" />
     <Compile Include="Helpers\UIHintHelper.cs" />
     <Compile Include="Models\AuthModels.cs" />
+    <Compile Include="Models\BinaryContentResultModel.cs" />
     <Compile Include="Models\VersionR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -145,6 +146,7 @@
     <Content Include="Areas\Admin\Views\License\Edit.aspx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
     <Content Include="Areas\Admin\Views\Shared\Module_VersionsList.ascx" />
+    <Content Include="Areas\Admin\Views\Shared\Version_DownloadList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Add.aspx" />
     <Content Include="Areas\Admin\Views\Version\Delete.aspx" />
     <Content Include="Areas\Admin\Views\Version\Details.aspx" />

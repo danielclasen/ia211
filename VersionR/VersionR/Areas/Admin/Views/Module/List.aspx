@@ -58,11 +58,11 @@
                         <%: lastVersion.Release %>.<%: lastVersion.SubRelease %>.<%: lastVersion.BuildId %>
                     </a>
                     <div class="btn-group pull-right">
-                        <a href="/<%: lastVersion.Filename %>" class="btn" title="Download"><i class="icon-download-alt">
-                        </i></a><a href="<%= Url.Action("Details", "Version", new {id = lastVersion.VrId}) %>"
-                            class="btn" title="Details anzeigen"><i class="icon-folder-open"></i></a><a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>"
-                                class="btn btn-success" title="Neue Version erstellen"><i class="icon-plus"></i>
-                            </a>
+                        <a href="<%= Url.Action("Download", "Version", new {id = lastVersion.VrId}) %>" class="btn"
+                            title="Download"><i class="icon-download-alt"></i></a><a href="<%= Url.Action("Details", "Version", new {id = lastVersion.VrId}) %>"
+                                class="btn" title="Details anzeigen"><i class="icon-folder-open"></i></a>
+                        <a href="<%= Url.Action("Add", "Version", new {id = item.ModId}) %>" class="btn btn-success"
+                            title="Neue Version erstellen"><i class="icon-plus"></i></a>
                     </div>
                     <% }
                        else
