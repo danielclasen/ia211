@@ -134,6 +134,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VersionR.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\VersionR.Meta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
     <Compile Include="Areas\Admin\ViewModels\CreateUserViewModel.cs" />
