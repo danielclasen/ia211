@@ -318,7 +318,9 @@ VALUES ('Administrator'),('Supporter'),('Customer')
 
 --Insert user
 INSERT INTO [gr2].[Users]
-VALUES ('admin','admin@versionr.com','123',1,'21232f297a57a5a743894a0e4a801fc3')
+VALUES
+('Administrator','admin@versionr.com','635452',1,'7b7bc2512ee1fedcd76bdc68926d4f7b'),
+('Supporter','suppo@versionr.com','022424621',2,'953989c91ec91b760dbf1e181bff39b1')
 
 
 
