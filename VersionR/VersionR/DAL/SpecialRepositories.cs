@@ -1,7 +1,7 @@
-﻿using VersionR.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using VersionR.Models;
 
 namespace VersionR.DAL
 {
@@ -10,7 +10,6 @@ namespace VersionR.DAL
         public ManualRepository(VersionRContext context)
             : base(context)
         {
-
         }
 
         public IEnumerable<Manual> getByVersion(object version)
@@ -28,9 +27,15 @@ namespace VersionR.DAL
         {
             this.repos = repos;
         }
+
         public Role getUserRole(object userID)
         {
             return repos.RoleRepoistory.GetByID(this.GetByID(userID).RId);
+        }
+
+        public bool UserHasModule(object userID, int moduleID)
+        {
+            return this.GetByID(userID).Customer_Modules.Any(c => c.ModId == moduleID);
         }
     }
 }
