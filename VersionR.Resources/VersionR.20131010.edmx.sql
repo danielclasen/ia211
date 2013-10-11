@@ -134,7 +134,7 @@ CREATE TABLE [gr2].[Versions] (
     [BuildId] varchar(32)  NOT NULL,
     [Platform] varchar(50)  NOT NULL,
     [Filename] varchar(200)  NOT NULL,
-    [Description] varchar(64)  NULL,
+    [Description] varchar(1000)  NULL,
     [ReleaseDate] datetime  NOT NULL,
     [EmId] int  NOT NULL,
     [ModId] int  NOT NULL,
