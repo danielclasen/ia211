@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using VersionR.Areas.Admin.ViewModels;
+using VersionR.DAL;
 using VersionR.Helpers;
 using VersionR.Models;
 using VersionR.Services;
@@ -18,6 +19,7 @@ namespace VersionR.Areas.Admin.Controllers
     public class VersionController : Controller
     {
         private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
+        private DAL.Repositories _repos = new DAL.Repositories();
 
         //
         // GET: /Admin/Version/

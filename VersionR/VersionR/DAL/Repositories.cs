@@ -1,7 +1,7 @@
-﻿using VersionR.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using VersionR.Models;
 
 namespace VersionR.DAL
 {
@@ -43,7 +43,6 @@ namespace VersionR.DAL
             }
         }
 
-
         public GenericRepository<Module> ModuleRepoistory
         {
             get
@@ -80,7 +79,6 @@ namespace VersionR.DAL
             }
         }
 
-
         public GenericRepository<Version> VersionRepoistory
         {
             get
@@ -109,6 +107,7 @@ namespace VersionR.DAL
         {
             context.SaveChanges();
         }
+
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed && disposing)
@@ -116,11 +115,11 @@ namespace VersionR.DAL
                 context.Dispose();
             }
         }
+
         public void Dispose()
         {
             Dispose(true);
             System.GC.SuppressFinalize(this);
         }
-
     }
 }

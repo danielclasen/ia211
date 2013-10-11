@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using VersionR.Models;
+using Version = VersionR.Models.Version;
 
 namespace VersionR.DAL
 {
@@ -36,6 +39,28 @@ namespace VersionR.DAL
         public bool UserHasModule(object userID, int moduleID)
         {
             return this.GetByID(userID).Customer_Modules.Any(c => c.ModId == moduleID);
+        }
+    }
+
+    public class VersionRepository : GenericRepository<Version>
+    {
+        private Repositories repos;
+
+        public VersionRepository(VersionRContext context, Repositories repos)
+            : base(context)
+        {
+            this.repos = repos;
+        }
+
+        public void Delete(Version versionToDelete, string deletePath)
+        {
+            //            var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"), versionToDelete.Filename);
+
+            new FileInfo(deletePath).Delete();
+
+            this.repos.DownloadRepoistory.Delete(versionToDelete.Downloads);
+
+            base.Delete(versionToDelete);
         }
     }
 }
