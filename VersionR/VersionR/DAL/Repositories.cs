@@ -15,7 +15,7 @@ namespace VersionR.DAL
         private GenericRepository<Module> moduleRepoistory;
         private GenericRepository<Role> roleRepoistory;
         private UserRepository userRepoistory;
-        private GenericRepository<Version> versionRepoistory;
+        private VersionRepository versionRepoistory;
 
         private bool disposed = false;
 
@@ -79,13 +79,13 @@ namespace VersionR.DAL
             }
         }
 
-        public GenericRepository<Version> VersionRepoistory
+        public VersionRepository VersionRepoistory
         {
             get
             {
                 if (versionRepoistory == null)
                 {
-                    versionRepoistory = new GenericRepository<Version>(context);
+                    versionRepoistory = new VersionRepository(context, this);
                 }
                 return versionRepoistory;
             }

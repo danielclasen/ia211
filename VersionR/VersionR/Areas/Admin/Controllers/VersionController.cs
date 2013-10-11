@@ -115,7 +115,7 @@ namespace VersionR.Areas.Admin.Controllers
                 _db.AddToVersions(model.Version);
                 _db.SaveChanges();
 
-                return RedirectToAction("Details", "Module", new { id = id });
+                return RedirectToAction("Details", "Module", new {id = id});
             }
             catch (Exception e)
             {
@@ -138,37 +138,25 @@ namespace VersionR.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(int id, Version model)
         {
-            try
-            {
-                var toDelete = _db.Versions.Single(v => v.VrId == id);
+            //            try
+            //            {
+            var toDelete = _repos.VersionRepoistory.GetByID(id); //_db.Versions.Single(v => v.VrId == id);
 
-                try
-                {
-                    var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"),
-                        toDelete.Filename);
-                    var fileDelete = new FileInfo(deletePath);
-                    fileDelete.Delete();
+            var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"),
+                toDelete.Filename);
 
-                    TempData["uihint"] = new UiHint("Erfolg!",
-                        "Die Version wurde erfolgriech gelöscht!",
-                        new { @class = "alert alert-success" });
-                }
-                catch (Exception)
-                {
-                    TempData["uihint"] = new UiHint("Achtung!",
-                        "Die Version wurde erfolgriech gelöscht, allerdings konnte die Versions-Datei nicht gefunden oder gelöscht werden!",
-                        new { @class = "alert alert-warning" });
-                }
+            _repos.VersionRepoistory.Delete(toDelete, deletePath);
+            TempData["uihint"] = new UiHint("Erfolg!",
+                "Die Version wurde erfolgriech gelöscht!",
+                new {@class = "alert alert-success"});
+            _repos.Save();
 
-                _db.Versions.DeleteObject(toDelete);
-                _db.SaveChanges();
-
-                return RedirectToAction("Details", "Module", new { id = toDelete.ModId });
-            }
-            catch (Exception)
-            {
-                return this.HandleError404();
-            }
+            return RedirectToAction("Details", "Module", new {id = toDelete.ModId});
+            //            }
+            //            catch (Exception)
+            //            {
+            //                return this.HandleError404();
+            //            }
         }
 
         public ActionResult Details(int id)
@@ -234,7 +222,15 @@ namespace VersionR.Areas.Admin.Controllers
         {
             TempData["uihint"] = new UiHint("Fehler!",
                 "Da ist etwas schief gelaufen oder das Element wurde nicht gefunden!",
-                new { @class = "alert alert-error" });
+                new {@class = "alert alert-error"});
+            return RedirectToAction("List", "Module");
+        }
+
+        public RedirectToRouteResult HandleError()
+        {
+            TempData["uihint"] = new UiHint("Fehler!",
+                "Da ist etwas schief gelaufen!",
+                new {@class = "alert alert-error"});
             return RedirectToAction("List", "Module");
         }
     }

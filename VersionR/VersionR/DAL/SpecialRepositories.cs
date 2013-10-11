@@ -56,7 +56,7 @@ namespace VersionR.DAL
         {
             //            var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"), versionToDelete.Filename);
 
-            new FileInfo(deletePath).Delete();
+            //new FileInfo(deletePath).Delete();
 
             this.repos.DownloadRepoistory.Delete(versionToDelete.Downloads);
 
