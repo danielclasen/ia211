@@ -65,9 +65,10 @@ namespace VersionR.DAL
 
         public virtual void Delete(IEnumerable<TEntity> entitiesToDelete)
         {
-            foreach (var entity in entitiesToDelete)
+            var listToDelete = entitiesToDelete.ToList();
+            for (int i = listToDelete.Count() - 1; i >= 0; i--)
             {
-                this.Delete(entity);
+                this.Delete(listToDelete[i]);
             }
         }
 
