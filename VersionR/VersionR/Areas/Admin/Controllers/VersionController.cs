@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 using VersionR.Areas.Admin.ViewModels;
-using VersionR.DAL;
 using VersionR.Helpers;
 using VersionR.Models;
 using VersionR.Services;
@@ -18,14 +15,14 @@ namespace VersionR.Areas.Admin.Controllers
     [AuthorizeWithNotify(Roles = "Administrator,Supporter")]
     public class VersionController : Controller
     {
-        private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
-        private DAL.Repositories _repos = new DAL.Repositories();
+        private readonly Models.VersionR _db = new Models.VersionR();
+        private readonly DAL.Repositories _repos = new DAL.Repositories();
 
         //
         // GET: /Admin/Version/
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List", "Module");
         }
 
         //
@@ -59,11 +56,11 @@ namespace VersionR.Areas.Admin.Controllers
             model.ReleaseDate = DateTime.Now;
 
             var viewModel = new VersionViewModel
-            {
-                Version = model,
-                ReleaseDate =
-                    model.ReleaseDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))
-            };
+                                {
+                                    Version = model,
+                                    ReleaseDate =
+                                        model.ReleaseDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))
+                                };
 
             return View(viewModel);
         }
@@ -82,34 +79,50 @@ namespace VersionR.Areas.Admin.Controllers
                 model.Version.ModId = id;
                 model.Version.Module = _db.Modules.Single(m => m.ModId == id);
                 model.Version.ReleaseDate = DateTime.ParseExact(model.ReleaseDate, "d",
-                    CultureInfo.CreateSpecificCulture("de-DE"));
-
-                foreach (string inputTagName in Request.Files)
+                                                                CultureInfo.CreateSpecificCulture("de-DE"));
+                if (Request.Files.Count > 0)
                 {
-                    HttpPostedFileBase file = Request.Files[inputTagName];
-                    if (file.ContentLength > 0)
+                    foreach (string inputTagName in Request.Files)
                     {
-                        if (
-                            !System.IO.Directory.Exists(Server.MapPath(@"~/Uploads/Modules/" + model.Version.Module.Name)))
+                        HttpPostedFileBase file = Request.Files[inputTagName];
+                        if (file != null && file.ContentLength > 0)
                         {
-                            System.IO.Directory.CreateDirectory(
-                                Server.MapPath(@"~/Uploads/Modules/" + model.Version.Module.Name));
+                            if (
+                                !Directory.Exists(
+                                    Server.MapPath(@"~/Uploads/Modules/" + model.Version.Module.Name)))
+                            {
+                                Directory.CreateDirectory(
+                                    Server.MapPath(@"~/Uploads/Modules/" + model.Version.Module.Name));
+                            }
+
+                            string filePath =
+                                Path.Combine(
+                                    HttpContext.Server.MapPath("~/Uploads/Modules/" + model.Version.Module.Name),
+                                    model.Version.Module.Name + "-" + model.Version.Release + "." +
+                                    model.Version.SubRelease + "." +
+                                    model.Version.BuildId +
+                                    Path.GetExtension(file.FileName).ToLower());
+                            file.SaveAs(filePath);
+
+                            model.Version.Filename = "Uploads/Modules/" + model.Version.Module.Name + "/" +
+                                                     model.Version.Module.Name + "-" +
+                                                     model.Version.Release + "." + model.Version.SubRelease + "." +
+                                                     model.Version.BuildId +
+                                                     Path.GetExtension(file.FileName).ToLower();
+
+                            TempData["uihint"] = new UiHint("Erfolg!",
+                                                            "Die Version wurde erfolgriech angelegt!",
+                                                            new { @class = "alert alert-success" });
                         }
-
-                        string filePath =
-                            Path.Combine(HttpContext.Server.MapPath("~/Uploads/Modules/" + model.Version.Module.Name),
-                                model.Version.Module.Name + "-" + model.Version.Release + "." +
-                                model.Version.SubRelease + "." +
-                                model.Version.BuildId +
-                                Path.GetExtension(file.FileName).ToLower());
-                        file.SaveAs(filePath);
-
-                        model.Version.Filename = "Uploads/Modules/" + model.Version.Module.Name + "/" +
-                                                 model.Version.Module.Name + "-" +
-                                                 model.Version.Release + "." + model.Version.SubRelease + "." +
-                                                 model.Version.BuildId +
-                                                 Path.GetExtension(file.FileName).ToLower();
+                        else
+                        {
+                            return HandleError();
+                        }
                     }
+                }
+                else
+                {
+                    return HandleError();
                 }
 
                 _db.AddToVersions(model.Version);
@@ -117,7 +130,7 @@ namespace VersionR.Areas.Admin.Controllers
 
                 return RedirectToAction("Details", "Module", new { id = id });
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return View(model);
             }
@@ -131,7 +144,7 @@ namespace VersionR.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                return this.HandleError404();
+                return HandleError404();
             }
         }
 
@@ -143,19 +156,19 @@ namespace VersionR.Areas.Admin.Controllers
                 var toDelete = _repos.VersionRepoistory.GetByID(id); //_db.Versions.Single(v => v.VrId == id);
 
                 var deletePath = Path.Combine(HttpContext.Server.MapPath("~/"),
-                    toDelete.Filename);
+                                              toDelete.Filename);
 
                 _repos.VersionRepoistory.Delete(toDelete, deletePath);
                 TempData["uihint"] = new UiHint("Erfolg!",
-                    "Die Version wurde erfolgriech gelöscht!",
-                    new { @class = "alert alert-success" });
+                                                "Die Version wurde erfolgriech gelöscht!",
+                                                new { @class = "alert alert-success" });
                 _repos.Save();
 
                 return RedirectToAction("Details", "Module", new { id = toDelete.ModId });
             }
             catch (Exception)
             {
-                return this.HandleError404();
+                return HandleError404();
             }
         }
 
@@ -171,7 +184,7 @@ namespace VersionR.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                return this.HandleError404();
+                return HandleError404();
             }
         }
 
@@ -180,16 +193,16 @@ namespace VersionR.Areas.Admin.Controllers
             try
             {
                 var version = _db.Versions.Single(v => v.VrId == id);
-                return this.performDownload(version);
+                return PerformDownload(version);
             }
             catch (Exception)
             {
-                return this.HandleError404();
+                return HandleError404();
             }
         }
 
         [NonAction]
-        private ActionResult performDownload(Version version)
+        private ActionResult PerformDownload(Version version)
         {
             string pfn = Server.MapPath("~/" + version.Filename);
 
@@ -197,40 +210,37 @@ namespace VersionR.Areas.Admin.Controllers
             {
                 //throw new ArgumentException("Invalid file name or file not exists!");
 
-                return this.HandleError404();
+                return HandleError404();
             }
-            else
-            {
-                var download = new Download()
-                {
-                    DlDate = DateTime.Now,
-                    CmId = _db.Users.Single(u => u.EMail == User.Identity.Name).UId,
-                    VrId = version.VrId
-                };
-                _db.AddToDownloads(download);
-                _db.SaveChanges();
-                return new BinaryContentResult()
-                {
-                    FileName = Path.GetFileName(@pfn),
-                    ContentType = "application/octet-stream",
-                    Content = System.IO.File.ReadAllBytes(pfn)
-                };
-            }
+            var download = new Download
+                               {
+                                   DlDate = DateTime.Now,
+                                   CmId = _db.Users.Single(u => u.EMail == User.Identity.Name).UId,
+                                   VrId = version.VrId
+                               };
+            _db.AddToDownloads(download);
+            _db.SaveChanges();
+            return new BinaryContentResult
+                       {
+                           FileName = Path.GetFileName(@pfn),
+                           ContentType = "application/octet-stream",
+                           Content = System.IO.File.ReadAllBytes(pfn)
+                       };
         }
 
         public RedirectToRouteResult HandleError404()
         {
             TempData["uihint"] = new UiHint("Fehler!",
-                "Da ist etwas schief gelaufen oder das Element wurde nicht gefunden!",
-                new { @class = "alert alert-error" });
+                                            "Da ist etwas schief gelaufen oder das Element wurde nicht gefunden!",
+                                            new { @class = "alert alert-error" });
             return RedirectToAction("List", "Module");
         }
 
         public RedirectToRouteResult HandleError()
         {
             TempData["uihint"] = new UiHint("Fehler!",
-                "Da ist etwas schief gelaufen!",
-                new { @class = "alert alert-error" });
+                                            "Da ist etwas schief gelaufen!",
+                                            new { @class = "alert alert-error" });
             return RedirectToAction("List", "Module");
         }
     }

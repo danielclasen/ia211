@@ -31,13 +31,12 @@
                 <% }
                    else
                    {%>
-                <abbr title="Abgelaufen">
-                    <i class="icon-circle text-error"></i>
-                </abbr>
+                <i class="icon-circle text-error"></i>
                 <% } %>
             </td>
             <td>
-                <%: moduleLicense.Module.Name %>
+                <%: Html.ActionLink(moduleLicense.Module.Name, "Details", "Module",
+                                                       new {id = moduleLicense.Module.ModId}, new {}) %>
             </td>
             <td>
                 <%: moduleLicense.BuyDate.ToString("d", CultureInfo.CreateSpecificCulture("de-DE")) %>

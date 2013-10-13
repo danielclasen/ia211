@@ -151,6 +151,7 @@
     <Content Include="Areas\Admin\Views\Module\Modul_Download_VersionDonut.ascx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
     <Content Include="Areas\Admin\Views\Module\Module_VersionsList.ascx" />
+    <Content Include="Areas\Admin\Views\User\User_DownloadsList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Version_DownloadList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Add.aspx" />
     <Content Include="Areas\Admin\Views\Version\Delete.aspx" />

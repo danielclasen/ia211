@@ -35,7 +35,7 @@
                     <%: Html.ActionLink(item.Name, "Details", new { id = item.ModId })%>
                 </td>
                 <td>
-                    <%: String.Format("{0:F}", item.PricePerYear) %>
+                    <%: item.PricePerYear.ToString("c", CultureInfo.CreateSpecificCulture("de-DE"))%>
                     €
                 </td>
                 <td>

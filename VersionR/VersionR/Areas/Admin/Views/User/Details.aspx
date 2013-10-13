@@ -55,7 +55,13 @@
             <% Html.RenderPartial("Customer_ModulesList", Model.Customer_Modules.OrderBy(cm => cm.Module.Name)); %>
         </div>
         <div class="span6 well well-small">
-            right content.
+            <h3>
+                Download-Historie</h3>
+            <%
+                var DownloadList =
+                    Model.Downloads.OrderBy(
+                        d => d.Version.Module.Name + d.Version.Release + d.Version.SubRelease + d.Version.BuildId); %>
+            <% Html.RenderPartial("User_DownloadsList", DownloadList); %>
         </div>
     </div>
     <p>
