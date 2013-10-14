@@ -23,8 +23,11 @@ namespace VersionR.Tests.Controllers
 		}
 		
 		[TestMethod]
-		public void Welcome(string name = "Test", int num = 1)
+		public void Welcome()
 		{
+            string name = "Test";
+            int num = 1;
+
 			HelloWorldController controller = new HelloWorldController();
 			
 			ViewResult result = controller.Welcome(name, num) as ViewResult;
@@ -36,9 +39,12 @@ namespace VersionR.Tests.Controllers
 		}
 		
 		[TestMethod]
-		public void List(string name = "Test", int num = 1)
+		public void List()
 		{
-			HelloWorldController controller = new HelloWorldController();
+            string name = "Test";
+            int num = 1;
+            
+            HelloWorldController controller = new HelloWorldController();
 			
 			ViewResult result = controller.List(name, num) as ViewResult;
 			
