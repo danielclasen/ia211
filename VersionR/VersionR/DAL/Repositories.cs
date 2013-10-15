@@ -9,97 +9,97 @@ namespace VersionR.DAL
     {
         private VersionRContext context = new VersionRContext(new VersionR.Models.VersionR());
 
-        private GenericRepository<Customer_Modules> customerModulesRepoistory;
-        private GenericRepository<Download> downloadRepoistory;
-        private ManualRepository manualRepoistory;
-        private GenericRepository<Module> moduleRepoistory;
-        private GenericRepository<Role> roleRepoistory;
-        private UserRepository userRepoistory;
-        private VersionRepository versionRepoistory;
+        private GenericRepository<Customer_Modules> customerModulesRepository;
+        private GenericRepository<Download> downloadRepository;
+        private ManualRepository manualRepository;
+        private ModuleRepository moduleRepository;
+        private GenericRepository<Role> roleRepository;
+        private UserRepository userRepository;
+        private VersionRepository versionRepository;
 
         private bool disposed = false;
 
-        public GenericRepository<Download> DownloadRepoistory
+        public GenericRepository<Download> DownloadRepository
         {
             get
             {
-                if (downloadRepoistory == null)
+                if (downloadRepository == null)
                 {
-                    downloadRepoistory = new GenericRepository<Download>(context);
+                    downloadRepository = new GenericRepository<Download>(context);
                 }
-                return downloadRepoistory;
+                return downloadRepository;
             }
         }
 
-        public ManualRepository ManualRepoistory
+        public ManualRepository ManualRepository
         {
             get
             {
-                if (manualRepoistory == null)
+                if (manualRepository == null)
                 {
-                    manualRepoistory = new ManualRepository(context);
+                    manualRepository = new ManualRepository(context);
                 }
-                return manualRepoistory;
+                return manualRepository;
             }
         }
 
-        public GenericRepository<Module> ModuleRepoistory
+        public ModuleRepository ModuleRepository
         {
             get
             {
-                if (moduleRepoistory == null)
+                if (moduleRepository == null)
                 {
-                    moduleRepoistory = new GenericRepository<Module>(context);
+                    moduleRepository = new ModuleRepository(context, this);
                 }
-                return moduleRepoistory;
+                return moduleRepository;
             }
         }
 
-        public GenericRepository<Role> RoleRepoistory
+        public GenericRepository<Role> RoleRepository
         {
             get
             {
-                if (roleRepoistory == null)
+                if (roleRepository == null)
                 {
-                    roleRepoistory = new GenericRepository<Role>(context);
+                    roleRepository = new GenericRepository<Role>(context);
                 }
-                return roleRepoistory;
+                return roleRepository;
             }
         }
 
-        public UserRepository UserRepoistory
+        public UserRepository UserRepository
         {
             get
             {
-                if (userRepoistory == null)
+                if (userRepository == null)
                 {
-                    userRepoistory = new UserRepository(context, this);
+                    userRepository = new UserRepository(context, this);
                 }
-                return userRepoistory;
+                return userRepository;
             }
         }
 
-        public VersionRepository VersionRepoistory
+        public VersionRepository VersionRepository
         {
             get
             {
-                if (versionRepoistory == null)
+                if (versionRepository == null)
                 {
-                    versionRepoistory = new VersionRepository(context, this);
+                    versionRepository = new VersionRepository(context, this);
                 }
-                return versionRepoistory;
+                return versionRepository;
             }
         }
 
-        public GenericRepository<Customer_Modules> CustomerModulesRepoistory
+        public GenericRepository<Customer_Modules> CustomerModulesRepository
         {
             get
             {
-                if (customerModulesRepoistory == null)
+                if (customerModulesRepository == null)
                 {
-                    customerModulesRepoistory = new GenericRepository<Customer_Modules>(context);
+                    customerModulesRepository = new GenericRepository<Customer_Modules>(context);
                 }
-                return customerModulesRepoistory;
+                return customerModulesRepository;
             }
         }
 

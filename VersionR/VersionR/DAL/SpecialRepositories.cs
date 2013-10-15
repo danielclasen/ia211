@@ -33,7 +33,7 @@ namespace VersionR.DAL
 
         public Role getUserRole(object userID)
         {
-            return repos.RoleRepoistory.GetByID(this.GetByID(userID).RId);
+            return repos.RoleRepository.GetByID(this.GetByID(userID).RId);
         }
 
         public bool UserHasModule(object userID, int moduleID)
@@ -58,9 +58,28 @@ namespace VersionR.DAL
 
             new FileInfo(deletePath).Delete();
 
-            this.repos.DownloadRepoistory.Delete(versionToDelete.Downloads);
+            this.repos.DownloadRepository.Delete(versionToDelete.Downloads);
 
             base.Delete(versionToDelete);
+        }
+    }
+
+    public class ModuleRepository : GenericRepository<Module>
+    {
+        private Repositories repos;
+
+        public ModuleRepository(VersionRContext context, Repositories repos)
+            : base(context)
+        {
+            this.repos = repos;
+        }
+
+        public Version GetLatestVersion(Module module)
+        {
+            return
+                repos.VersionRepository.Get(v => v.Module == module).OrderByDescending(
+                    mv => mv.Release + mv.SubRelease + mv.BuildId).
+                    First();
         }
     }
 }

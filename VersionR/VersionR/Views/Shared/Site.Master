@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 
 <%@ Import Namespace="VersionR.Helpers" %>
+<%@ Import Namespace="VersionR.Services" %>
 <!DOCTYPE html>
 <html lang="de">
 <head runat="server">
@@ -43,7 +44,8 @@
                         <a class="brand" href="/"><i class="icon-time"></i>VersionR</a>
                         <ul class="nav">
                             <%: Html.MenuItem("Startseite", "Index", "Home", "")%>
-                            <%: Html.MenuItem("Mein VersionR", "Index", "Account", "")%>
+                            <%: Html.MenuItem("Mein VersionR", "Index", "Home", "Account")%>
+                            <%: Html.UserNotification(TempData["UserNotification"] as IEnumerable<UserNotification>)%>
                             <li><a href="#">Link</a></li>
                         </ul>
                         <!-- Everything you want hidden at 940px or less, place within here -->

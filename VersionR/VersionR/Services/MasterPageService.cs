@@ -1,0 +1,113 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace VersionR.Services
+{
+    public class DataForMasterPageAttribute : ActionFilterAttribute
+    {
+        private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
+        private readonly DAL.Repositories _repos = new DAL.Repositories();
+
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            // Optional: Work only for authenticated users
+            if (!filterContext.RequestContext.HttpContext.User.Identity.IsAuthenticated)
+                return;
+
+            // Optional: Work only for GET request
+            if (filterContext.RequestContext.HttpContext.Request.RequestType != "GET")
+                return;
+
+            // Optional: Do not work with AjaxRequests
+            if (filterContext.RequestContext.HttpContext.Request.IsAjaxRequest())
+                return;
+
+            var currentUser =
+                _db.Users.Single(
+                    u => u.EMail == filterContext.RequestContext.HttpContext.User.Identity.Name);
+
+            var downloadRepository = _repos.DownloadRepository;
+            var moduleRepository = _repos.ModuleRepository;
+
+            var notificationList = new List<UserNotification>();
+
+            foreach (var customerModule in currentUser.Customer_Modules)
+            {
+                try
+                {
+                    var currentModule = customerModule.Module;
+                    var latestVersion = currentModule.GetLatestVersion();
+                    var userVersion =
+                        currentUser.Downloads.OrderByDescending(
+                            du => du.Version.Release + du.Version.SubRelease + du.Version.BuildId).First().Version;
+                    if (latestVersion.IsGreater(userVersion))
+                    {
+                        notificationList.Add(new UserNotification(new NewVersionNotificationType(),
+                                                                  "Eine neue Version ist verfügbar!", latestVersion.VrId));
+                    }
+                }
+                catch (InvalidOperationException e)
+                {
+                    Console.Out.Write(e.Message);
+                }
+            }
+
+            filterContext.Controller.TempData["UserNotification"] = notificationList;
+            //throw new Exception(notificationList.Count.ToString());
+        }
+    }
+
+    public interface IUserNotificationType
+    {
+        string IconClass { get; set; }
+
+        string StrategyClass { get; set; }
+
+        string Action { get; set; }
+
+        string Controller { get; set; }
+
+        string Area { get; set; }
+    }
+
+    public class NewVersionNotificationType : IUserNotificationType
+    {
+        public string IconClass { get; set; }
+
+        public string StrategyClass { get; set; }
+
+        public string Action { get; set; }
+
+        public string Controller { get; set; }
+
+        public string Area { get; set; }
+
+        public NewVersionNotificationType()
+        {
+            IconClass = "icon-upload-alt";
+            StrategyClass = "text-error";
+            Action = "Details";
+            Controller = "Version";
+            Area = "Account";
+        }
+    }
+
+    public class UserNotification
+    {
+        public IUserNotificationType Type { get; set; }
+
+        public string Text { get; set; }
+
+        public int Id { get; set; }
+
+        public UserNotification(IUserNotificationType type, string text, int id = 0)
+        {
+            Type = type;
+            Text = text;
+            Id = id;
+        }
+    }
+}

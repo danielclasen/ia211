@@ -24,25 +24,25 @@ namespace VersionR.Tests.Controllers
             Assert.AreEqual("Home", result.RouteValues["controller"]);
         }
 
-        [TestMethod]
-        public void LogOn()
-        {
-            AuthController controller = new AuthController();
+        /*        [TestMethod]
+                public void LogOn()
+                {
+                    AuthController controller = new AuthController();
 
-            ViewResult result = controller.LogOn() as ViewResult;
+                    ViewResult result = controller.LogOn() as ViewResult;
 
-            Assert.IsNotNull(result);
-        }
+                    Assert.IsNotNull(result);
+                }
 
-        [TestMethod]
-        public void LogOn(LogOnModel model, string returnUrl)
-        {
-            AuthController controller = new AuthController();
+                [TestMethod]
+                public void LogOn(LogOnModel model, string returnUrl)
+                {
+                    AuthController controller = new AuthController();
 
-            ActionResult result = controller.LogOn(model, returnUrl);
+                    ActionResult result = controller.LogOn(model, returnUrl);
 
-            Assert.IsNull(result);
-        }
+                    Assert.IsNull(result);
+                }*/
 
         /*[TestMethod]
         public void LogOff()

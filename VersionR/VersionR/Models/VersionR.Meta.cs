@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
 namespace VersionR.Models
 {
-    [MetadataType(typeof(UserMetadata))]
+    [MetadataType(typeof (UserMetadata))]
     public partial class User
     {
-        class UserMetadata
+        public class UserMetadata
         {
             [Required(ErrorMessage = "Es wird ein Name benötigt.")]
             [MaxLength(64, ErrorMessage = "Der Name darf nicht länger als 64 Zeichen sein.")]
@@ -17,7 +17,8 @@ namespace VersionR.Models
 
             [Required(ErrorMessage = "Es wird eine Email benötigt.")]
             [MaxLength(64, ErrorMessage = "Die Email darf nicht länger als 64 Zeichen sein.")]
-            [RegularExpression(@"[A-Za-z]+[0-9A-Za-z-_\.]*@[A-Za-z]+[0-9A-Za-z-_\.]*\.[a-z]+", ErrorMessage = "Ungültige Emailadresse.")]
+            [RegularExpression(@"[A-Za-z]+[0-9A-Za-z-_\.]*@[A-Za-z]+[0-9A-Za-z-_\.]*\.[a-z]+",
+                ErrorMessage = "Ungültige Emailadresse.")]
             public string EMail { get; set; }
 
             [MaxLength(32, ErrorMessage = "Die Telefonnummer darf nicht länger als 32 Zeichen sein.")]
@@ -26,25 +27,25 @@ namespace VersionR.Models
         }
     }
 
-    [MetadataType(typeof(ModuleMetadata))]
+    [MetadataType(typeof (ModuleMetadata))]
     public partial class Module
     {
-        class ModuleMetadata
+        public class ModuleMetadata
         {
             [Required(ErrorMessage = "Es wird ein Name benötigt.")]
             [MaxLength(64, ErrorMessage = "Der Name darf nicht länger als 64 Zeichen sein.")]
             public string Name { get; set; }
 
             [Required(ErrorMessage = "Es wird ein Preis benötigt.")]
-            [RegularExpression(@"[0-9]+(\.[0-9]{2}$)?", ErrorMessage="Ungültiger Preis.")]
+            [RegularExpression(@"[0-9]+(\.[0-9]{2}$)?", ErrorMessage = "Ungültiger Preis.")]
             public double PricePerYear { get; set; }
         }
     }
 
-    [MetadataType(typeof(RoleMetadata))]
+    [MetadataType(typeof (RoleMetadata))]
     public partial class Role
     {
-        class RoleMetadata
+        public class RoleMetadata
         {
             [Required(ErrorMessage = "Es wird ein Name benötigt.")]
             [MaxLength(30, ErrorMessage = "Der Name darf nicht länger als 30 Zeichen sein.")]
@@ -52,17 +53,17 @@ namespace VersionR.Models
         }
     }
 
-    [MetadataType(typeof(VersionMetadata))]
+    [MetadataType(typeof (VersionMetadata))]
     public partial class Version
     {
-        class VersionMetadata
+        public class VersionMetadata
         {
             [Required(ErrorMessage = "Es wird eine Releasenummer benötigt.")]
             [Range(0, 255, ErrorMessage = "Die Releasenummer muss zwischen 0 und 255 liegen")]
             public int Release { get; set; }
 
             [Required(ErrorMessage = "Es wird eine SubRelease Nummer benötigt.")]
-            [Range(0,255,ErrorMessage="Die SubRelease Nummer muss zwischen 0 und 255 liegen")]
+            [Range(0, 255, ErrorMessage = "Die SubRelease Nummer muss zwischen 0 und 255 liegen")]
             public int SubRelease { get; set; }
 
             [Required(ErrorMessage = "Es wird eine Buildnummer benötigt.")]
@@ -82,15 +83,14 @@ namespace VersionR.Models
         }
     }
 
-    [MetadataType(typeof(ManualMetadata))]
+    [MetadataType(typeof (ManualMetadata))]
     public partial class Manual
     {
-        class ManualMetadata
+        public class ManualMetadata
         {
             [Required(ErrorMessage = "Es wird eine Bezeichnung benötigt.")]
             [MaxLength(100, ErrorMessage = "Die Bezeichnung darf maximal 100 Zeichen lang sein")]
             public string Title { get; set; }
         }
     }
-
 }
