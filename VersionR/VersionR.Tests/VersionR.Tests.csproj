@@ -55,7 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\AuthControllerTest.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardControllerTest.cs" />
     <Compile Include="Controllers\HelloWorldControllerTest.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ServiceUserControllerTest.cs" />
