@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VersionR.Models;
+using Version = VersionR.Models.Version;
 
 namespace VersionR.Services
 {
@@ -40,13 +42,23 @@ namespace VersionR.Services
                 {
                     var currentModule = customerModule.Module;
                     var latestVersion = currentModule.GetLatestVersion();
-                    var userVersion =
-                        currentUser.Downloads.OrderByDescending(
-                            du => du.Version.Release + du.Version.SubRelease + du.Version.BuildId).First().Version;
+                    var userVersion = new Version();
+
+                    var userModuleDownloads = currentUser.Downloads.Where(d => d.Version.Module == currentModule)
+                        .OrderByDescending(
+                            du => du.Version.Release + du.Version.SubRelease + du.Version.BuildId);
+
+                    if (userModuleDownloads.Any())
+                    {
+                        userVersion = userModuleDownloads.First().Version;
+                    }
+
                     if (latestVersion.IsGreater(userVersion))
                     {
                         notificationList.Add(new UserNotification(new NewVersionNotificationType(),
-                                                                  "Eine neue Version ist verfügbar!", latestVersion.VrId));
+                            "Eine neue Version ist verfügbar! " + latestVersion.Module.Name + " - " +
+                            latestVersion.Release + "." + latestVersion.SubRelease + "." + latestVersion.BuildId,
+                            latestVersion.VrId));
                     }
                 }
                 catch (InvalidOperationException e)

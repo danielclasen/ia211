@@ -7,6 +7,7 @@ using VersionR.Services;
 
 namespace VersionR.Areas.Account.Controllers
 {
+    [AuthorizeWithNotify]
     [DataForMasterPage]
     public class DashboardController : Controller
     {
