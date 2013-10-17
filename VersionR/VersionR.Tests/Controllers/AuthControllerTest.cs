@@ -24,7 +24,7 @@ namespace VersionR.Tests.Controllers
             Assert.AreEqual("Home", result.RouteValues["controller"]);
         }
 
-        /*        [TestMethod]
+                [TestMethod]
                 public void LogOn()
                 {
                     AuthController controller = new AuthController();
@@ -42,7 +42,7 @@ namespace VersionR.Tests.Controllers
                     ActionResult result = controller.LogOn(model, returnUrl);
 
                     Assert.IsNull(result);
-                }*/
+                }
 
         /*[TestMethod]
         public void LogOff()
