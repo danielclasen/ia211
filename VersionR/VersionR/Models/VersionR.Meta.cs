@@ -91,6 +91,10 @@ namespace VersionR.Models
             [Required(ErrorMessage = "Es wird eine Bezeichnung benötigt.")]
             [MaxLength(100, ErrorMessage = "Die Bezeichnung darf maximal 100 Zeichen lang sein")]
             public string Title { get; set; }
+
+            [Required(ErrorMessage = "Es muss ein Dateipfad angegeben sein.")]
+            [MaxLength(200, ErrorMessage = "Der Dateipfad darf maximal 200 Zeichen lang sein.")]
+            public string Filename { get; set; }
         }
     }
 }
