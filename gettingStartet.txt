@@ -1,0 +1,50 @@
+VersionR, Gruppe 2: Marios Christodoulou, Daniel Clasen, Severin Thelen, Christopher Zantopp
+############################################################################################
+Diese TXT Datei beschreibt die grundlegenden Funktionen der VersionR Webanwendung
+
+
+Anmeldung:
+**********
+Anmdeldung über "Mein VersionR" oder "Login" in der Kopfzeile
+
+Adminuser: admin@versionr.com		Passwort: admin
+Supportuser: support@versionr.com 	Passwort: support
+Kundenuser: customer@versionr.com	Passwort: customer
+
+
+
+Kundenbreich:
+*************
+Zugriff über "Mein VersionR" in der Kopfzeile
+
+Menuführung über das Menu am linken Rand.
+
+Dashboard:		zeigt Übersicht über Kundendaten und Lizenzen
+Kundendaten ändern:	ermöglicht das Ändern der eigenen Kundendaten
+Lizenzen:		
+Meine Supportfälle:	
+NeuerSupportfall:	
+
+
+
+Adminbereich:
+*************
+Zugriff über "Admin" im rechten Bereich der Kopfzeile
+
+Menuführung über das Menu am linken Rand.
+
+Dashboard:		
+Benutzer:		zeigt alle Benutzer, diese können dort auch bearbeitet werden
+Benutzer anlegen:	legt neuen Benutzer an
+Rollen:			zeigt alle Rollen, diese können dort auch bearbeitet werden
+Rollen anlegen:		legt neue Rollen an
+Module:			zeigt alle Module, diese können dort auch bearbeitet werden
+Module anlegen:		legt neue Module an
+Module nach Downloads:	
+
+
+
+Supporterbereich:
+*****************
+Der Supporterbereich ist ein abgespeckter Adminbereich:
+-> Zugriff (auch über "Admin) und die Menuführung wie im Adminbereich geregelt.
