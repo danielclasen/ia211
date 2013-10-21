@@ -56,10 +56,12 @@ namespace VersionR.Services
                     if (latestVersion.IsGreater(userVersion))
                     {
                         notificationList.Add(new UserNotification(new NewVersionNotificationType(),
-                            "Die Version " +
-                            latestVersion.Release + "." + latestVersion.SubRelease + "." + latestVersion.BuildId
-                            + " von " + latestVersion.Module.Name + " ist verfügbar!",
-                            latestVersion.VrId));
+                                                                  "Die Version " +
+                                                                  latestVersion.Release + "." + latestVersion.SubRelease +
+                                                                  "." + latestVersion.BuildId
+                                                                  + " von " + latestVersion.Module.Name +
+                                                                  " ist verfügbar!",
+                                                                  latestVersion.VrId));
                     }
                 }
                 catch (InvalidOperationException e)
@@ -77,8 +79,6 @@ namespace VersionR.Services
     {
         string IconClass { get; set; }
 
-        string StrategyClass { get; set; }
-
         string Action { get; set; }
 
         string Controller { get; set; }
@@ -86,25 +86,25 @@ namespace VersionR.Services
         string Area { get; set; }
     }
 
-    public class NewVersionNotificationType : IUserNotificationType
+    public class DefaultNotificationType : IUserNotificationType
     {
         public string IconClass { get; set; }
-
-        public string StrategyClass { get; set; }
 
         public string Action { get; set; }
 
         public string Controller { get; set; }
 
         public string Area { get; set; }
+    }
 
+    public class NewVersionNotificationType : DefaultNotificationType
+    {
         public NewVersionNotificationType()
         {
             IconClass = "icon-upload-alt";
-            StrategyClass = "text-error";
             Action = "Details";
             Controller = "Version";
-            Area = "Account";
+            Area = "Area";
         }
     }
 

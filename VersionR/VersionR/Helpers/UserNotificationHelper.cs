@@ -40,7 +40,10 @@ namespace VersionR.Helpers
                         var entryLink = "<a href='" +
                                         urlHelper.Action(userNotification.Type.Action,
                                                          userNotification.Type.Controller,
-                                                         new { id = userNotification.Id }) + "'>" + entryIcon +
+                                                         new
+                                                             {
+                                                                 id = userNotification.Id
+                                                             }) + "' >" + entryIcon +
                                         userNotification.Text +
                                         "</a>";
                         entry.InnerHtml = entryLink;
