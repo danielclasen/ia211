@@ -11,8 +11,6 @@ namespace VersionR.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Willkommen bei ASP.NET MVC";
-
             return View();
         }
 
