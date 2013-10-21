@@ -40,7 +40,7 @@ namespace VersionR.Helpers
                         var entryLink = "<a href='" +
                                         urlHelper.Action(userNotification.Type.Action,
                                                          userNotification.Type.Controller,
-                                                         new {id = userNotification.Id}) + "'>" + entryIcon +
+                                                         new { id = userNotification.Id }) + "'>" + entryIcon +
                                         userNotification.Text +
                                         "</a>";
                         entry.InnerHtml = entryLink;
@@ -65,7 +65,7 @@ namespace VersionR.Helpers
         private static TagBuilder BuildNavbarItem(int count)
         {
             var drawer = new TagBuilder("li");
-            drawer.AddCssClass("dropdown");
+            drawer.AddCssClass("dropdown droponhover");
             return drawer;
         }
     }

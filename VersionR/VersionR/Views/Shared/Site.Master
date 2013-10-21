@@ -41,12 +41,12 @@
                     <span class="icon-bar"></span>
                   </a>-->
                         <!-- Be sure to leave the brand out there if you want it shown -->
-                        <a class="brand" href="/"><i class="icon-time"></i>VersionR</a>
+                        <a class="brand" href="/" style="font-size: 18px;"><i class="icon-time"></i>VersionR</a>
                         <ul class="nav">
                             <%: Html.MenuItem("Startseite", "Index", "Home", "")%>
+                            <%--<%: Html.MenuItem("Erste Schritte", "Index", "Home", "Demo")%>--%>
                             <%: Html.MenuItem("Mein VersionR", "Index", "Home", "Account")%>
                             <%: Html.UserNotification(TempData["UserNotification"] as IEnumerable<UserNotification>)%>
-                            <li><a href="#">Link</a></li>
                         </ul>
                         <!-- Everything you want hidden at 940px or less, place within here -->
                         <!-- <div class="nav-collapse collapse">
@@ -56,6 +56,7 @@
                             <% if (Context.User.IsInRole("Administrator") || Context.User.IsInRole("Supporter"))
                                { %>
                             <%: Html.MenuItem("Admin", "Index", "Home", "Admin")%>
+                            <li class="divider-vertical"></li>
                             <% } %>
                             <% if (Context.User.Identity.IsAuthenticated)
                                { %>

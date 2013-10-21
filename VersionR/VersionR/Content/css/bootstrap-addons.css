@@ -14,3 +14,21 @@ input[required]:after
 {
 	background-color: white;
 }
+
+.droponhover.open > .dropdown-menu
+{
+	display: block;
+	margin-top: 0px;
+}
+
+ul.nav li.dropdown.droponhover:hover ul.dropdown-menu
+{
+	display: block;
+	margin-top: 0px;
+}
+
+ul.nav li.dropdown.droponhover:hover > a
+{
+	background-color: #E5E5E5;
+	color: #555555;
+}

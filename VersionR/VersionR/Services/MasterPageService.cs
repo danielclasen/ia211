@@ -56,8 +56,9 @@ namespace VersionR.Services
                     if (latestVersion.IsGreater(userVersion))
                     {
                         notificationList.Add(new UserNotification(new NewVersionNotificationType(),
-                            "Eine neue Version ist verfügbar! " + latestVersion.Module.Name + " - " +
-                            latestVersion.Release + "." + latestVersion.SubRelease + "." + latestVersion.BuildId,
+                            "Die Version " +
+                            latestVersion.Release + "." + latestVersion.SubRelease + "." + latestVersion.BuildId
+                            + " von " + latestVersion.Module.Name + " ist verfügbar!",
                             latestVersion.VrId));
                     }
                 }

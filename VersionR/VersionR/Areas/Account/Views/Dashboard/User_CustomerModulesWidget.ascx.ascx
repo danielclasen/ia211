@@ -34,27 +34,27 @@
                        var lastDownloadedUserVersion = lastDownloadedVersions.First().Version;
                 %>
                 <%
-                               if (currentModuleVersionList.Any())
-                               {
-                                   var currentModuleVersion = currentModuleVersionList.First();
-                                   if (currentModuleVersion.Release > lastDownloadedUserVersion.Release ||
-                                       currentModuleVersion.SubRelease > lastDownloadedUserVersion.SubRelease)
-                                   {%>
-                <a class="text-error" href="<%= Url.Action("Download", "Version", new {id = lastDownloadedUserVersion.VrId}) %>">
+                    if (currentModuleVersionList.Any())
+                    {
+                        var currentModuleVersion = currentModuleVersionList.First();
+                        if (currentModuleVersion.Release > lastDownloadedUserVersion.Release ||
+                            currentModuleVersion.SubRelease > lastDownloadedUserVersion.SubRelease)
+                        {%>
+                <a class="text-error" href="<%= Url.Action("Details", "Version", new {id = lastDownloadedUserVersion.VrId}) %>">
                     <label class="label label-important" title="Eine neue Haupt-Version ist verfügbar!">
                         <i class="icon-chevron-up"></i>
                     </label>
                     <% }
                                    else if (currentModuleVersion.BuildId != lastDownloadedUserVersion.BuildId)
                                    { %>
-                    <a class="text-warning" href="<%= Url.Action("Download", "Version", new {id = lastDownloadedUserVersion.VrId}) %>">
+                    <a class="text-warning" href="<%= Url.Action("Details", "Version", new {id = lastDownloadedUserVersion.VrId}) %>">
                         <label class="label label-warning" title="Eine neue Zwischen-Version ist verfügbar!">
                             <i class="icon-chevron-up"></i>
                         </label>
                         <% }
                                    else
                                    { %>
-                        <a class="text-success" href="<%= Url.Action("Download", "Version", new {id = lastDownloadedUserVersion.VrId}) %>">
+                        <a class="text-success" href="<%= Url.Action("Details", "Version", new {id = lastDownloadedUserVersion.VrId}) %>">
                             <label class="label label-success" title="Sie verwenden die aktuellste Version! Erneut herunterladen.">
                                 <i class="icon-ok"></i>
                             </label>
@@ -67,8 +67,8 @@
                                 <%: lastDownloadedUserVersion.Release %>.<%: lastDownloadedUserVersion.SubRelease %>.<%: lastDownloadedUserVersion.BuildId %>
                             </a>
                             <% }
-                           else
-                           { %>
+                   else
+                   { %>
                             <a class="text-error" href="<%= Url.Action("Details", "Module", new {id = item.Module.ModId }) %>">
                                 <label class="label label-important" title="Laden Sie jetzt die aktuellste Version herunter!">
                                     <i class="icon-remove"></i>
