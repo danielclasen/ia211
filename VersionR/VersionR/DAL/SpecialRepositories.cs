@@ -20,7 +20,6 @@ namespace VersionR.DAL
             return Get(q => q.Version == version);
         }
     }
-
     public class UserRepository : GenericRepository<User>
     {
         private Repositories repos;
