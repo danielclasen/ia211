@@ -22,8 +22,7 @@ namespace VersionR.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Bestätigen
-            ViewDataDictionary viewData = result.ViewData;
-            Assert.AreEqual("Willkommen bei ASP.NET MVC", viewData["Message"]);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
