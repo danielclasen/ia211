@@ -143,6 +143,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
     <Compile Include="Areas\Admin\ViewModels\CreateUserViewModel.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\MasterPageService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +263,7 @@
     <Content Include="Areas\Admin\Views\Role\List.aspx" />
     <Content Include="Areas\Admin\Views\User\List.aspx" />
     <Content Include="Areas\Admin\Views\Shared\RoleAffectedUsers.ascx" />
+    <Content Include="Services\EmailTemplates\NewVersionEmailTemplate.html" />
     <Content Include="Views\Auth\AccessDenied.aspx" />
     <Content Include="Views\Auth\LogOn.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
