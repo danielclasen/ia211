@@ -28,20 +28,23 @@ namespace VersionR.Tests.Controllers
                 public void LogOn()
                 {
                     AuthController controller = new AuthController();
+                    LogOnModel model = new LogOnModel();
+                    string returnUrl = "";
 
                     ViewResult result = controller.LogOn() as ViewResult;
 
                     Assert.IsNotNull(result);
-                }
 
-                [TestMethod]
-                public void LogOn(LogOnModel model, string returnUrl)
-                {
-                    AuthController controller = new AuthController();
+                    try
+                    {
+                        controller.LogOn(model, returnUrl);
 
-                    ActionResult result = controller.LogOn(model, returnUrl);
-
-                    Assert.IsNull(result);
+                        Assert.Fail();
+                    }
+                    catch (NullReferenceException ex)
+                    {
+                        Assert.IsTrue(ex is NullReferenceException);
+                    }
                 }
 
         /*[TestMethod]

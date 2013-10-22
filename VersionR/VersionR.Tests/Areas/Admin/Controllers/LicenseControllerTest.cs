@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
@@ -43,9 +44,9 @@ namespace VersionR.Tests.Areas.Admin.Controllers
                 controller.Add(id); // soll Exception werfen
                 Assert.Fail(); // fehlgeschlagen, wenn es hierhin kommt
             }
-            catch (Exception ex)
+            catch (EntityException ex)
             {
-                Assert.IsTrue(ex is Exception);
+                Assert.IsTrue(ex is EntityException);
             }
         }
 
@@ -66,9 +67,9 @@ namespace VersionR.Tests.Areas.Admin.Controllers
                 controller.Delete(id, toDelete); // soll Exception werfen
                 Assert.Fail(); // fehlgeschlagen, wenn es hierhin kommt
             }
-            catch (Exception ex)
+            catch (EntityException ex)
             {
-                Assert.IsTrue(ex is Exception);
+                Assert.IsTrue(ex is EntityException);
             }
         }
 
@@ -85,9 +86,9 @@ namespace VersionR.Tests.Areas.Admin.Controllers
                 controller.Edit(id); // soll Exception werfen
                 Assert.Fail(); // fehlgeschlagen, wenn es hierhin kommt
             }
-            catch (Exception ex)
+            catch (EntityException ex)
             {
-                Assert.IsTrue(ex is Exception);
+                Assert.IsTrue(ex is EntityException);
             }
             finally
             {
@@ -95,9 +96,9 @@ namespace VersionR.Tests.Areas.Admin.Controllers
                 {
                     controller.Edit(id, model); // soll Exception werfen
                 }
-                catch (Exception ex)
+                catch (EntityException ex)
                 {
-                    Assert.IsTrue(ex is Exception);
+                    Assert.IsTrue(ex is EntityException);
                 }
             }
         }
