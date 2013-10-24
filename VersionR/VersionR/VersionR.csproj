@@ -92,6 +92,7 @@
     <Compile Include="Areas\Admin\ViewModels\EditUserLicenseViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\VersionViewModel.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceUserController.cs" />
@@ -266,6 +267,7 @@
     <Content Include="Services\EmailTemplates\NewVersionEmailTemplate.html" />
     <Content Include="Views\Auth\AccessDenied.aspx" />
     <Content Include="Views\Auth\LogOn.aspx" />
+    <Content Include="Views\Error\Index.aspx" />
     <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\HelloWorld\Welcome.aspx" />
     <Content Include="Areas\Admin\Views\Shared\AdminSidebar.ascx" />
