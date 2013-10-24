@@ -38,8 +38,6 @@ namespace VersionR.Tests.Controllers
                     try
                     {
                         controller.LogOn(model, returnUrl);
-
-                        Assert.Fail();
                     }
                     catch (NullReferenceException ex)
                     {
