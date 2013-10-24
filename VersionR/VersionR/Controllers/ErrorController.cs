@@ -16,13 +16,40 @@ namespace VersionR.Controllers
 
         //
         // GET: /Error/
-        public ActionResult Index(string aspxerrorpath)
+        public ActionResult Index(string aspxerrorpath, int code = 0)
         {
-            ViewData["aspxerrorpath"] = Request.QueryString["aspxerrorpath"].ToString();
+            switch (code)
+            {
+                case 404:
+                    ViewData["errorTitle"] = "Seite nicht gefunden!";
+                    ViewData["errorText"] = String.Format("Die Seite '{0}' wurde nicht gefunden!", aspxerrorpath);
+                    break;
+                case 403:
+                    ViewData["errorTitle"] = "STOP!";
+                    ViewData["errorText"] = String.Format("Der Zugriff auf '{0}' wurde nicht gewährt!", aspxerrorpath);
+                    break;
+                default:
+                    ViewData["errorTitle"] = "Es ist ein Fehler passiert!";
+                    ViewData["errorText"] = "Unbekannter Fehler aufgetreten!";
+                    break;
+            }
 
             return View();
         }
+        //
+        // GET: /Error/C404
+        public ActionResult C404(string aspxerrorpath)
+        {
+            Response.Redirect("~/Error?code=404&aspxerrorpath=" + aspxerrorpath);
+            return View();
+        }
 
-
+        //
+        // GET: /Error/C403
+        public ActionResult C403(string aspxerrorpath)
+        {
+            Response.Redirect("~/Error?code=403&aspxerrorpath=" + aspxerrorpath);
+            return View();
+        }
     }
 }
