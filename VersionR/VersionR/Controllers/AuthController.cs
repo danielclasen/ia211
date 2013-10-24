@@ -62,6 +62,10 @@ namespace VersionR.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
+                //catch (System.Data.EntityException)
+                //{
+
+                //}
                 catch (Exception e)
                 {
                     //ModelState.AddModelError("", "Der angegebene Benutzername oder das angegebene Kennwort ist ungültig.");

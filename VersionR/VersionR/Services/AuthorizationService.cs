@@ -27,7 +27,10 @@ namespace VersionR.Services
             {
                 throw new Exception("Achtung! Verbindungsproblem mit der Datenbank!");
             }
-
+            catch (InvalidOperationException)
+            {
+                throw new Exception("Email oder passwort falsch!");
+            }
             catch (Exception e)
             {
                 throw e;
