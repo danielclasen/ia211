@@ -24,10 +24,14 @@ Kundenbreich:
 Zugriff über "Mein VersionR" in der Kopfzeile, Menuführung über das Menu am linken Rand.
 
 - Dashboard
-zeigt Übersicht über Kundendaten und Lizenzen
+Auf der linken Tabelle, kann der Kunde kann hier seine seine Daen betrachten und bearbeiten.
+
+Auf der rechten Tabelle, kann der Kunde seine gekauften Lizenzen sehen. Es weden ebenfalls alle dazu gehörigen Module angezeigt,
+die letzte heruntergeladene Version, ein Hinweis, ob diese die aktuellste Version ist und das Ablaufdatum der Lizenz.
 
 - Kundendaten ändern
-ermöglicht das Ändern der eigenen Kundendaten
+Ermöglicht das Ändern der eigenen Kundendaten. Dieser Bereich ist über dem Menüpunkt ereichbar oder über das Bearbeiten-Symbol an der
+Tabelle Kundendaten im Dashboard.
 
 - Lizenzen
 - Meine Supportfälle
