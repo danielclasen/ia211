@@ -50,17 +50,23 @@ namespace VersionR.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (MembershipService.ValidateUser(model.UserName, model.Password))
+                try
                 {
-                    FormsService.SignIn(model.UserName, model.RememberMe);
-                    if (!String.IsNullOrEmpty(returnUrl))
+                    if (MembershipService.ValidateUser(model.UserName, model.Password))
                     {
-                        return Redirect(returnUrl);
+                        FormsService.SignIn(model.UserName, model.RememberMe);
+                        if (!String.IsNullOrEmpty(returnUrl))
+                        {
+                            return Redirect(returnUrl);
+                        }
+                        return RedirectToAction("Index", "Home");
                     }
-                    return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("",
-                                         "Der angegebene Benutzername oder das angegebene Kennwort ist ungültig.");
+                catch (Exception e)
+                {
+                    //ModelState.AddModelError("", "Der angegebene Benutzername oder das angegebene Kennwort ist ungültig.");
+                    ModelState.AddModelError("", e.Message);
+                }
             }
 
             // Wurde dieser Punkt erreicht, ist ein Fehler aufgetreten; Formular erneut anzeigen.

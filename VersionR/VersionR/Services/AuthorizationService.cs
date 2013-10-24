@@ -23,11 +23,17 @@ namespace VersionR.Services
                             select u).Single();
                 return true;
             }
+            catch (System.Data.EntityException)
+            {
+                throw new Exception("Achtung! Verbindungsproblem mit der Datenbank!");
+            }
+
             catch (Exception e)
             {
-                //throw new Exception(e.Message + "  hashedPassword = " + hashedPassword + "  email = " + email);
-                return false;
+                throw e;
             }
+
+            return false;
             //return FormsAuthentication.Authenticate(email, password);
         }
     }
