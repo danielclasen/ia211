@@ -22,6 +22,7 @@ Kundenuser: customer@versionr.com	Passwort: customer
 Kundenbreich:
 *************
 Zugriff über "Mein VersionR" in der Kopfzeile, Menuführung über das Menu am linken Rand.
+Im Kundenbereich erscheint an der Kopfzeile ein Benachrichtigungsfeld. Dort wird der Kunde über Updates für seine gekauften Module informiert.
 
 - Dashboard
 Auf der linken Tabelle, kann der Kunde kann hier seine seine Daen betrachten und bearbeiten.
@@ -33,7 +34,7 @@ die letzte heruntergeladene Version, ein Hinweis, ob diese die aktuellste Versio
 Ermöglicht das Ändern der eigenen Kundendaten. Dieser Bereich ist über dem Menüpunkt ereichbar oder über das Bearbeiten-Symbol an der
 Tabelle Kundendaten im Dashboard.
 
-- Lizenzen
+- Lizenzen ...?!
 - Meine Supportfälle
 - NeuerSupportfall
 
@@ -45,18 +46,33 @@ Zugriff über "Admin" im rechten Bereich der Kopfzeile
 
 Menuführung über das Menu am linken Rand.
 
-Dashboard:		
-Benutzer:		zeigt alle Benutzer, diese können dort auch bearbeitet werden
-Benutzer anlegen:	legt neuen Benutzer an
-Rollen:			zeigt alle Rollen, diese können dort auch bearbeitet werden
-Rollen anlegen:		legt neue Rollen an
-Module:			zeigt alle Module, diese können dort auch bearbeitet werden
-Module anlegen:		legt neue Module an
-Module nach Downloads:	
+- Dashboard
+coming soon
+
+- Benutzer
+zeigt alle Benutzer, diese können dort auch bearbeitet werden
+
+- Benutzer anlegen
+legt neuen Benutzer an
+
+- Rollen
+zeigt alle Rollen, diese können dort auch bearbeitet werden
+
+- Rollen anlegen
+legt neue Rollen an
+
+- Module
+zeigt alle Module, diese können dort auch bearbeitet werden
+
+- Module anlegen
+legt neue Module an
+
+- Module nach Downloads
+...
 
 
 
 Supporterbereich:
 *****************
-Der Supporterbereich ist ein abgespeckter Adminbereich:
--> Zugriff (auch über "Admin) und die Menuführung wie im Adminbereich geregelt.
+Der Supporterbereich ist ein leicht beschränkter Adminbereich, welcher für die Abwicklung von Supportfällen gedacht ist.
+Die Navigationspunkte unter "Modulverwaltung" und "Auswertung" sind dem Adminbereich ähnlich.
