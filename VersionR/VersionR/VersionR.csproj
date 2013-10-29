@@ -79,6 +79,7 @@
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Account\Controllers\UserController.cs" />
     <Compile Include="Areas\Account\Controllers\VersionController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Areas\Admin\Controllers\LicenseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ModuleController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\VersionController.cs" />
     <Compile Include="Areas\Admin\ViewModels\AddUserLicenseViewModel.cs" />
@@ -156,6 +158,7 @@
     <Content Include="Areas\Account\Views\Dashboard\User_CustomerDataWidget.ascx" />
     <Content Include="Areas\Account\Views\Dashboard\User_CustomerModulesWidget.ascx.ascx" />
     <Content Include="Areas\Account\Views\Shared\AccountSidebar.ascx" />
+    <Content Include="Areas\Account\Views\User\Edit.aspx" />
     <Content Include="Areas\Account\Views\Version\Details.aspx" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.aspx" />
     <Content Include="Areas\Admin\Views\License\Add.aspx" />
@@ -164,6 +167,7 @@
     <Content Include="Areas\Admin\Views\Module\Modul_Download_VersionDonut.ascx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
     <Content Include="Areas\Admin\Views\Module\Module_VersionsList.ascx" />
+    <Content Include="Areas\Admin\Views\Statistic\Index.aspx" />
     <Content Include="Areas\Admin\Views\User\User_DownloadsList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Version_DownloadList.ascx" />
     <Content Include="Areas\Admin\Views\Version\Add.aspx" />

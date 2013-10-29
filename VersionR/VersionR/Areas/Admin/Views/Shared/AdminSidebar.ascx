@@ -18,6 +18,6 @@
     <%: Html.MenuItem("Module", "List", "Module", "Admin")%>
     <%: Html.MenuItem("Modul anlegen", "Create", "Module", "Admin")%>
     <li class="nav-header">Auswertung</li>
-    <%: Html.MenuItem("Module nach Downloads", "StatisticModule", "Statistic", "Admin")%>
+    <%: Html.MenuItem("Module nach Downloads", "Index", "Statistic", "Admin")%>
     <% } %>
 </ul>

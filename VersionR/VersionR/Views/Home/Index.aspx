@@ -83,7 +83,7 @@
     <%--Kundenbereich--%>
    <div class="span6 well well-small" id="customerContent" style="display:none;">
    <h3>Kundenbereich</h3>
-        <div class="alert alert-success">Zugriff &uuml;ber "Mein VersionR" in der Kopfzeile
+        <div class="alert alert-success">Zugriff über "Mein VersionR" in der Kopfzeile
         Menuführung über das Menu am linken Rand.
         </div>
         <div class="alert alert-info">Im Kundenbereich erscheint an der Kopfzeile ein Benachrichtigungsfeld. Dort wird der Kunde über Updates für seine gekauften Module informiert.</div>
@@ -95,7 +95,7 @@
                         Bereich
                     </th>
                     <th>
-                        Erkl&auml;rung
+                        Erklärung
                     </th>
                 </tr>
             </thead>
@@ -112,7 +112,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Kundendaten &auml;ndern
+                        Kundendaten ändern
                     </td>
                     <td>
                         Ermöglicht das Ändern der eigenen Kundendaten. Dieser Bereich ist über dem Menüpunkt ereichbar oder über das Bearbeiten-Symbol an der
@@ -129,7 +129,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Meine Supportf&auml;lle
+                        Meine Supportfälle
                     </td>
                     <td>
                         ...
@@ -158,7 +158,7 @@
                         Bereich
                     </th>
                     <th>
-                        Erkl&auml;rung
+                        Erklärung
                     </th>
                 </tr>
             </thead>
@@ -193,7 +193,7 @@
                         Rollen
                     </td>
                     <td>
-                        Zeigt alle Rollen, diese k&ouml;nnen dort auch bearbeitet werden
+                        Zeigt alle Rollen, diese können dort auch bearbeitet werden
                     </td>
                 </tr>
                 <tr>
