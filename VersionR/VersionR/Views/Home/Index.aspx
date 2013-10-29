@@ -250,7 +250,7 @@ Die Navigationspunkte unter "Modulverwaltung" und "Auswertung" sind dem Adminber
 
 <asp:Content ID="Content5" ContentPlaceHolderID="SidebarContent" runat="server">
     <ul class="nav nav-tabs nav-stacked" id="sideList">
-        <li id="logininfo" onclick="navClicked(this.id);">
+        <li class="active" id="logininfo" onclick="navClicked(this.id);">
             <a href="#">Anmeldung</a>
         </li>
         <li id="customer" onclick="navClicked(this.id);">
@@ -262,7 +262,7 @@ Die Navigationspunkte unter "Modulverwaltung" und "Auswertung" sind dem Adminber
         <li id="support" onclick="navClicked(this.id);">
             <a href="#">Supportbereich</a>
         </li>
-        <li class="active" id="info" onclick="navClicked(this.id);">
+        <li id="info" onclick="navClicked(this.id);">
             <a href="#">Info</a>
         </li>
     </ul>
