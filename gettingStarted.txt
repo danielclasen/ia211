@@ -44,28 +44,26 @@ Adminbereich:
 *************
 Zugriff über "Admin" im rechten Bereich der Kopfzeile
 
-Menuführung über das Menu am linken Rand.
-
 - Dashboard
 coming soon
 
 - Benutzer
-zeigt alle Benutzer, diese können dort auch bearbeitet werden
+Zeigt alle Benutzer an, diese können dort auch bearbeitet werden
 
 - Benutzer anlegen
-legt neuen Benutzer an
+Legt einen neuen Benutzer an
 
 - Rollen
-zeigt alle Rollen, diese können dort auch bearbeitet werden
+Zeigt alle Rollen, diese können dort auch bearbeitet werden
 
 - Rollen anlegen
-legt neue Rollen an
+Legt neue Rollen an
 
 - Module
-zeigt alle Module, diese können dort auch bearbeitet werden
+Zeigt alle Module, diese können dort auch bearbeitet werden
 
 - Module anlegen
-legt neue Module an
+Legt neue Module an
 
 - Module nach Downloads
 ...
