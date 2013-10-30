@@ -1,0 +1,10 @@
+
+    <% %> - is for inline code (especially logic flow)
+    <%$ %> - is for evaluating expressions (like resource variables)
+    <%@ %> - is for Page directives, registering assemblies, importing namespaces, etc.
+    <%= %> - is short-hand for Response.Write (discussed here)
+    <%# %> - is used for data binding expressions.
+    <%: %> - is short-hand for Response.Write(Server.HTMLEncode()) ASP.net 4.0+
+    <%#: %> - is used for data binding expressions and is automatically HTMLEncoded.
+    <%-- --%> - is for server-side comments
+

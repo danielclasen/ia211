@@ -27,7 +27,10 @@
         <h3>
             Anmeldung
         </h3>
-        <div class="alert alert-success">Login befindet sich auf der rechten Seite der Kopfzeile</div>
+        <div class="alert alert-success">
+            <div class="alert">Login befindet sich auf der rechten Seite der Kopfzeile.</div>
+            <div class="alert">Drei QuickLogin-Buttons im Anmeldebildschirm, sollen ein schnelleres Einloggen ermöglichen.</div>
+        </div>
         <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
