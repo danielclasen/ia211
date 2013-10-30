@@ -21,7 +21,5 @@ namespace VersionR.Areas.Account.Controllers
             var curUser = _db.Users.Single(user => user.EMail.Equals(User.Identity.Name));
             return View(curUser);
         }
-
-
     }
 }
