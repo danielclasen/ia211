@@ -34,14 +34,14 @@ namespace VersionR.Areas.Account.Controllers
                 //_repos.Save();
 
                 var dbUser = _db.Users.First(email => email.EMail == User.Identity.Name);
-                
+
                 dbUser.EMail = user.EMail;
                 dbUser.NickName = user.NickName;
                 dbUser.Phone = user.Phone;
 
                 _db.SaveChanges(System.Data.Objects.SaveOptions.DetectChangesBeforeSave);
 
-                return RedirectToAction("Dashboard", "../Account");
+                return RedirectToAction("Dashboard", "../Account", new { info = "Ihre Daten wurden erfolgreich geändert" });
             }
 
             return View();

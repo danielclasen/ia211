@@ -11,6 +11,7 @@
             <%: ViewData["errorTitle"]%></h5>
         <%: ViewData["errorText"]%>
     </div>
+    <div class="btn" onclick="history.back();"><i class="icon icon-chevron-left"></i> Züruck</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
 </asp:Content>

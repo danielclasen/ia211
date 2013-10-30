@@ -79,6 +79,7 @@
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Account\Controllers\LicenceController.cs" />
     <Compile Include="Areas\Account\Controllers\UserController.cs" />
     <Compile Include="Areas\Account\Controllers\VersionController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -156,7 +157,8 @@
     </Content>
     <Content Include="Areas\Account\Views\Dashboard\Index.aspx" />
     <Content Include="Areas\Account\Views\Dashboard\User_CustomerDataWidget.ascx" />
-    <Content Include="Areas\Account\Views\Dashboard\User_CustomerModulesWidget.ascx.ascx" />
+    <Content Include="Areas\Account\Views\Shared\User_CustomerModulesWidget.ascx.ascx" />
+    <Content Include="Areas\Account\Views\Licence\List.aspx" />
     <Content Include="Areas\Account\Views\Shared\AccountSidebar.ascx" />
     <Content Include="Areas\Account\Views\User\Edit.aspx" />
     <Content Include="Areas\Account\Views\Version\Details.aspx" />

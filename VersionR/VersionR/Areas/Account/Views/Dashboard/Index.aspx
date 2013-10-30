@@ -5,6 +5,12 @@
     Kundenbereich - VerionR
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <% if (!ViewData["msg"].ToString().Equals(""))
+       {%>
+    <div class="alert alert-success">
+        <%: ViewData["msg"].ToString() %>
+    </div>
+    <%} %>
     <div class="row-fluid">
         <div class="span6 well well-small">
             <h3>
@@ -19,7 +25,7 @@
                     class="btn btn-white pull-right" title="Alle anzeigen"><i class="icon-expand-alt">
                     </i></a>
             </h3>
-            <% Html.RenderPartial("User_CustomerModulesWidget.ascx", Model.Customer_Modules); %>
+            <% Html.RenderPartial("../Shared/User_CustomerModulesWidget.ascx", Model.Customer_Modules); %>
         </div>
     </div>
 </asp:Content>

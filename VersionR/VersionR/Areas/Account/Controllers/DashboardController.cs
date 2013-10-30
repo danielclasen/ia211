@@ -16,8 +16,10 @@ namespace VersionR.Areas.Account.Controllers
 
         //
         // GET: /Account/Dashboard/
-        public ActionResult Index()
+        
+        public ActionResult Index(string info = "")
         {
+            ViewData["msg"] = info;
             var currentUser = _db.Users.Single(u => u.EMail == User.Identity.Name);
             return View(currentUser);
         }
