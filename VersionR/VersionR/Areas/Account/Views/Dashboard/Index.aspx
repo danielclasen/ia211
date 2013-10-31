@@ -5,12 +5,6 @@
     Kundenbereich - VerionR
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% if (!ViewData["msg"].ToString().Equals(""))
-       {%>
-    <div class="alert alert-success">
-        <%: ViewData["msg"].ToString() %>
-    </div>
-    <%} %>
     <div class="row-fluid">
         <div class="span6 well well-small">
             <h3>

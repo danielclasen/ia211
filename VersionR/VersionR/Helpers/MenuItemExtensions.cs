@@ -19,9 +19,9 @@ namespace VersionR.Helpers
         public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string text, string action, string controller,
                                              string areaName)
         {
-            var routeValues = new {area = areaName};
+            var routeValues = new { area = areaName };
             var li = GenerateLi(htmlHelper, text, action, controller, areaName);
-            li.InnerHtml = htmlHelper.ActionLink(text, action, controller, routeValues, new {}).ToHtmlString();
+            li.InnerHtml = htmlHelper.ActionLink(text, action, controller, routeValues, new { }).ToHtmlString();
             return MvcHtmlString.Create(li.ToString());
         }
 
@@ -38,7 +38,8 @@ namespace VersionR.Helpers
                  string.Equals(currentArea, areaName, StringComparison.OrdinalIgnoreCase)) ||
                 (string.Equals(action, "Index", StringComparison.OrdinalIgnoreCase) &&
                  string.Equals(controller, "Home", StringComparison.OrdinalIgnoreCase) &&
-                 string.Equals(currentArea, areaName, StringComparison.OrdinalIgnoreCase)))
+                 string.Equals(currentArea, areaName, StringComparison.OrdinalIgnoreCase) &&
+                 !string.Equals(currentArea, "", StringComparison.OrdinalIgnoreCase)))
             {
                 li.AddCssClass("active");
             }

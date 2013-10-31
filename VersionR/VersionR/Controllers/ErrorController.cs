@@ -1,16 +1,15 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VersionR.Services;
 
 namespace VersionR.Controllers
 {
+    [DataForMasterPage]
     public class ErrorController : Controller
     {
-
         private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
         private readonly DAL.Repositories _repos = new DAL.Repositories();
 
@@ -24,10 +23,12 @@ namespace VersionR.Controllers
                     ViewData["errorTitle"] = "Seite nicht gefunden!";
                     ViewData["errorText"] = String.Format("Die Seite '{0}' wurde nicht gefunden!", aspxerrorpath);
                     break;
+
                 case 403:
                     ViewData["errorTitle"] = "STOP!";
                     ViewData["errorText"] = String.Format("Der Zugriff auf '{0}' wurde nicht gewährt!", aspxerrorpath);
                     break;
+
                 default:
                     ViewData["errorTitle"] = "Es ist ein Fehler passiert!";
                     ViewData["errorText"] = "Unbekannter Fehler aufgetreten!";
@@ -36,6 +37,7 @@ namespace VersionR.Controllers
 
             return View();
         }
+
         //
         // GET: /Error/C404
         public ActionResult C404(string aspxerrorpath)

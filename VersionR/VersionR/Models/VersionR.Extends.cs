@@ -20,5 +20,27 @@ namespace VersionR.Models
         {
             return Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId).First();
         }
+
+        public int GetTotalDownloads()
+        {
+            return this.Versions.Sum(v => v.Downloads.Count);
+        }
+
+        public int GetRgbColor()
+        {
+            uint hash = 0;
+            foreach (byte b in System.Text.Encoding.Unicode.GetBytes(Name))
+            {
+                hash += b;
+                hash += (hash << 10);
+                hash ^= (hash >> 6);
+            }
+            // final avalanche
+            hash += (hash << 3);
+            hash ^= (hash >> 11);
+            hash += (hash << 15);
+            // we only want positive integer < 1000000
+            return (int)(hash % 1000000);
+        }
     }
 }

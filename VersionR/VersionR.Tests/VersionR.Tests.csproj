@@ -63,8 +63,6 @@
     <Compile Include="Areas\Admin\Controllers\DashboardControllerTest.cs" />
     <Compile Include="Controllers\HelloWorldControllerTest.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Controllers\ServiceUserControllerTest.cs" />
-    <Compile Include="Controllers\UserLicensesControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

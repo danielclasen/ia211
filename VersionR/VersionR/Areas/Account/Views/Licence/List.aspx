@@ -7,16 +7,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="span6 well well-small">
         <h3>
-            Lizenzübersicht <small>1 bis 5 von 5</small> <a href=""
-                id="addLicence" class="btn btn-white pull-right" data-placement="right" title="An dieser Stelle könnte der Benutzer Lizenzen kaufen">
+            Lizenzübersicht <small>1 bis 5 von 5</small> <a href="" id="addLicence" class="btn btn-white pull-right"
+                data-placement="right" title="An dieser Stelle könnte der Benutzer Lizenzen kaufen">
                 <i class="icon-expand-alt"></i></a>
         </h3>
         <% Html.RenderPartial("User_CustomerModulesWidget.ascx", Model.Customer_Modules); %>
-        
     </div>
     <script>
         $('#addLicence').tooltip();
-        </script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
     Lizenzen
