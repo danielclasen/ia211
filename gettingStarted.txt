@@ -2,12 +2,6 @@ VersionR, Gruppe 2: Marios Christodoulou, Daniel Clasen, Severin Thelen, Christo
 ############################################################################################
 Diese TXT Datei beschreibt die grundlegenden Funktionen der VersionR Webanwendung
 
-Info:
-********
-Quellenangaben
-- Bootstrap 2.3.2, Layout-Bibliothek mit Javascript, und CSS; Url: http://getbootstrap.com/2.3.2
-- asp.net Dokumentationsseiten zur Informationsbeschaffung; Url: http://www.asp.net/mvc/tutorials/older-versions/getting-started-with-mvc/getting-started-with-mvc-part1
-
 
 Anmeldung:
 **********
@@ -17,7 +11,16 @@ Adminuser: admin@versionr.com		Passwort: admin
 Supportuser: support@versionr.com 	Passwort: support
 Kundenuser: customer@versionr.com	Passwort: customer
 
+Wichtig!
+*************
+Folgende Puntke:
+- In der Lizenzübersicht, die Möglichkeit Lizenzen dazu zu kaufen
+- Der Supportbereich
 
+konnten leider von uns nicht mehr intensiv behandelt werden.
+Aus "Schönheitsgründen" haben wir die Möglichkeit (Buttons, Menüpunkte)
+aber nicht entfernt. **Allerdings ohne besondere Funktion im Hintergrund!**
+Dies wird aber auch über ein PopUp an den entsprechenden Stellen vermerkt.
 
 Kundenbreich:
 *************
@@ -69,8 +72,13 @@ Legt neue Module an
 ...
 
 
-
 Supporterbereich:
 *****************
 Der Supporterbereich ist ein leicht beschränkter Adminbereich, welcher für die Abwicklung von Supportfällen gedacht ist.
 Die Navigationspunkte unter "Modulverwaltung" und "Auswertung" sind dem Adminbereich ähnlich.
+
+Info:
+********
+Quellenangaben
+- Bootstrap 2.3.2, Layout-Bibliothek mit Javascript, und CSS; Url: http://getbootstrap.com/2.3.2
+- asp.net Dokumentationsseiten zur Informationsbeschaffung; Url: http://www.asp.net/mvc/tutorials/older-versions/getting-started-with-mvc/getting-started-with-mvc-part1

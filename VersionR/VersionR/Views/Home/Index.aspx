@@ -11,17 +11,6 @@
     Startseite
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <%-- Info --%>
-    <div class="span6 well well-small" id="infoContent" style="display: none;">
-        <h3>
-            Quellenangaben</h3>
-        <ul>
-            <li><a target="_blank" href="http://getbootstrap.com/2.3.2">Bootstrap 2.3.2</a>, Layout-Bibliothek
-                mit Javascript, und CSS</li>
-            <li><a target="_blank" href="http://www.asp.net/mvc/tutorials/older-versions/getting-started-with-mvc/getting-started-with-mvc-part1">
-                ASP.NET</a> Dokumentationsseiten zur Informationsbeschaffung</li>
-        </ul>
-    </div>
     <%--Log in--%>
     <div class="span6 well well-small" id="logininfoContent">
         <h3>
@@ -240,6 +229,7 @@
             </tbody>
         </table>
     </div>
+
     <%--Support--%>
     <div class="span6 well well-small" id="supportContent" style="display: none;">
         <h3>
@@ -249,6 +239,35 @@
             von Supportfällen dient. Die Navigationspunkte unter "Modulverwaltung" und "Auswertung"
             sind dem regulärem Adminbereich entnommen.<br />
         </div>
+    </div>
+
+    <%-- Besonderes --%>
+    <div class="span6 well well-small" id="importantContent" style="display: none;">
+        <h3>
+            Bitte beachten!</h3>
+        <div class="alert alert-error">
+            Folgende Puntke:
+            <ul>
+                <li>In der Lizenzübersicht, die Möglichkeit Lizenzen dazu zu kaufen</li>
+                <li>Der Supportbereich</li>
+            </ul>
+            konnten leider von uns nicht mehr intensiv behandelt werden.<br />
+            Aus "Schönheitsgründen" haben wir die Möglichkeit (Buttons, Menüpunkte)
+            aber nicht entfernt. <strong>Allerdings ohne besondere Funktion im Hintergrund!</strong> Dies wird aber auch über ein PopUp an den entsprechenden Stellen vermerkt.
+        </div>
+    </div>
+    
+    <%-- Info --%>
+    <div class="span6 well well-small" id="infoContent" style="display: none;">
+        <h3>
+            Quellenangaben</h3>
+        <ul>
+            <li><a target="_blank" href="http://getbootstrap.com/2.3.2">Bootstrap 2.3.2</a>, Layout-Bibliothek
+                mit Javascript, und CSS</li>
+            <li><a target="_blank" href="http://www.asp.net/mvc/tutorials/older-versions/getting-started-with-mvc/getting-started-with-mvc-part1">
+                ASP.NET</a> Dokumentationsseiten zur Informationsbeschaffung</li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" runat="server">
     VersionR
@@ -260,6 +279,7 @@
     <ul class="nav nav-tabs nav-stacked" id="sideList">
         <li class="active" id="logininfo" onclick="navClicked(this.id);"><a href="#">Anmeldung</a>
         </li>
+        <li id="important" onclick="navClicked(this.id);"><a href="#">Wichtig!</a> </li>
         <li id="customer" onclick="navClicked(this.id);"><a href="#">Kundenbereich</a> </li>
         <li id="admin" onclick="navClicked(this.id);"><a href="#">Adminbereich</a> </li>
         <li id="support" onclick="navClicked(this.id);"><a href="#">Supportbereich</a> </li>

@@ -59,16 +59,11 @@ namespace VersionR.Controllers
                         {
                             return Redirect(returnUrl);
                         }
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Dashboard", "Account");
                     }
                 }
-                //catch (System.Data.EntityException)
-                //{
-
-                //}
                 catch (Exception e)
                 {
-                    //ModelState.AddModelError("", "Der angegebene Benutzername oder das angegebene Kennwort ist ungültig.");
                     ModelState.AddModelError("", e.Message);
                 }
             }

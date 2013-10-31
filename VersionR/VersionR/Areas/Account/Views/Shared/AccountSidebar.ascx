@@ -8,6 +8,9 @@
     <li class="nav-header">Lizenzverwaltung</li>
     <%: Html.MenuItem("Lizenzen", "List", "Licence", "Account")%>
     <li class="nav-header">Support</li>
-    <%: Html.MenuItem("Meine Supportfälle", "List", "Support", "Account")%>
-    <%: Html.MenuItem("Neuer Supportfall", "Create", "Support", "Account")%>
+    <li class="hoverPopUp" data-placement="right" title="Hier könnte aktuell laufende Supportfälle betrachten"><a href="">Meine Supportfälle</a></li>
+    <li class="hoverPopUp" data-placement="right" title="Hier könnte ein Kunde ein neues Problem melden"><a href="">Neuer Supportfall</a></li>
 </ul>
+<script type="text/javascript">
+    $('.hoverPopUp').tooltip();
+</script>
