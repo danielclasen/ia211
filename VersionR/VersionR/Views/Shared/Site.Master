@@ -45,6 +45,7 @@
                         <ul class="nav">
                             <%: Html.MenuItem("Getting Started", "question", 1, "Index", "Home", "")%>
                             <%--<%: Html.MenuItem("Erste Schritte", "Index", "Home", "Demo")%>--%>
+                            <%: Html.MenuItem("Modulkatalog", "puzzle-piece", 1, "Index", "Home", "Catalog")%>
                             <%: Html.MenuItem("Mein VersionR", "home", 1, "Index", "Home", "Account")%>
                             <%: Html.UserNotification(TempData["UserNotification"] as IEnumerable<UserNotification>)%>
                         </ul>
@@ -55,12 +56,8 @@
                         <ul class="nav pull-right">
                             <% if (Context.User.IsInRole("Administrator") || Context.User.IsInRole("Supporter"))
                                { %>
-                            <%: Html.MenuItem("Admin", "Index", "Home", "Admin")%>
-                            <script type="text/javascript">
-                                var adm = document.getElementById('adminMenuItem');
-                                var htm = adm.innerHTML;
-                                adm.innerHTML = "<i class='icon icon-bullhorn'></i> " + htm;
-                            </script>
+                            <%--                            <%: Html.MenuItem("Admin", "Index", "Home", "Admin")%>--%>
+                            <%: Html.MenuItem("Administration", "gears", 1, "Index", "Home", "Admin")%>
                             <li class="divider-vertical"></li>
                             <% } %>
                             <% if (Context.User.Identity.IsAuthenticated)

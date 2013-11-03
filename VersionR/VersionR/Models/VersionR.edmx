@@ -333,7 +333,7 @@
           <Property Name="BuildId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
           <Property Name="Platform" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Filename" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="64" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Description" Type="String" Unicode="false" FixedLength="false" Nullable="true" />
           <Property Name="ReleaseDate" Type="DateTime" Nullable="false" />
           <Property Name="EmId" Type="Int32" Nullable="false" />
           <Property Name="ModId" Type="Int32" Nullable="false" />

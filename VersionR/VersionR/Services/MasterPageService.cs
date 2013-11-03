@@ -102,9 +102,9 @@ namespace VersionR.Services
         public NewVersionNotificationType()
         {
             IconClass = "icon-upload-alt";
-            Action = "Details";
-            Controller = "Version";
-            Area = "Area";
+            Action = "Version";
+            Controller = "Single";
+            Area = "Catalog";
         }
     }
 

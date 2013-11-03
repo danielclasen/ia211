@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using VersionR.Helpers;
 using VersionR.Models;
 using VersionR.Services;
 
@@ -15,7 +16,7 @@ namespace VersionR.Areas.Admin.Controllers
         // GET: /Admin/Role/
         public ActionResult Index(int id = 0)
         {
-            return id != 0 ? RedirectToAction("Details", new {id = id}) : RedirectToAction("List");
+            return id != 0 ? RedirectToAction("Details", new { id = id }) : RedirectToAction("List");
         }
 
         #region Role Actions
@@ -110,6 +111,13 @@ namespace VersionR.Areas.Admin.Controllers
         // GET: /Admin/Role/Delete/id
         public ActionResult Delete(int id)
         {
+            if (id == 1)
+            {
+                TempData["uihint"] = new UiHint("Fehler!",
+                                                "Die Administrator-Rolle kann nicht gelöscht werden!",
+                                                new { @class = "alert alert-error" });
+                return RedirectToAction("List");
+            }
             var affectedUsers = _db.Users.Where(u => u.RId == id).ToList();
 
             ViewData["affectedUsers"] = affectedUsers;

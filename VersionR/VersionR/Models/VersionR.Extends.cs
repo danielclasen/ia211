@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -12,13 +13,30 @@ namespace VersionR.Models
             return (this.Release > compareVersion.Release || this.SubRelease > compareVersion.SubRelease ||
                     this.BuildId != compareVersion.BuildId);
         }
+
+        public string GetVersionString()
+        {
+            return this.Release + "." + this.SubRelease + "." + this.BuildId;
+        }
+
+        public bool IsNewest()
+        {
+            return this.VrId ==
+                   this.Module.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId).First().VrId;
+        }
     }
 
     public partial class Module
     {
         public Version GetLatestVersion()
         {
-            return Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId).First();
+            var versions = Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId);
+            if (versions.Any())
+                return versions.First();
+            else
+            {
+                throw new DataException("Es wurden keiner Versionen gefunden!");
+            }
         }
 
         public int GetTotalDownloads()
@@ -40,7 +58,7 @@ namespace VersionR.Models
             hash ^= (hash >> 11);
             hash += (hash << 15);
             // we only want positive integer < 1000000
-            return (int)(hash % 1000000);
+            return (int) (hash%1000000);
         }
     }
 }

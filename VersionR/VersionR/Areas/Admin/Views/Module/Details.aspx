@@ -34,24 +34,41 @@
                     <%: String.Format(CultureInfo.CreateSpecificCulture("de-DE"), "{0:c}", Model.PricePerYear)%>
                 </td>
                 <td>
-                    to be added...
+                    <% try
+                       {%>
+                    <%: Html.ActionLink(Model.GetLatestVersion().GetVersionString(), "Details", "Version", new { id = Model.GetLatestVersion().VrId}, new {})%>
+                    <%}
+                       catch (Exception)
+                       {%>
+                    Noch keine Version hinzugefügt!
+                    <%} %>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="row-fluid">
-        <div class="span6 well well-small">
-            <h3>
-                Modul-Versionen <a href="<%= Url.Action("Add", "Version", new {id = Model.ModId}) %>"
-                    class="btn btn-success pull-right"><i class="icon-plus" title="Hinzufügen"></i>
-                </a>
-            </h3>
-            <% Html.RenderPartial("Module_VersionsList", Model.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId)); %>
+        <div class="span6">
+            <div class="well well-small">
+                <h3>
+                    Modul-Versionen <a href="<%= Url.Action("Add", "Version", new {id = Model.ModId}) %>"
+                        class="btn btn-success pull-right"><i class="icon-plus" title="Hinzufügen"></i>
+                    </a>
+                </h3>
+                <% Html.RenderPartial("Module_VersionsList", Model.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId)); %>
+            </div>
+            <div class="well well-small">
+                <h3>
+                    Modul-Lizenzen
+                </h3>
+                <% Html.RenderPartial("Module_Licenses", Model.Customer_Modules); %>
+            </div>
         </div>
-        <div class="span6 well well-small">
-            <h3>
-                Downloads nach Version</h3>
-            <% Html.RenderPartial("Modul_Download_VersionDonut", Model.Versions); %>
+        <div class="span6">
+            <div class="well well-small">
+                <h3>
+                    Downloads nach Version</h3>
+                <% Html.RenderPartial("Modul_Download_VersionDonut", Model.Versions); %>
+            </div>
         </div>
     </div>
     <div class="btn-group">

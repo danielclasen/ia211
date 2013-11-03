@@ -38,6 +38,9 @@
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="Portable.Licensing">
       <HintPath>..\packages\Portable.Licensing.1.1.0\lib\portable-net40+sl4+wp7+win8\Portable.Licensing.dll</HintPath>
     </Reference>
@@ -94,6 +97,10 @@
     <Compile Include="Areas\Admin\ViewModels\AddUserLicenseViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\EditUserLicenseViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\VersionViewModel.cs" />
+    <Compile Include="Areas\Catalog\CatalogAreaRegistration.cs" />
+    <Compile Include="Areas\Catalog\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Catalog\Controllers\ListController.cs" />
+    <Compile Include="Areas\Catalog\Controllers\SingleController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
@@ -155,15 +162,16 @@
     </Content>
     <Content Include="Areas\Account\Views\Dashboard\Index.aspx" />
     <Content Include="Areas\Account\Views\Dashboard\User_CustomerDataWidget.ascx" />
-    <Content Include="Areas\Account\Views\Shared\User_CustomerModulesWidget.ascx.ascx" />
+    <Content Include="Areas\Account\Views\Licence\LicenseList.ascx" />
+    <Content Include="Areas\Account\Views\Shared\User_CustomerModulesWidget.ascx" />
     <Content Include="Areas\Account\Views\Licence\List.aspx" />
     <Content Include="Areas\Account\Views\Shared\AccountSidebar.ascx" />
     <Content Include="Areas\Account\Views\User\Edit.aspx" />
-    <Content Include="Areas\Account\Views\Version\Details.aspx" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.aspx" />
     <Content Include="Areas\Admin\Views\License\Add.aspx" />
     <Content Include="Areas\Admin\Views\License\Delete.aspx" />
     <Content Include="Areas\Admin\Views\License\Edit.aspx" />
+    <Content Include="Areas\Admin\Views\Module\Module_Licenses.ascx" />
     <Content Include="Areas\Admin\Views\Module\Modul_Download_VersionDonut.ascx" />
     <Content Include="Areas\Admin\Views\Shared\Customer_ModulesList.ascx" />
     <Content Include="Areas\Admin\Views\Module\Module_VersionsList.ascx" />
@@ -174,6 +182,12 @@
     <Content Include="Areas\Admin\Views\Version\Delete.aspx" />
     <Content Include="Areas\Admin\Views\Version\Details.aspx" />
     <Content Include="Areas\Admin\Views\Version\Version_DownloadGraph.ascx" />
+    <Content Include="Areas\Catalog\Views\List\Page.aspx" />
+    <Content Include="Areas\Catalog\Views\List\Pager.ascx" />
+    <Content Include="Areas\Catalog\Views\Shared\CatalogSidebar.ascx" />
+    <Content Include="Areas\Catalog\Views\Single\Version.aspx" />
+    <Content Include="Areas\Catalog\Views\Single\Module.aspx" />
+    <Content Include="Areas\Catalog\Views\Single\VersionSidebar.ascx" />
     <Content Include="Content\css\bootstrap-addons.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
@@ -311,6 +325,7 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Catalog\Views\Web.config" />
     <None Include="CodeTemplates\AddController\Controller.tt" />
     <None Include="CodeTemplates\AddView\Create.tt" />
     <None Include="CodeTemplates\AddView\Delete.tt" />
@@ -331,10 +346,12 @@
       <LastGenOutput>VersionR.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Content\js\jquery-1.10.2.min.map" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Catalog\Models\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

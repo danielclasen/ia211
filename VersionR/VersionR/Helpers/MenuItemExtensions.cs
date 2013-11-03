@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Web.Mvc;
 using System.Web.Mvc.ExpressionUtil;
 using System.Web.Mvc.Html;
@@ -22,11 +23,22 @@ namespace VersionR.Helpers
             var routeValues = new { area = areaName };
             var li = GenerateLi(htmlHelper, text, action, controller, areaName);
             string id = text.Replace(" ", "").ToLower() + "MenuItem";
-            li.InnerHtml = htmlHelper.ActionLink(text, action, controller, routeValues, new { id=id}).ToHtmlString();
+            li.InnerHtml = htmlHelper.ActionLink(text, action, controller, routeValues, new { id = id }).ToHtmlString();
             return MvcHtmlString.Create(li.ToString());
         }
 
-        public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string text, string icon, int iconSize, string action, string controller,
+        public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string text, string action, string controller,
+                                             string areaName, int routeId)
+        {
+            var routeValues = new { area = areaName, id = routeId };
+            var li = GenerateLi(htmlHelper, text, action, controller, areaName, routeId);
+            string id = text.Replace(" ", "").ToLower() + "MenuItem";
+            li.InnerHtml = htmlHelper.ActionLink(text, action, controller, routeValues, new { id = id }).ToHtmlString();
+            return MvcHtmlString.Create(li.ToString());
+        }
+
+        public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string text, string icon, int iconSize,
+                                             string action, string controller,
                                              string areaName)
         {
             string ret = MenuItem(htmlHelper, text, action, controller, areaName).ToString();
@@ -42,14 +54,18 @@ namespace VersionR.Helpers
             }
             return MvcHtmlString.Create(ret);
         }
+
         private static TagBuilder GenerateLi(this HtmlHelper htmlHelper, string text, string action, string controller,
-                                             string areaName = "")
+                                             string areaName = "", int id = 0)
         {
             var li = new TagBuilder("li");
             var routeData = htmlHelper.ViewContext.RouteData;
 
             var currentAction = routeData.GetRequiredString("action");
             var currentController = routeData.GetRequiredString("controller");
+            var currentId = routeData.Values["id"] != null
+                                ? Convert.ToInt32(routeData.Values["id"].ToString())
+                                : 0;
             var currentArea = routeData.DataTokens["area"] != null ? routeData.DataTokens["area"].ToString() : "";
 
             if (
@@ -61,7 +77,8 @@ namespace VersionR.Helpers
                  string.Equals(currentArea, areaName, StringComparison.OrdinalIgnoreCase) &&
                  !string.Equals(currentArea, "", StringComparison.OrdinalIgnoreCase)))
             {
-                li.AddCssClass("active");
+                if (id == 0 || id == currentId)
+                    li.AddCssClass("active");
             }
             return li;
         }

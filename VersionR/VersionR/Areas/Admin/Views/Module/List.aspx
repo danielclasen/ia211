@@ -36,7 +36,6 @@
                 </td>
                 <td>
                     <%: item.PricePerYear.ToString("c", CultureInfo.CreateSpecificCulture("de-DE"))%>
-                    €
                 </td>
                 <td>
                     <% var orderedVersions = item.Versions.OrderByDescending(v => v.Release + v.SubRelease + v.BuildId);

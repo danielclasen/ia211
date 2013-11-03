@@ -59,7 +59,11 @@
                     <div class="btn-group">
                         <%: Html.ActionLink("Details", "Details", "User", new { id = item.UId }, new { @class = "btn" })%>
                         <%: Html.ActionLink("Bearbeiten", "Edit", "User", new { id = item.UId }, new { @class = "btn" })%>
-                        <%: Html.ActionLink("Löschen", "Delete", "User", new { id = item.UId }, new { @class = "btn btn-danger" })%>
+                        <% if (item.UId != 1)
+                           {%>
+                        <%: Html.ActionLink("Löschen", "Delete", "User", new {id = item.UId},
+                                                                   new {@class = "btn btn-danger"}) %>
+                        <% } %>
                     </div>
                 </td>
             </tr>

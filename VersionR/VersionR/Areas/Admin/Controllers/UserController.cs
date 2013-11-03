@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using VersionR.Helpers;
 using VersionR.Models;
 using VersionR.Services;
 using VersionR.ViewModels.Admin;
@@ -16,7 +17,7 @@ namespace VersionR.Areas.Admin.Controllers
         // GET: /Admin/User/id
         public ActionResult Index(int id = 0)
         {
-            return id != 0 ? RedirectToAction("Details", new {id = id}) : RedirectToAction("List");
+            return id != 0 ? RedirectToAction("Details", new { id = id }) : RedirectToAction("List");
         }
 
         #region User Actions
@@ -78,7 +79,7 @@ namespace VersionR.Areas.Admin.Controllers
             _db.AddToUsers(model.User);
             _db.SaveChanges();
 
-            return RedirectToAction("Details", new {id = model.User.UId});
+            return RedirectToAction("Details", new { id = model.User.UId });
         }
 
         #endregion Create
@@ -123,6 +124,14 @@ namespace VersionR.Areas.Admin.Controllers
 
         public ActionResult Delete(int id)
         {
+            if (id == 1)
+            {
+                TempData["uihint"] = new UiHint("Fehler!",
+                                            "Der Admin-Benutzer kann nicht gelöscht werden!",
+                                            new { @class = "alert alert-error" });
+                return RedirectToAction("List");
+            }
+
             try
             {
                 var user = (from u in _db.Users where u.UId == id select u).Single();

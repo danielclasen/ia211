@@ -15,11 +15,14 @@
         </div>
         <div class="span6 well well-small">
             <h3>
-                Lizenzübersicht <small>1 bis 5 von 5</small> <a href="<%= Url.Action("List", "Licence") %>"
-                    class="btn btn-white pull-right" title="Alle anzeigen"><i class="icon-expand-alt">
-                    </i></a>
+                Lizenzübersicht <small>1 bis
+                    <%: (Model.Customer_Modules.Count<5) ? Model.Customer_Modules.Count : 5 %>
+                    von
+                    <%: Model.Customer_Modules.Count %></small> <a href="<%= Url.Action("List", "Licence") %>"
+                        class="btn btn-white pull-right" title="Alle anzeigen"><i class="icon-expand-alt">
+                        </i></a>
             </h3>
-            <% Html.RenderPartial("User_CustomerModulesWidget.ascx", Model.Customer_Modules); %>
+            <% Html.RenderPartial("User_CustomerModulesWidget", Model.Customer_Modules); %>
         </div>
     </div>
 </asp:Content>

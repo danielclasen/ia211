@@ -42,6 +42,7 @@ namespace VersionR.Helpers
                                                          userNotification.Type.Controller,
                                                          new
                                                              {
+                                                                 area = userNotification.Type.Area,
                                                                  id = userNotification.Id
                                                              }) + "' >" + entryIcon +
                                         userNotification.Text +

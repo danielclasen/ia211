@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM-Beziehungsmetadaten
@@ -190,6 +191,7 @@ namespace VersionR.Models
         private ObjectSet<Version> _Versions;
 
         #endregion
+
         #region AddTo-Methoden
     
         /// <summary>
@@ -249,11 +251,11 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entitäten
     
     /// <summary>
@@ -286,6 +288,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -412,6 +415,7 @@ namespace VersionR.Models
         partial void OnExpiryDateChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -492,6 +496,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -522,6 +527,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -624,6 +630,7 @@ namespace VersionR.Models
         partial void OnCmIdChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -704,6 +711,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -734,6 +742,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -860,6 +869,7 @@ namespace VersionR.Models
         partial void OnFilenameChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -902,6 +912,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -930,6 +941,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -1008,6 +1020,7 @@ namespace VersionR.Models
         partial void OnPricePerYearChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -1056,6 +1069,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1082,6 +1096,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -1136,6 +1151,7 @@ namespace VersionR.Models
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -1162,6 +1178,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1194,6 +1211,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -1344,6 +1362,7 @@ namespace VersionR.Models
         partial void OnPwHashChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -1452,6 +1471,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1492,6 +1512,7 @@ namespace VersionR.Models
         }
 
         #endregion
+
         #region Primitive Eigenschaften
     
         /// <summary>
@@ -1738,6 +1759,7 @@ namespace VersionR.Models
         partial void OnReleaseChanged();
 
         #endregion
+
     
         #region Navigationseigenschaften
     
@@ -1862,8 +1884,10 @@ namespace VersionR.Models
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

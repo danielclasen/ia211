@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,9 +8,8 @@ namespace VersionR.Areas.Account.Controllers
 {
     public class SupportController : Controller
     {
-		
-		private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
-		private readonly DAL.Repositories _repos = new DAL.Repositories();
+        private readonly VersionR.Models.VersionR _db = new VersionR.Models.VersionR();
+        private readonly DAL.Repositories _repos = new DAL.Repositories();
 
         //
         // GET: /Account/Support/List
